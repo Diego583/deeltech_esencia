@@ -1,0 +1,24 @@
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version = \"1.0\" encoding = \"utf-8\"?>\r\n<RelativeLayout\r\n    xmlns:android = \"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools = \"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height = \"match_parent\"\r\n    android:paddingLeft= \"@dimen/activity_horizontal_margin\"\r\n    android:paddingRight = \"@dimen/activity_horizontal_margin\"\r\n    android:paddingTop = \"@dimen/activity_vertical_margin\"\r\n    android:paddingBottom = \"@dimen/activity_vertical_margin\"\r\n    tools:context = \".MainActivity\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_alignParentTop=\"true\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:orientation=\"vertical\">\r\n\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"250dp\"\r\n            android:gravity=\"center\"\r\n            android:src=\"@drawable/logo_sf\"\r\n            android:layout_marginTop=\"60dp\"/>\r\n\r\n        <EditText\r\n            android:id=\"@+id/editTextEmail\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"30dp\"\r\n            android:focusable=\"true\"\r\n            android:hint=\"Enter e-mail\"\r\n            android:textColor=\"#000000\" />\r\n\r\n        <EditText\r\n            android:id=\"@+id/editTextPassword\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:hint=\"Password\"\r\n            android:inputType=\"textPassword\"\r\n            android:textColor=\"#000000\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/buttonLogin\"\r\n            android:layout_width=\"170dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"35dp\"\r\n            android:backgroundTint=\"#d83c70\"\r\n            android:text=\"Iniciar sesión\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/buttonRegistrarse\"\r\n            android:layout_width=\"170dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"10dp\"\r\n            android:backgroundTint=\"#000000\"\r\n            android:text=\"Registrarse\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/buttonOlvideContrasena\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"10dp\"\r\n            android:backgroundTint=\"#ffffff\"\r\n            android:text=\"Olvidé mi contraseña\"\r\n            android:textColor=\"@android:color/darker_gray\" />\r\n\r\n    </LinearLayout>\r\n</RelativeLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_login.xml b/app/src/main/res/layout/activity_login.xml
+--- a/app/src/main/res/layout/activity_login.xml	
++++ b/app/src/main/res/layout/activity_login.xml	
+@@ -33,6 +33,7 @@
+             android:layout_marginTop="30dp"
+             android:focusable="true"
+             android:hint="Enter e-mail"
++            android:minHeight="48dp"
+             android:textColor="#000000" />
+ 
+         <EditText
+@@ -41,6 +42,7 @@
+             android:layout_height="wrap_content"
+             android:hint="Password"
+             android:inputType="textPassword"
++            android:minHeight="48dp"
+             android:textColor="#000000" />
+ 
+         <Button
