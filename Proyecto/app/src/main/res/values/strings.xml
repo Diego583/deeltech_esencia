@@ -1,3 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Proyecto</string>
+
+    <string name="inicio">Inicio</string>
+
+    <string name="favoritos">Favoritos</string>
+
+    <string name="perfil">Perfil</string>
 </resources>
