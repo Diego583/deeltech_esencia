@@ -2,6 +2,7 @@ package com.itesm.ic2007b.proyecto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
@@ -9,6 +10,17 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        RestauradoresImage.setOnClickListener {
+            infoTextView.setText(R.string.restauradores)
+        }
+        AgentImage.setOnClickListener {
+            infoTextView.setText(R.string.agentes)
+        }
+        ProveedoresImage.setOnClickListener {
+            infoTextView.setText(R.string.proveedores)
+        }
+
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.inicioItem -> {
