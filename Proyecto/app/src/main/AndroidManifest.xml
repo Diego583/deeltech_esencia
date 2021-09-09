@@ -10,16 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
-            android:name=".ForgotPassword"
+            android:name=".Proveedores"
             android:exported="true" />
         <activity
-            android:name=".fOR"
+            android:name=".AgentesInmobiliarios"
+            android:exported="true" />
+        <activity
+            android:name=".Restauradores"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPassword"
             android:exported="true" />
         <activity
             android:name=".UserRegister"
             android:exported="true"
             android:label="@string/title_activity_user_register"
             android:theme="@style/Theme.Proyecto.NoActionBar" />
+        <activity
+            android:name=".Home"
+            android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
