@@ -17,4 +17,15 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_user_register">UserRegister</string>
+    <string name="go_back">Go back</string>
+    <string name="registrarse_title">Registrarse</string>
+    <string name="usuario">Usuario</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="pass_confirm">Confirmar contraseña</string>
+    <string name="continuar">Continuar</string>
+    <string name="recup_contra">Recuperación de contraseña</string>
+    <string name="fp_description">No te preocupes. Recuperar tu contraseña es fácil. Solo tienes que poner el correo electronico de la cuenta con la que te registrarse.</string>
+    <string name="enviar">Enviar</string>
 </resources>

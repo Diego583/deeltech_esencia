@@ -9,7 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
-
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name=".fOR"
+            android:exported="true" />
+        <activity
+            android:name=".UserRegister"
+            android:exported="true"
+            android:label="@string/title_activity_user_register"
+            android:theme="@style/Theme.Proyecto.NoActionBar" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
@@ -22,19 +32,13 @@
                 <!-- Esto va en activity -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity> <!-- AppCompat no debería estar aqui -->
-
         <activity
             android:name=".Login"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true" />
     </application>
 
 </manifest>
