@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
+            android:name=".favoritos"
+            android:exported="true" />
+        <activity
             android:name=".Proveedores"
             android:exported="true" />
         <activity
@@ -33,15 +36,12 @@
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
-            <!-- android:exported="true" -->
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!-- Esto va en activity -->
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- AppCompat no debería estar aqui -->
+        </activity>
         <activity
             android:name=".Login"
             android:exported="true" />

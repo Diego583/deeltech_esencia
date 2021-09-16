@@ -11,21 +11,22 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        RestauradoresImage.setOnClickListener {
+        cardRestauradores.setOnClickListener {
             var intent: Intent = Intent(this,Restauradores::class.java)
             startActivity(intent)
         }
 
-        AgentImage.setOnClickListener {
+        cardAgentesInmobiliarios.setOnClickListener {
             var intent: Intent = Intent(this,AgentesInmobiliarios::class.java)
             startActivity(intent)
         }
 
-        ProveedoresImage.setOnClickListener {
+        cardProveedores.setOnClickListener {
             var intent: Intent = Intent(this,Proveedores::class.java)
             startActivity(intent)
         }
 
+        /**
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.inicioItem -> {
@@ -42,7 +43,7 @@ class Home : AppCompatActivity() {
                 }
                 else -> false
             }
-        }
+        }**/
     }
 
 }

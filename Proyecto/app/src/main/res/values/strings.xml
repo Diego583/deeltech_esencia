@@ -20,6 +20,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_user_register">UserRegister</string>
     <string name="go_back">Go back</string>
+    <string name="filter">filter</string>
     <string name="registrarse_title">Registrarse</string>
     <string name="usuario">Usuario</string>
     <string name="email">Correo electrónico</string>
