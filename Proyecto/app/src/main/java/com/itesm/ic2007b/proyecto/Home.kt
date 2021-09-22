@@ -3,7 +3,6 @@ package com.itesm.ic2007b.proyecto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
@@ -26,24 +25,23 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /**
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+        bottomNavigationViewHome.selectedItemId = R.id.inicioItem
+
+        bottomNavigationViewHome.setOnNavigationItemSelectedListener { menuItem ->
+            var intent: Intent? = null
             when (menuItem.itemId) {
-                R.id.inicioItem -> {
-                    infoTextView.setText(R.string.inicio)
-                    true
-                }
                 R.id.favoritosItem -> {
-                    infoTextView.setText(R.string.favoritos)
+                    intent = Intent(this,favoritos::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.perfilItem -> {
-                    infoTextView.setText(R.string.perfil)
+                    println("Entre a perfiles")
                     true
                 }
                 else -> false
             }
-        }**/
+        }
     }
 
 }

@@ -9,7 +9,7 @@
     tools:context=".favoritos">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/bottomNavigationViewFav"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_gravity="bottom"
@@ -24,20 +24,6 @@
         app:menu="@menu/menu_navigation"
         >
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    <ImageButton
-        android:id="@+id/backFavoritos"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/reply"
-        android:contentDescription="@string/go_back"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
 
     <ImageButton
         android:id="@+id/filterFavoritos"
@@ -60,13 +46,10 @@
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:iconifiedByDefault="false"
         android:queryHint="Busca en tus favoritos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toEndOf="@+id/backFavoritos"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
