@@ -36,4 +36,17 @@
     <string name="inicio">Inicio</string>
     <string name="favoritos">Favoritos</string>
     <string name="perfil">Perfil</string>
+
+    <string name="log_out">Log Out</string>
+    <string name="nombre_perfil_propio">Emilio Barrera</string>
+    <string name="ubicacion_perfil_propio">toluca, edo. mx</string>
+    <string name="ubicacion_ver_perfil">queretaro</string>
+    <string name="editar_perfil">editar perfil</string>
+    <string name="agregar_favoritos">agregar a favoritos</string>
+    <string name="contactame">contactame</string>
+    <string name="descripcion_texto">Descripción: </string>
+    <string name="productos_texto">Productos: </string>
+    <string name="nombre_ver_perfil">Esencia Patrimonio</string>
+    <string name="opening_pdf">Open PDF</string>
+
 </resources>
