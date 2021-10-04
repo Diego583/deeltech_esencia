@@ -5,12 +5,16 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 31 //30
+
+    viewBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "com.itesm.ic2007b.proyecto"
-        minSdk 16
-        targetSdk 31
+        minSdk 21 //16
+        targetSdk 31 //30
         versionCode 1
         versionName "1.0"
 
@@ -57,4 +61,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //Parse SDK implementation
+    implementation "com.github.parse-community.Parse-SDK-Android:parse:1.26.0"
+
 }
