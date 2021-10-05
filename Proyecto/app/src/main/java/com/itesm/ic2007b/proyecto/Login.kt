@@ -6,8 +6,14 @@ import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 //import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import com.parse.LogInCallback
+import com.parse.ParseException
+import com.parse.ParseObject
+import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_login.*
 
 //import androidx.navigation.findNavController
@@ -29,6 +35,9 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+
+
         initializeComponents()
         initializeListeners()
     }
@@ -37,14 +46,36 @@ class Login : AppCompatActivity() {
         btnLogin = findViewById(R.id.buttonLogin)
         btnRegister = findViewById(R.id.buttonRegistrarse)
         btnForgot = findViewById(R.id.buttonOlvideContrasena)
-
     }
 
+
+
     fun initializeListeners(){
+
         btnLogin.setOnClickListener{
-            var intent: Intent = Intent(this,Home::class.java)
-            startActivity(intent)
-            finish()
+
+            val EmailText = findViewById<EditText>(R.id.editTextEmail)
+            val EmailValue = EmailText.text
+
+            val Contra1Text = findViewById<EditText>(R.id.contra1)
+            val Contra1Value = Contra1Text.text
+
+            ParseUser.logInInBackground("Jerry", "showmethemoney", object : LogInCallback() {
+                fun done(user: ParseUser?, e: ParseException?) {
+                    if (user != null) {
+                        var intent: Intent = Intent(this,Home::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val text = "Intentalo m�s tarde"
+                        val duration = Toast.LENGTH_SHORT
+
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    }
+                }
+            })
+
         }
 
         btnRegister.setOnClickListener{

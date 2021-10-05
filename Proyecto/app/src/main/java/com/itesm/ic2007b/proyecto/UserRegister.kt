@@ -11,13 +11,18 @@ import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_login.view.*
 import kotlinx.android.synthetic.main.activity_user_register.*
 import java.util.regex.Pattern
+import android.R
+import android.view.View
 
 
 class UserRegister : AppCompatActivity(){
+    // #00ff00
+
+    //variable para OnKeyUp
+    var tv_filter: EditText? = findViewById<EditText>(R.id.contra1) as EditText
 
     //Variable para poder conectar .XML a .KT
     private lateinit var binding : ActivityUserRegisterBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +62,32 @@ class UserRegister : AppCompatActivity(){
                     ".{4,}" +                   //al menos 4 caracteres
                     "$"
 
+        )
+
+        val ReglaDigit = Pattern.compile(
+            "^" +
+                    "(?=.*[0-9])" +             //Al menos un digito
+                    "$"
+        )
+        val ReglaMinus = Pattern.compile(
+            "^" +
+                    "(?=.*[a-z])" +             //Al menos 1 letra minuscula
+                    "$"
+        )
+        val ReglaMayus = Pattern.compile(
+            "^" +
+                    "(?=.*[A-Z])" +             //Al menos 1 letra mayuscula
+                    "$"
+        )
+        val ReglaSimbolo = Pattern.compile(
+            "^" +
+                    "(?=.*[@#$%^&+=])" +        //Al menos 1 simbolo especial
+                    "$"
+        )
+        val ReglaChar = Pattern.compile(
+            "^" +
+                    ".{4,}" +                   //al menos 4 caracteres
+                    "$"
         )
 
 

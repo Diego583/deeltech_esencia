@@ -20,8 +20,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity","Object saved.")
             }
 
-
-
         }
     }
 
