@@ -1,18 +1,13 @@
 package com.itesm.ic2007b.proyecto
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-//import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.parse.LogInCallback
 import com.parse.ParseException
-import com.parse.ParseObject
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_login.*
 

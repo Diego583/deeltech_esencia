@@ -12,14 +12,23 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 import kotlinx.android.synthetic.main.activity_user_register.*
 import java.util.regex.Pattern
 import android.R
+import android.graphics.Color
 import android.view.View
+import android.text.Editable
+
+import android.text.TextWatcher
+import android.widget.TextView
 
 
 class UserRegister : AppCompatActivity(){
     // #00ff00
 
     //variable para OnKeyUp
-    var tv_filter: EditText? = findViewById<EditText>(R.id.contra1) as EditText
+    private var txt_input: EditText? = null
+    private var lbl_output: TextView? = null
+
+    private var text: TextWatcher? = null
+
 
     //Variable para poder conectar .XML a .KT
     private lateinit var binding : ActivityUserRegisterBinding
@@ -42,14 +51,30 @@ class UserRegister : AppCompatActivity(){
     }
 
 
+    fun OnClickUp(rule: String){
+
+        txt_input = binding.contra1.text as EditText
+        lbl_output = binding.ReglaDigito.text as TextView
+
+        text = object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                lbl_output!!.setTextColor(Color.GREEN)
+            }
+            override fun afterTextChanged(editable: Editable) {}
+        }
+        txt_input!!.addTextChangedListener(text)
+
+    }
+
+
+
     fun listenerBtn(){
 
         //variables del XML sin binding
-        val Contra1Text = findViewById<EditText>(R.id.contra1)
-        val Contra1Value = Contra1Text.text
+        val Contra1Value = binding.contra1.text.toString()
 
-        val Contra2Text = findViewById<EditText>(R.id.contra2)
-        val Contra2Value = Contra2Text.text
+        val Contra2Value = binding.contra2.text.toString()
 
         //Requisitos para las contraseñas
         val passwordRegex = Pattern.compile(
@@ -113,7 +138,7 @@ class UserRegister : AppCompatActivity(){
                 if(!passwordRegex.matcher(pass).matches()){
                     binding.contra1.error = "Contraseña muy débil"
                 }
-                else if (Contra1Value.toString() != Contra2Value.toString()){
+                else if (Contra1Value != Contra2Value){
                     val text = "Las contraseñas no coinciden"
                     val duration = Toast.LENGTH_SHORT
 
@@ -137,19 +162,16 @@ class UserRegister : AppCompatActivity(){
     //Se agrega el usuario nuevo a la base de datos
     fun RegistrarUsuario(){
 
-        val UsuarioText = findViewById<EditText>(R.id.usuario)
-        val UsuarioValue = UsuarioText.text
+        val UsuarioValue = binding.usuario.text.toString()
 
-        val CorreoText = findViewById<EditText>(R.id.email)
-        val CorreoValue = CorreoText.text
+        val CorreoValue = binding.email.text.toString()
 
-        val Contra1Text = findViewById<EditText>(R.id.contra1)
-        val Contra1Value = Contra1Text.text
+        val Contra1Value = binding.contra1.text.toString()
 
         val user = ParseUser()
-        user.username = UsuarioValue.toString() //Usuario
-        user.setPassword(Contra1Value.toString()) //contraseña
-        user.email = CorreoValue.toString() //Correo
+        user.username = UsuarioValue //Usuario
+        user.setPassword(Contra1Value) //contraseña
+        user.email = CorreoValue //Correo
 
         // other fields can be set just like with ParseObject
         //user.put("phone", "650-253-0000")
