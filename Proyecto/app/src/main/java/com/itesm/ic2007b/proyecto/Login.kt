@@ -55,6 +55,7 @@ class Login : AppCompatActivity() {
             val Contra1Text = findViewById<EditText>(R.id.contra1)
             val Contra1Value = Contra1Text.text
 
+            /**
             ParseUser.logInInBackground("Jerry", "showmethemoney", object : LogInCallback() {
                 fun done(user: ParseUser?, e: ParseException?) {
                     if (user != null) {
@@ -69,7 +70,7 @@ class Login : AppCompatActivity() {
                         toast.show()
                     }
                 }
-            })
+            })**/
 
         }
 

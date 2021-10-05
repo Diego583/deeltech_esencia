@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 import kotlinx.android.synthetic.main.activity_user_register.*
 import java.util.regex.Pattern
 import android.R
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.View
 import android.text.Editable
@@ -47,28 +48,119 @@ class UserRegister : AppCompatActivity(){
             finish()
         }
 
+        OnClickUp()
         listenerBtn()
     }
 
+    //Funcion que checa las caracteristicas mínimas que debe tener la contraseña
+    fun OnClickUp(){
 
-    fun OnClickUp(rule: String){
+        val ReglaDigit = Pattern.compile(
+            "^" +
+                    "(?=.*[0-9])" +             //Al menos un digito
+                    ".{1,}" +
+                    "$"
+        )
+        val ReglaMinus = Pattern.compile(
+            "^" +
+                    "(?=.*[a-z])" +             //Al menos 1 letra minuscula
+                    ".{1,}" +
+                    "$"
+        )
+        val ReglaMayus = Pattern.compile(
+            "^" +
+                    "(?=.*[A-Z])" +             //Al menos 1 letra mayuscula
+                    ".{1,}" +
+                    "$"
+        )
+        val ReglaSimbolo = Pattern.compile(
+            "^" +
+                    "(?=.*[@#$%^&+=])" +        //Al menos 1 simbolo especial
+                    ".{1,}" +
+                    "$"
+        )
+        val ReglaChar = Pattern.compile(
+            "^" +
+                    ".{4,}" +                   //al menos 4 caracteres
+                    "$"
+        )
 
-        txt_input = binding.contra1.text as EditText
-        lbl_output = binding.ReglaDigito.text as TextView
+        txt_input = binding.contra1 as EditText
+        lbl_output = binding.ReglaDigito as TextView
+
 
         text = object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+
+            @SuppressLint("SetTextI18n")
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                lbl_output!!.setTextColor(Color.GREEN)
+
+                if(ReglaDigit.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaDigito as TextView
+                    lbl_output!!.setText("Un digito ✔")
+                    lbl_output!!.setTextColor(Color.parseColor("#008000"))
+                }
+                if(!ReglaDigit.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaDigito as TextView
+                    lbl_output!!.setText("Un digito X")
+                    lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
+                }
+
+                if(ReglaMayus.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaLetrasMayus as TextView
+                    lbl_output!!.setText("Una letras mayuscula ✔")
+                    lbl_output!!.setTextColor(Color.parseColor("#008000"))
+                }
+                if (!ReglaMayus.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaLetrasMayus as TextView
+                    lbl_output!!.setText("Una letras mayuscula X")
+                    lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
+                }
+
+                if(ReglaMinus.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaLetrasMinus as TextView
+                    lbl_output!!.setText("Una letras minuscula ✔")
+                    lbl_output!!.setTextColor(Color.parseColor("#008000"))
+                }
+                if (!ReglaMinus.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaLetrasMinus as TextView
+                    lbl_output!!.setText("Una letras minuscula X")
+                    lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
+                }
+
+                if(ReglaSimbolo.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaSimbolo as TextView
+                    lbl_output!!.setText("Un simbolo [@#\$%^&+=] ✔")
+                    lbl_output!!.setTextColor(Color.parseColor("#008000"))
+                }
+                if (!ReglaSimbolo.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaSimbolo as TextView
+                    lbl_output!!.setText("Un simbolo [@#\$%^&+=] X")
+                    lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
+                }
+
+                if(ReglaChar.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaCaracteres as TextView
+                    lbl_output!!.setText("Cuatro caracteres ✔")
+                    lbl_output!!.setTextColor(Color.parseColor("#008000"))
+                }
+                if(!ReglaChar.matcher(binding.contra1.text.toString()).matches()){
+                    lbl_output = binding.ReglaCaracteres as TextView
+                    lbl_output!!.setText("Cuatro caracteres X")
+                    lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
+                }
+
             }
+
             override fun afterTextChanged(editable: Editable) {}
+
         }
         txt_input!!.addTextChangedListener(text)
 
     }
 
 
-
+    //Funcion que regresa lo que pasaría al momento de darle click al boton de registrar
     fun listenerBtn(){
 
         //variables del XML sin binding
@@ -89,31 +181,7 @@ class UserRegister : AppCompatActivity(){
 
         )
 
-        val ReglaDigit = Pattern.compile(
-            "^" +
-                    "(?=.*[0-9])" +             //Al menos un digito
-                    "$"
-        )
-        val ReglaMinus = Pattern.compile(
-            "^" +
-                    "(?=.*[a-z])" +             //Al menos 1 letra minuscula
-                    "$"
-        )
-        val ReglaMayus = Pattern.compile(
-            "^" +
-                    "(?=.*[A-Z])" +             //Al menos 1 letra mayuscula
-                    "$"
-        )
-        val ReglaSimbolo = Pattern.compile(
-            "^" +
-                    "(?=.*[@#$%^&+=])" +        //Al menos 1 simbolo especial
-                    "$"
-        )
-        val ReglaChar = Pattern.compile(
-            "^" +
-                    ".{4,}" +                   //al menos 4 caracteres
-                    "$"
-        )
+
 
 
         binding.buttonRegistrarse.setOnClickListener{
