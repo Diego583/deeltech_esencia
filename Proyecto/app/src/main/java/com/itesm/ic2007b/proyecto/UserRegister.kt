@@ -231,10 +231,13 @@ class UserRegister : AppCompatActivity(){
 
         val Contra1Value = binding.contra1.text.toString()
 
+        val numero = binding.numero.text.toString()
+
         val user = ParseUser()
         user.username = UsuarioValue //Usuario
         user.setPassword(Contra1Value) //contraseña
         user.email = CorreoValue //Correo
+        user.put("phone", numero)//numero, se crea la columna numero y se guarada ahí
 
         // other fields can be set just like with ParseObject
         //user.put("phone", "650-253-0000")
