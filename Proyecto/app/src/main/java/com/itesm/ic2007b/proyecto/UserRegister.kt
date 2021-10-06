@@ -3,18 +3,14 @@ package com.itesm.ic2007b.proyecto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PatternMatcher
 import android.widget.EditText
 import android.widget.Toast
 import com.itesm.ic2007b.proyecto.databinding.ActivityUserRegisterBinding
 import com.parse.ParseUser
-import kotlinx.android.synthetic.main.activity_login.view.*
-import kotlinx.android.synthetic.main.activity_user_register.*
 import java.util.regex.Pattern
 import android.R
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.view.View
 import android.text.Editable
 
 import android.text.TextWatcher

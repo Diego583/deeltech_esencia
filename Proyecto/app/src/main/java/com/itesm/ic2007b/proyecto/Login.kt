@@ -49,11 +49,11 @@ class Login : AppCompatActivity() {
 
         btnLogin.setOnClickListener{
 
-            val EmailText = findViewById<EditText>(R.id.editTextEmail)
-            val EmailValue = EmailText.text
+            //val EmailText = findViewById<EditText>(R.id.editTextEmail)
+            //val EmailValue = EmailText.text
 
-            val Contra1Text = findViewById<EditText>(R.id.contra1)
-            val Contra1Value = Contra1Text.text
+            //val Contra1Text = findViewById<EditText>(R.id.contra1)
+            //val Contra1Value = Contra1Text.text
 
             /**
             ParseUser.logInInBackground("Jerry", "showmethemoney", object : LogInCallback() {
@@ -71,6 +71,9 @@ class Login : AppCompatActivity() {
                     }
                 }
             })**/
+
+            var intent: Intent = Intent(this,Home::class.java)
+            startActivity(intent)
 
         }
 
