@@ -8,7 +8,6 @@ import android.widget.Toast
 import com.itesm.ic2007b.proyecto.databinding.ActivityUserRegisterBinding
 import com.parse.ParseUser
 import java.util.regex.Pattern
-import android.R
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.Editable

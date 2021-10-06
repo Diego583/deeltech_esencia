@@ -11,12 +11,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val firstObject = ParseObject("FirstClass")
-        firstObject.put("message","Hey ! First message from android. Parse is now connected")
+        val firstObject = ParseObject("FirstClass") //NOMBRE DE TABLA
+
+        firstObject.put("message","Hey ! First message from android. Parse is now connected") //COLUMNA Y DATO DE COLUMNA
+
         firstObject.saveInBackground {
-            if (it != null){
+            if (it != null){ //SI HAY ERRROR
                 it.localizedMessage?.let { message -> Log.e("MainActivity", message) }
-            }else{
+            }else{//SI NO HAY ERROR
                 Log.d("MainActivity","Object saved.")
             }
 
