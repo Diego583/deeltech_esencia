@@ -47,4 +47,17 @@
     <!-- DATA BASE ENDS -->
 
 
+    <!-- COMBOBOX ROLES -->
+    <string-array name="roles">
+
+        <item>Restaurador</item>
+
+        <item>Agente inmobiliario</item>
+
+        <item>Proveedor</item>
+
+        <item>Únicamente busco un servicio</item>
+
+    </string-array>
+
 </resources>

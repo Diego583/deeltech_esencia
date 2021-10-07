@@ -65,4 +65,7 @@ dependencies {
     //Parse SDK implementation
     implementation "com.github.parse-community.Parse-SDK-Android:parse:1.26.0"
 
+    //Librería para el combobox
+    implementation 'com.google.android.material:material:1.4.0'
+
 }

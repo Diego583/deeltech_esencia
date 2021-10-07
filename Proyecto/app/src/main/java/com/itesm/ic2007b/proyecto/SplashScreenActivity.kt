@@ -35,7 +35,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed(
             {
                 startActivity(
-                    Intent(this@SplashScreenActivity, Login::class.java)
+                    Intent(this@SplashScreenActivity, SubirArchivos::class.java)
                 )
                 finish()
             },3000
