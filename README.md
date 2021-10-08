@@ -1,1 +1,0 @@
-# deeltech_esencia

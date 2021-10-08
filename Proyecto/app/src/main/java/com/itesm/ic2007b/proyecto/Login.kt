@@ -10,10 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 //import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import com.parse.LogInCallback
-import com.parse.ParseException
-import com.parse.ParseObject
-import com.parse.ParseUser
+import com.parse.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 //import androidx.navigation.findNavController
@@ -60,21 +57,23 @@ class Login : AppCompatActivity() {
             val Contra1Text = findViewById<EditText>(R.id.contra1)
             val Contra1Value = Contra1Text.text
 
-            ParseUser.logInInBackground("Jerry", "showmethemoney", object : LogInCallback() {
-                fun done(user: ParseUser?, e: ParseException?) {
-                    if (user != null) {
-                        var intent: Intent = Intent(this,Home::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        val text = "Intentalo m�s tarde"
-                        val duration = Toast.LENGTH_SHORT
+            val query: ParseQuery<ParseObject> = ParseQuery.getQuery("User")
+            query.whereEqualTo("email", EmailValue)
+            query.whereEqualTo("password", Contra1Value)
+            query.findInBackground{objects, e->
+                if(e == null){
+                    var intent: Intent = Intent(this,Home::class.java)
+                    startActivity(intent)
+                }else{
+                    val text = "Usuario o contraseña incorrectos"
+                    val duration = Toast.LENGTH_SHORT
 
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-                    }
+                    // Mensaje de error con toast
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
                 }
-            })
+
+            }
 
         }
 

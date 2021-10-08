@@ -19,7 +19,7 @@ class UserRegister : AppCompatActivity(){
     // #00ff00
 
     //variable para OnKeyUp
-    var tv_filter: EditText? = findViewById<EditText>(R.id.contra1) as EditText
+    //var tv_filter: EditText? = findViewById<EditText>(R.id.contra1) as EditText
 
     //Variable para poder conectar .XML a .KT
     private lateinit var binding : ActivityUserRegisterBinding
