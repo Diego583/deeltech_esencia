@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
@@ -11,6 +12,7 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        //prefsUser.clearAllData()
         cardRestauradores.setOnClickListener {
             var intent: Intent = Intent(this,Restauradores::class.java)
             startActivity(intent)
@@ -26,24 +28,6 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /**
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.inicioItem -> {
-                    infoTextView.setText(R.string.inicio)
-                    true
-                }
-                R.id.favoritosItem -> {
-                    infoTextView.setText(R.string.favoritos)
-                    true
-                }
-                R.id.perfilItem -> {
-                    infoTextView.setText(R.string.perfil)
-                    true
-                }
-                else -> false
-            }
-        }**/
     }
 
 }

@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_roles.*
 import android.widget.TextView
 
 import android.view.ViewGroup
-import com.itesm.ic2007b.proyecto.App.Companion.prefs
+import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import kotlinx.android.synthetic.main.activity_user_register.*
 
 
@@ -107,7 +107,7 @@ class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
         /**
          *Aquí se guardan las variables con PREFS
          **/
-        prefs.saveRol(rol)
+        prefsRegister.saveRol(rol)
 
         var intent: Intent = Intent(this,Login::class.java)
         //startActivity(intent)

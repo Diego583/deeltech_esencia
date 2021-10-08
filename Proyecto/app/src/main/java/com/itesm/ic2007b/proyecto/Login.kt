@@ -11,6 +11,7 @@ import com.parse.LogInCallback
 import com.parse.ParseException
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_login.*
+import com.parse.Parse
 
 //import androidx.navigation.findNavController
 //import androidx.navigation.ui.AppBarConfiguration
@@ -40,6 +41,35 @@ class Login : AppCompatActivity() {
         checkUserSession()
     }
 
+    fun login(username: String, password: String) {
+        //progressDialog?.show()
+        ParseUser.logInInBackground(username,password) { parseUser: ParseUser?, parseException: ParseException? ->
+            //progressDialog?.dismiss()
+            if (parseUser != null) {
+                //Si son correctas los guardamos la sesion del usuario
+                prefsUser.saveUserName(username)
+                prefsUser.saveContra(password)
+
+                val text = "Bienvenido " + username + "!!";
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+
+                //Redireccionamos ha home
+                var intent: Intent = Intent(this,Home::class.java)
+                startActivity(intent)
+                finish()
+
+            } else {
+                ParseUser.logOut()
+                if (parseException != null) {
+                    Toast.makeText(this, parseException.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
 
     fun initializeComponents(){
         btnLogin = findViewById(R.id.buttonLogin)
@@ -60,20 +90,8 @@ class Login : AppCompatActivity() {
             if(ContraValue.isNotEmpty() && UsernameValue.isNotEmpty()){
                 //Se validan en la base de datos
 
-                    /**
-                     *QUERY usuario existe
-                     **/
+                login(UsernameValue, ContraValue)
 
-                //Si son correctas los guardamos la sesion del usuario
-                prefsUser.saveUserName(UsernameValue)
-                prefsUser.saveContra(ContraValue)
-
-
-
-                //Redireccionamos ha home
-                var intent: Intent = Intent(this,Home::class.java)
-                startActivity(intent)
-                finish()
             }
             else{
                 val text = "Te faltan campos por llenar"
@@ -109,5 +127,7 @@ class Login : AppCompatActivity() {
             initializeListeners()
         }
     }
+
+
 
 }
