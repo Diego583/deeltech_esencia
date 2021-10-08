@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Donativos"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/tvDonation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Dona a ESENCIA PATRIMONIO"
+        android:textColor="#FF6666"
+        android:textSize="25dp" />
+
+    <WebView
+        android:id="@+id/Paypal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvDonation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        tools:ignore="MissingConstraints" />
+
+
+</RelativeLayout>

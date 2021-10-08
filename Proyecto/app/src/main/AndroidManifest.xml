@@ -20,6 +20,11 @@
             android:name=".Roles"
             android:exported="true" />
         <activity
+            android:name=".Donativos"
+            android:exported="true"
+            android:label="@string/title_activity_donativos"
+            android:theme="@style/Theme.Proyecto.NoActionBar" />
+        <activity
             android:name=".favoritos"
             android:exported="true" />
         <activity
