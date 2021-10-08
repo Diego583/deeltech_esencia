@@ -12,16 +12,23 @@ import kotlinx.android.synthetic.main.activity_registro_especifico.*
 class RegistroEspecifico : AppCompatActivity() {
 
     //Variable para poder conectar .XML a .KT
-    private lateinit var binding : ActivityRegistroEspecificoBinding
+    //private lateinit var binding : ActivityRegistroEspecificoBinding
     private lateinit var btnTerminar: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegistroEspecificoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        //binding = ActivityRegistroEspecificoBinding.inflate(layoutInflater)
+        //setContentView(binding.root)
+        setContentView(R.layout.activity_registro_especifico)
 
+        initializeComponents()
         listenerBtn()
+    }
+
+    fun initializeComponents(){
+        btnTerminar = findViewById(R.id.btnTerminar)
+
     }
 
     fun listenerBtn(){

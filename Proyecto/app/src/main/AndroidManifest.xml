@@ -20,6 +20,9 @@
             android:name=".Roles"
             android:exported="true" />
         <activity
+            android:name=".RegistroEspecifico"
+            android:exported="true" />
+        <activity
             android:name=".Donativos"
             android:exported="true"
             android:label="@string/title_activity_donativos"
