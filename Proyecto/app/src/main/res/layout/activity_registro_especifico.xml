@@ -79,10 +79,10 @@
             android:layout_marginTop="5dp"
             android:backgroundTint="#515151"
             android:text="Seleccionar archivo"
-            android:textSize="11dp"
             android:textColor="#FFFF"
-            tools:ignore="TextContrastCheck"
-            app:errorEnabled="true"/>
+            android:textSize="11dp"
+            app:errorEnabled="true"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/textViewImagen"
@@ -108,8 +108,6 @@
             app:errorEnabled="true"/>
 
 
-
-
         <Button
             android:id="@+id/buttonRegistrarse"
             android:layout_width="160dp"
@@ -119,8 +117,8 @@
             android:backgroundTint="#15CDCD"
             android:text="@string/continuar"
             android:textColor="#FFFF"
-            tools:ignore="TextContrastCheck"
-            app:errorEnabled="true"/>
+            app:errorEnabled="true"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 

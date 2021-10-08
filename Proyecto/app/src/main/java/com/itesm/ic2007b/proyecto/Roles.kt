@@ -33,6 +33,7 @@ class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
         setContentView(binding.root)
 
         spinner()
+        listenerBtn()
 
     }
 
@@ -109,11 +110,9 @@ class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
          **/
         prefsRegister.saveRol(rol)
 
-        var intent: Intent = Intent(this,Login::class.java)
-        //startActivity(intent)
+        var intent: Intent = Intent(this,RegistroEspecifico::class.java)
+        startActivity(intent)
         finish()
-
-
 
     }
 }
