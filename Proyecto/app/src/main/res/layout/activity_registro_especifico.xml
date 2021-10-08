@@ -109,7 +109,7 @@
 
 
         <Button
-            android:id="@+id/buttonRegistrarse"
+            android:id="@+id/btnTerminar"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_gravity="center"

@@ -39,7 +39,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/buttonRoles"
+        android:id="@+id/btnRoles"
         android:layout_width="160dp"
         android:layout_height="60dp"
         android:layout_gravity="center"

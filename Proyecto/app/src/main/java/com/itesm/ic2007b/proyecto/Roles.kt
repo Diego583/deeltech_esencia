@@ -7,19 +7,16 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import com.itesm.ic2007b.proyecto.databinding.ActivityRolesBinding
 import kotlinx.android.synthetic.main.activity_roles.*
-import android.widget.TextView
 
 import android.view.ViewGroup
+import android.widget.*
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import kotlinx.android.synthetic.main.activity_user_register.*
 
 
-class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
+class Roles : AppCompatActivity(){
 
     private lateinit var binding: ActivityRolesBinding
     //val roles: Array<String> = arrayOf("Restaurador", "Agente inmobiliario", "Proveedor", "Usuario normal")
@@ -27,15 +24,21 @@ class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
     // list of spinner items
     val list = mutableListOf("Restaurador", "Agente inmobiliario", "Proveedor", "Usuario normal")
 
+    private lateinit var btnRoles: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRolesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var intent: Intent? = null
+
         spinner()
+        init()
         listenerBtn()
 
     }
+
 
     fun spinner(){
         val context = this
@@ -98,21 +101,26 @@ class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
     }
 
-    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Not yet implemented")
+    fun init(){
+        btnRoles = binding.btnRoles
     }
+
 
     fun listenerBtn(){
         val rol = binding.spinner.toString()
 
-        /**
-         *Aquí se guardan las variables con PREFS
-         **/
-        prefsRegister.saveRol(rol)
+        btnRoles.setOnClickListener{
 
-        var intent: Intent = Intent(this,RegistroEspecifico::class.java)
-        startActivity(intent)
-        finish()
+            /**
+             *Aquí se guardan las variables con PREFS
+             **/
+            prefsRegister.saveRol(rol)
+
+            startActivity(Intent(this,RegistroEspecifico::class.java))
+
+
+        }
 
     }
+
 }
