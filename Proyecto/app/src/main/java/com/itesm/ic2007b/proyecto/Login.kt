@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.itesm.ic2007b.proyecto.App.Companion.prefs
 import com.parse.LogInCallback
 import com.parse.ParseException
 import com.parse.ParseUser
@@ -30,6 +31,11 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val text = prefs.getEmail()
+        val duration = Toast.LENGTH_SHORT
+
+        val toast = Toast.makeText(applicationContext, text, duration)
+        toast.show()
 
 
 
@@ -54,23 +60,6 @@ class Login : AppCompatActivity() {
 
             //val Contra1Text = findViewById<EditText>(R.id.contra1)
             //val Contra1Value = Contra1Text.text
-
-            /**
-            ParseUser.logInInBackground("Jerry", "showmethemoney", object : LogInCallback() {
-                fun done(user: ParseUser?, e: ParseException?) {
-                    if (user != null) {
-                        var intent: Intent = Intent(this,Home::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        val text = "Intentalo m�s tarde"
-                        val duration = Toast.LENGTH_SHORT
-
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-                    }
-                }
-            })**/
 
             var intent: Intent = Intent(this,Home::class.java)
             startActivity(intent)

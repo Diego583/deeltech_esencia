@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
-            android:name=".SubirArchivos"
+            android:name=".NoHayRed"
+            android:exported="true" />
+        <activity
+            android:name=".Roles"
             android:exported="true" />
         <activity
             android:name=".favoritos"

@@ -4,8 +4,19 @@ import android.app.Application
 import com.parse.Parse
 
 class App:Application() {
+
+    //Instancia de objeto de preferencias
+    //Para guardar variables globales
+    companion object{
+        lateinit var prefs:Prefs
+    }
+
     override fun onCreate() {
         super.onCreate()
+
+        App.prefs = Prefs(applicationContext)
+
+        //Se guardan los datos de la base de datos
         Parse.initialize(
             Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))

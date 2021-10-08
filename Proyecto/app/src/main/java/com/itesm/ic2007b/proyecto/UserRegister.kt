@@ -14,6 +14,7 @@ import android.text.Editable
 
 import android.text.TextWatcher
 import android.widget.TextView
+import com.itesm.ic2007b.proyecto.App.Companion.prefs
 
 
 class UserRegister : AppCompatActivity(){
@@ -224,20 +225,25 @@ class UserRegister : AppCompatActivity(){
 
     //Se agrega el usuario nuevo a la base de datos
     fun RegistrarUsuario(){
-
+        //Variables
         val UsuarioValue = binding.usuario.text.toString()
-
         val CorreoValue = binding.email.text.toString()
-
         val Contra1Value = binding.contra1.text.toString()
+        val numeroValue = binding.numero.text.toString()
 
-        val numero = binding.numero.text.toString()
+        /**
+         *Aquí se guardan las variables con PREFS
+         **/
+        prefs.saveUserName(UsuarioValue)
+        prefs.saveEmail(CorreoValue)
+        prefs.saveContra(Contra1Value)
+        prefs.saveNumero(numeroValue)
 
         val user = ParseUser()
         user.username = UsuarioValue //Usuario
         user.setPassword(Contra1Value) //contraseña
         user.email = CorreoValue //Correo
-        user.put("phone", numero)//numero, se crea la columna numero y se guarada ahí
+        user.put("phone", numeroValue)//numero, se crea la columna numero y se guarada ahí
 
         // other fields can be set just like with ParseObject
         //user.put("phone", "650-253-0000")
@@ -245,7 +251,7 @@ class UserRegister : AppCompatActivity(){
         user.signUpInBackground { e ->
             if (e == null) {
                 var intent: Intent = Intent(this,Login::class.java)
-                startActivity(intent)
+                //startActivity(intent)
                 finish()
             } else {
                 val text = "Intentalo más tarde"

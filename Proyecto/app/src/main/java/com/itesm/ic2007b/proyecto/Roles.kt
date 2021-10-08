@@ -10,19 +10,18 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.itesm.ic2007b.proyecto.databinding.ActivitySubirArchivosBinding
-import com.itesm.ic2007b.proyecto.databinding.ActivityUserRegisterBinding
-import kotlinx.android.synthetic.main.activity_subir_archivos.*
+import com.itesm.ic2007b.proyecto.databinding.ActivityRolesBinding
+import kotlinx.android.synthetic.main.activity_roles.*
 import android.widget.TextView
 
 import android.view.ViewGroup
-import com.parse.ParseUser
+import com.itesm.ic2007b.proyecto.App.Companion.prefs
 import kotlinx.android.synthetic.main.activity_user_register.*
 
 
-class SubirArchivos : AppCompatActivity(), AdapterView.OnItemClickListener {
+class Roles : AppCompatActivity(), AdapterView.OnItemClickListener {
 
-    private lateinit var binding: ActivitySubirArchivosBinding
+    private lateinit var binding: ActivityRolesBinding
     //val roles: Array<String> = arrayOf("Restaurador", "Agente inmobiliario", "Proveedor", "Usuario normal")
 
     // list of spinner items
@@ -30,7 +29,7 @@ class SubirArchivos : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySubirArchivosBinding.inflate(layoutInflater)
+        binding = ActivityRolesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         spinner()
@@ -88,7 +87,7 @@ class SubirArchivos : AppCompatActivity(), AdapterView.OnItemClickListener {
 
                 // by default spinner initial selected item is first item
                 if (position != 0){
-                    Toast.makeText(this@SubirArchivos, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Roles, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -103,28 +102,18 @@ class SubirArchivos : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     fun listenerBtn(){
-        val UsuarioValue = binding.spinner.toString()
+        val rol = binding.spinner.toString()
+
+        /**
+         *Aquí se guardan las variables con PREFS
+         **/
+        prefs.saveRol(rol)
+
+        var intent: Intent = Intent(this,Login::class.java)
+        //startActivity(intent)
+        finish()
 
 
-        val user = ParseUser()
-        user.username = UsuarioValue //Usuario
-        user.setPassword(Contra1Value) //contraseña
-        user.email = CorreoValue //Correo
-        user.put("phone", numero)//numero, se crea la columna numero y se guarada ahí
 
-
-        user.signUpInBackground { e ->
-            if (e == null) {
-                var intent: Intent = Intent(this,Login::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                val text = "Intentalo más tarde"
-                val duration = Toast.LENGTH_SHORT
-
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-            }
-        }
     }
 }
