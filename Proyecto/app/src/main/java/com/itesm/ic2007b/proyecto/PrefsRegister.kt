@@ -19,6 +19,7 @@ class PrefsRegister(val context:Context) {
     val SHARED_PASS = "password"
     val SHARED_NUMERO = "numero"
     val SHARED_ROL = "Rol"
+    val SHARED_DESCRIPCION = "descripcion"
 
     //VARIABLES QUE HAREMOS PERCISTENTES ends
 
@@ -81,5 +82,16 @@ class PrefsRegister(val context:Context) {
     }
     fun getRol():String{
         return storage.getString(SHARED_ROL, "")!!
+    }
+
+
+    /**
+     * Aquí se guarda o se obtiene el valor de la DESCRIPCION
+     **/
+    fun saveDescricpion(name:String){
+        storage.edit().putString(SHARED_DESCRIPCION, name).apply()
+    }
+    fun getDescricpion():String{
+        return storage.getString(SHARED_DESCRIPCION, "")!!
     }
 }

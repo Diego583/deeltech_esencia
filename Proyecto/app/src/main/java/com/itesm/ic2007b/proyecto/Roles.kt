@@ -24,6 +24,9 @@ class Roles : AppCompatActivity(){
     // list of spinner items
     val list = mutableListOf("Restaurador", "Agente inmobiliario", "Proveedor", "Usuario normal")
 
+    var vacio: Boolean = false
+    var rol_Usuario: String = ""
+
     private lateinit var btnRoles: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,12 +94,15 @@ class Roles : AppCompatActivity(){
 
                 // by default spinner initial selected item is first item
                 if (position != 0){
+                    vacio = true
+                    rol_Usuario = list[position]
                     Toast.makeText(this@Roles, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // another interface callback
+                vacio = false
             }
         }
     }
@@ -107,16 +113,30 @@ class Roles : AppCompatActivity(){
 
 
     fun listenerBtn(){
-        val rol = binding.spinner.toString()
+
 
         btnRoles.setOnClickListener{
+            var rol = rol_Usuario
 
-            /**
-             *Aquí se guardan las variables con PREFS
-             **/
-            prefsRegister.saveRol(rol)
+            if(!vacio){
+                val text = "Te falta escoger tu rol"
+                val duration = Toast.LENGTH_SHORT
 
-            startActivity(Intent(this,RegistroEspecifico::class.java))
+                // Mensaje de error con toast
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+            else{
+                /**
+                 *Aquí se guardan las variables con PREFS
+                 **/
+                prefsRegister.saveRol(rol)
+
+
+                intent = Intent(this, RegistroEspecifico::class.java)
+                startActivity(intent)
+                finish()
+            }
 
 
         }

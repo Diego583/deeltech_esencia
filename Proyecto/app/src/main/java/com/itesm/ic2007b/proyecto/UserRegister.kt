@@ -241,16 +241,6 @@ class UserRegister : AppCompatActivity(){
         prefsRegister.saveContra(Contra1Value)
         prefsRegister.saveNumero(numeroValue)
 
-        /**
-        val user = ParseUser()
-        user.username = UsuarioValue //Usuario
-        user.setPassword(Contra1Value) //contraseña
-        user.email = CorreoValue //Correo
-        user.put("phone", numeroValue)//numero, se crea la columna numero y se guarada ahí
-        **/
-
-        // other fields can be set just like with ParseObject
-        //user.put("phone", "650-253-0000")
 
         intent = Intent(this, Roles::class.java)
         startActivity(intent)
