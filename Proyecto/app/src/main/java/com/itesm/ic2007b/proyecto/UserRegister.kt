@@ -14,7 +14,7 @@ import android.text.Editable
 
 import android.text.TextWatcher
 import android.widget.TextView
-import com.itesm.ic2007b.proyecto.App.Companion.prefs
+import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 
 
 class UserRegister : AppCompatActivity(){
@@ -232,12 +232,12 @@ class UserRegister : AppCompatActivity(){
         val numeroValue = binding.numero.text.toString()
 
         /**
-         *Aquí se guardan las variables con PREFS
+         *Aqui se guardan las variables con PREFS
          **/
-        prefs.saveUserName(UsuarioValue)
-        prefs.saveEmail(CorreoValue)
-        prefs.saveContra(Contra1Value)
-        prefs.saveNumero(numeroValue)
+        prefsRegister.saveUserName(UsuarioValue)
+        prefsRegister.saveEmail(CorreoValue)
+        prefsRegister.saveContra(Contra1Value)
+        prefsRegister.saveNumero(numeroValue)
 
         val user = ParseUser()
         user.username = UsuarioValue //Usuario

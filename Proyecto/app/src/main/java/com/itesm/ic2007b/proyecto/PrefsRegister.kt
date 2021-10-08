@@ -4,10 +4,10 @@ import android.content.Context
 
 /**
  *Clase para persistencia de datos
- *AQUÍ PODEMOS MANTENER LOS DATOS GLOBALES
+ *AQUÍ PODEMOS MANTENER LOS DATOS GLOBALES del usuario que se registra
  * se guarda y se obtiene el dato en cualquier archivo .kt
  **/
-class Prefs(val context:Context) {
+class PrefsRegister(val context:Context) {
 
 
     val SHARED_NAME = "MyDB"

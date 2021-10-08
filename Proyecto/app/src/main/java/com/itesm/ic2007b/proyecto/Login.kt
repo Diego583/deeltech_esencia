@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.itesm.ic2007b.proyecto.App.Companion.prefs
+import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.parse.LogInCallback
 import com.parse.ParseException
 import com.parse.ParseUser
@@ -31,17 +31,15 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val text = prefs.getEmail()
-        val duration = Toast.LENGTH_SHORT
+        //val text = prefsRegister.getEmail()
+        //val duration = Toast.LENGTH_SHORT
 
-        val toast = Toast.makeText(applicationContext, text, duration)
-        toast.show()
+        //val toast = Toast.makeText(applicationContext, text, duration)
+        //toast.show()
 
-
-
-        initializeComponents()
-        initializeListeners()
+        checkUserSession()
     }
+
 
     fun initializeComponents(){
         btnLogin = findViewById(R.id.buttonLogin)
@@ -49,20 +47,35 @@ class Login : AppCompatActivity() {
         btnForgot = findViewById(R.id.buttonOlvideContrasena)
     }
 
-
-
     fun initializeListeners(){
 
         btnLogin.setOnClickListener{
 
-            //val EmailText = findViewById<EditText>(R.id.editTextEmail)
-            //val EmailValue = EmailText.text
+            val UsernameText = findViewById<EditText>(R.id.editTextUsername)
+            val UsernameValue = UsernameText.text.toString()
 
-            //val Contra1Text = findViewById<EditText>(R.id.contra1)
-            //val Contra1Value = Contra1Text.text
+            val ContraText = findViewById<EditText>(R.id.editTextPassword)
+            val ContraValue = ContraText.text.toString()
 
-            var intent: Intent = Intent(this,Home::class.java)
-            startActivity(intent)
+            if(ContraValue.isNotEmpty() && UsernameValue.isNotEmpty()){
+                //Se validan en la base de datos
+
+                //Si son correctas los guardamos la sesion del usuario
+                prefsUser.saveUserName(UsernameValue)
+                prefsUser.saveContra(ContraValue)
+
+                //Redireccionamos ha home
+                var intent: Intent = Intent(this,Home::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+                val text = "Te faltan campos por llenar"
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
 
         }
 
@@ -76,6 +89,19 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    fun checkUserSession(){
+        if(prefsUser.getUserName().isNotEmpty()){
+            //Redireccionamos ha home
+            var intent: Intent = Intent(this,Home::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else{
+            initializeComponents()
+            initializeListeners()
+        }
     }
 
 }

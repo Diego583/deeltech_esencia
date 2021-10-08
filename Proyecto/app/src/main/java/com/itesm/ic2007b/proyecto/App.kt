@@ -5,16 +5,18 @@ import com.parse.Parse
 
 class App:Application() {
 
-    //Instancia de objeto de preferencias
+    //Instancia de objetos de preferencias
     //Para guardar variables globales
     companion object{
-        lateinit var prefs:Prefs
+        lateinit var prefsRegister:PrefsRegister
+        lateinit var prefsUser: PrefsUser
     }
 
     override fun onCreate() {
         super.onCreate()
 
-        App.prefs = Prefs(applicationContext)
+        App.prefsRegister = PrefsRegister(applicationContext)
+        App.prefsUser = PrefsUser(applicationContext)
 
         //Se guardan los datos de la base de datos
         Parse.initialize(
