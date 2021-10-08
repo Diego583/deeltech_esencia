@@ -34,7 +34,8 @@ class PrefsUser(val context: Context) {
     /**
      * Aquí se guarda o se obtiene el valor del USUARIO
      **/
-    fun saveUserName(name:String){
+    fun saveUserName(name:String
+    ){
         storage.edit().putString(SHARED_USER_NAME, name).apply()
     }
     fun getUserName():String{

@@ -60,9 +60,15 @@ class Login : AppCompatActivity() {
             if(ContraValue.isNotEmpty() && UsernameValue.isNotEmpty()){
                 //Se validan en la base de datos
 
+                    /**
+                     *QUERY usuario existe
+                     **/
+
                 //Si son correctas los guardamos la sesion del usuario
                 prefsUser.saveUserName(UsernameValue)
                 prefsUser.saveContra(ContraValue)
+
+
 
                 //Redireccionamos ha home
                 var intent: Intent = Intent(this,Home::class.java)
