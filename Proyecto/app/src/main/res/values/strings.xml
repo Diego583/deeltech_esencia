@@ -38,4 +38,27 @@
     <string name="inicio">Inicio</string>
     <string name="favoritos">Favoritos</string>
     <string name="perfil">Perfil</string>
+
+    <!-- DATA BASE BEGINS -->
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Paste BOTH strings as required -->
+    <string name="back4app_app_id">BNa00LiORDWXOPkSRBOkTNlRLCID13OKeE1FTCUb</string>
+    <string name="back4app_client_key">1kvEm7xmPTrSbAIGt2NjUq6ZFGZz9jZx0Xt38SLI</string>
+    <!-- DATA BASE ENDS -->
+
+
+    <!-- COMBOBOX ROLES -->
+    <string-array name="roles">
+
+        <item>Restaurador</item>
+
+        <item>Agente inmobiliario</item>
+
+        <item>Proveedor</item>
+
+        <item>Únicamente busco un servicio</item>
+
+    </string-array>
+
 </resources>

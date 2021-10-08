@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.KeyEvent
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import android.widget.Button
+import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
@@ -25,6 +27,7 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        //prefsUser.clearAllData()
 
         var intent: Intent? = null
 
