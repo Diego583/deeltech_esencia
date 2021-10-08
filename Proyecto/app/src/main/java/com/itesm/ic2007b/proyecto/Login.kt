@@ -2,9 +2,7 @@ package com.itesm.ic2007b.proyecto
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.parse.LogInCallback
@@ -27,7 +25,7 @@ class Login : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var btnRegister:Button
     private lateinit var btnForgot:Button
-    private lateinit var btnDonate:Button
+    private lateinit var btnDonate:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
