@@ -11,31 +11,14 @@ class Proveedores : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_proveedores)
 
+        var intent: Intent? = null
+
+        initializeBackProve()
+    }
+
+    private fun initializeBackProve() {
         backProveedores.setOnClickListener{
             finish()
-        }
-
-        bottomNavigationViewProve.selectedItemId = R.id.inicioItem
-
-        bottomNavigationViewProve.setOnNavigationItemSelectedListener { menuItem ->
-            var intent: Intent? = null
-            when (menuItem.itemId) {
-                R.id.inicioItem -> {
-                    intent = Intent(this,Home::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.favoritosItem -> {
-                    intent = Intent(this,favoritos::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.perfilItem -> {
-                    println("Entre a perfiles")
-                    true
-                }
-                else -> false
-            }
         }
     }
 }
