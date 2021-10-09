@@ -2,6 +2,7 @@ package com.itesm.ic2007b.proyecto
 
 import android.app.Application
 import com.parse.Parse
+import com.parse.ParseObject
 
 class App:Application() {
 
