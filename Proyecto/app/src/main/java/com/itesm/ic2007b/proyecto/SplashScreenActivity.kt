@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import android.net.NetworkInfo
 import android.net.ConnectivityManager
-
+import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -30,6 +30,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //Si hay conexión
         if (networkInfo != null && networkInfo.isConnected) {
+            prefsRegister.clearAllData()
             successInternet()
         }
         //Si no hay conexión

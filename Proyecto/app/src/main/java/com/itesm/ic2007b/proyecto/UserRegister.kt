@@ -204,7 +204,7 @@ class UserRegister : AppCompatActivity(){
                 if(!passwordRegex.matcher(pass).matches()){
                     binding.contra1.error = "Contraseña muy débil"
                 }
-                else if (Contra1Value != Contra2Value){
+                else if (pass != pass2){
                     val text = "Las contraseñas no coinciden"
                     val duration = Toast.LENGTH_SHORT
 

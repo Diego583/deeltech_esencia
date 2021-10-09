@@ -56,8 +56,6 @@ class RegistroEspecifico : AppCompatActivity() {
                 prefsRegister.saveDescricpion(descripcion)
 
 
-
-
                 /**
                  *Aquí giardamos en la base de datos con las variables globales
                  **/
