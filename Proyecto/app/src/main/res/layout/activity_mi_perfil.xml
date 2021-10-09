@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MiPerfil"
+    android:orientation="vertical"
+    android:background="#F7F7F7">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewMiPerfil"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        android:background="@drawable/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954"
+        app:menu="@menu/menu_navigation"
+        >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <ImageButton
+            android:id="@+id/LogOut"
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="9dp"
+            android:layout_marginVertical="9dp"
+            android:background="@drawable/log_out"
+            android:contentDescription="@string/log_out" />
+
+        <ImageView
+            android:id="@+id/foto_perfil"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/LogOut"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/foto_perfil" />
+
+        <TextView
+            android:id="@+id/mi_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/foto_perfil"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:text="NombrePerfil"
+            android:textColor="@color/black"
+            android:textSize="35dp" />
+
+        <TextView
+            android:id="@+id/ubicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mi_nombre"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="true"
+            android:text="Ubicación"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/editar_perfil_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/ubicacion"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="true"
+            android:text="@string/editar_perfil"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="15dp"
+            android:textSize="16dp"
+
+            android:textColor="@color/white"
+            android:backgroundTint="@color/pink"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_below="@+id/editar_perfil_btn"
+            android:layout_marginTop="15dp"
+            android:background="@color/light_blue"
+            >
+
+            <TextView
+                android:id="@+id/desc_texto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="9dp"
+                android:layout_marginVertical="9dp"
+                android:text="@string/descripcion_texto"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descripcion_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/desc_texto"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="9dp"
+                android:layout_marginVertical="9dp"
+                android:text="desc..."
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

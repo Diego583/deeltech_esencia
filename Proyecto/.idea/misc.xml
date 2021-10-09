@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/splash.xml" value="0.72" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main2.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.4" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/pene.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/splash.xml" value="0.25" />
         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.3828125" />
         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/filter.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/frame.xml" value="0.2203125" />
@@ -27,6 +35,36 @@
         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.264" />
         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/list_item.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/home.xml" value="0.11851851851851852" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_restauradores.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation.xml" value="0.4" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/log_out.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.1265625" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favoritos.xml" value="0.2" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.2" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_home.xml" value="0.176" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.24954710144927536" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_mi_perfil.xml" value="0.1" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_modificar_perfil.xml" value="0.264" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_otro_perfil.xml" value="0.264" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_perfil_otro.xml" value="0.1" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_perfil_persona.xml" value="0.264" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_perfil_propio.xml" value="0.264" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_registro_especifico.xml" value="0.24954710144927536" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_ver_perfil.xml" value="0.264" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/actvity_pdf_view.xml" value="0.14719202898550723" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donar.xml" value="0.4" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donativos.xml" value="0.2620545073375262" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />

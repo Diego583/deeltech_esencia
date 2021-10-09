@@ -28,6 +28,12 @@
             android:label="@string/title_activity_donativos"
             android:theme="@style/Theme.Proyecto.NoActionBar" />
         <activity
+            android:name=".MiPerfil"
+            android:exported="true"/>
+        <activity
+            android:name=".OtroPerfil"
+            android:exported="true"/>
+        <activity
             android:name=".favoritos"
             android:exported="true" />
         <activity
@@ -53,6 +59,7 @@
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
+
 
             <!-- android:theme="@style/Theme.AppCompat.NoActionBar"> -->
 

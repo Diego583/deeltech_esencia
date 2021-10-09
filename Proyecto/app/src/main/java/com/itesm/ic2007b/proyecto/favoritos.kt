@@ -36,7 +36,9 @@ class favoritos : AppCompatActivity() {
                     true
                 }
                 R.id.perfilItem -> {
-                    println("Entre a perfiles")
+                    intent = Intent(this,MiPerfil::class.java)
+                    startActivity(intent)
+                    finish()
                     true
                 }
                 else -> false
