@@ -20,6 +20,7 @@ class PrefsRegister(val context:Context) {
     val SHARED_NUMERO = "numero"
     val SHARED_ROL = "Rol"
     val SHARED_DESCRIPCION = "descripcion"
+    val SHARED_ESTADO = "estado"
 
     //VARIABLES QUE HAREMOS PERCISTENTES ends
 
@@ -32,6 +33,8 @@ class PrefsRegister(val context:Context) {
 
     /**
      * Aquí se guarda o se obtiene el valor del USUARIO
+     * @param name
+     * @return name
      **/
     fun saveUserName(name:String){
         storage.edit().putString(SHARED_USER_NAME, name).apply()
@@ -43,6 +46,8 @@ class PrefsRegister(val context:Context) {
 
     /**
      * Aquí se guarda o se obtiene el valor del EMAIL
+     * @param email
+     * @return email
      **/
     fun saveEmail(name:String){
         storage.edit().putString(SHARED_EMAIL, name).apply()
@@ -54,6 +59,8 @@ class PrefsRegister(val context:Context) {
 
     /**
      * Aquí se guarda o se obtiene el valor del CONTRASEÑA
+     * @param contraseña
+     * @return contraseña
      **/
     fun saveContra(name:String){
         storage.edit().putString(SHARED_PASS, name).apply()
@@ -65,6 +72,8 @@ class PrefsRegister(val context:Context) {
 
     /**
      * Aquí se guarda o se obtiene el valor del NUMERO
+     * @param numero
+     * @return numero
      **/
     fun saveNumero(name:String){
         storage.edit().putString(SHARED_NUMERO, name).apply()
@@ -76,6 +85,8 @@ class PrefsRegister(val context:Context) {
 
     /**
      * Aquí se guarda o se obtiene el valor del ROL
+     * @param rol
+     * @return rol
      **/
     fun saveRol(name:String){
         storage.edit().putString(SHARED_ROL, name).apply()
@@ -87,11 +98,25 @@ class PrefsRegister(val context:Context) {
 
     /**
      * Aquí se guarda o se obtiene el valor de la DESCRIPCION
+     * @param descripcion
+     * @return descripcion
      **/
     fun saveDescricpion(name:String){
         storage.edit().putString(SHARED_DESCRIPCION, name).apply()
     }
     fun getDescricpion():String{
         return storage.getString(SHARED_DESCRIPCION, "")!!
+    }
+
+    /**
+     * Aquí se guarda o se obtiene el valor de la ESTADO
+     * @param estado
+     * @return estado
+     **/
+    fun saveEstado(name:String){
+        storage.edit().putString(SHARED_ESTADO, name).apply()
+    }
+    fun getEstado():String{
+        return storage.getString(SHARED_ESTADO, "")!!
     }
 }

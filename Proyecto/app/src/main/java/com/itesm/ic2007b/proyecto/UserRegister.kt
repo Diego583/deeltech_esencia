@@ -245,20 +245,6 @@ class UserRegister : AppCompatActivity(){
         intent = Intent(this, Roles::class.java)
         startActivity(intent)
         finish()
-        /**
-        user.signUpInBackground { e ->
-            if (e == null) {
-                var intent: Intent = Intent(this,Login::class.java)
-                //startActivity(intent)
-                finish()
-            } else {
-                val text = "Intentalo más tarde"
-                val duration = Toast.LENGTH_SHORT
-
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-            }
-        }**/
     }
 
 }

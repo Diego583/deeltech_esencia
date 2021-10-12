@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.parse.LogInCallback
 import com.parse.ParseException
@@ -108,6 +109,7 @@ class Login : AppCompatActivity() {
         }
 
         btnRegister.setOnClickListener{
+            //prefsRegister.clearAllData()
             var intent: Intent = Intent(this,UserRegister::class.java)
             startActivity(intent)
         }
