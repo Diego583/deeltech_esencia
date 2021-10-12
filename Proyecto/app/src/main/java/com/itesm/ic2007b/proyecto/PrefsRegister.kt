@@ -1,13 +1,17 @@
 package com.itesm.ic2007b.proyecto
 
 import android.content.Context
-import android.net.Uri
+import java.nio.charset.StandardCharsets
+import android.R.array
+import android.util.Base64
+
 
 /**
  *Clase para persistencia de datos
  *AQUÍ PODEMOS MANTENER LOS DATOS GLOBALES del usuario que se registra
  * se guarda y se obtiene el dato en cualquier archivo .kt
  **/
+
 class PrefsRegister(val context:Context) {
 
 
@@ -20,12 +24,16 @@ class PrefsRegister(val context:Context) {
     val SHARED_PASS = "password"
     val SHARED_NUMERO = "numero"
     val SHARED_IMAGE = "imagen"
+    val SHARED_PDF = "archivo"
     val SHARED_ROL = "Rol"
 
     //VARIABLES QUE HAREMOS PERCISTENTES ends
 
     val storage = context.getSharedPreferences(SHARED_NAME, 0)
 
+    /**
+     * Libera todo lo guardao en storage
+     **/
     fun clearAllData(){
         storage.edit().clear().apply()
     }
@@ -75,13 +83,27 @@ class PrefsRegister(val context:Context) {
     }
 
 
-    /** Aquí se guarda o se obtiene el valor del NUMERO
-    fun saveImage(image: Uri?){
-        storage.edit().Uri(SHARED_IMAGE, image).apply()
+    /**
+     * Aquí se guarda o se obtiene la imagen
+     **/
+    fun saveImage(image: ByteArray?){
+        val imageString: String = Base64.encodeToString(image, Base64.DEFAULT)
+        storage.edit().putString(SHARED_IMAGE, imageString).apply()
     }
     fun getImage():String{
         return storage.getString(SHARED_IMAGE, "")!!
-    }**/
+    }
+
+    /**
+     * Aquí se guarda o se obtiene el PDF del portafolio
+     **/
+    fun savePortafolio(archivo: ByteArray?){
+        val archivoString: String = Base64.encodeToString(archivo, Base64.DEFAULT)
+        storage.edit().putString(SHARED_PDF, archivoString).apply()
+    }
+    fun getPortafolio():String{
+        return storage.getString(SHARED_PDF, "")!!
+    }
 
 
     /**
