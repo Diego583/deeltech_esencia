@@ -32,12 +32,12 @@ class MainActivity : AppCompatActivity() {
 
         }**/
 
-        val query: ParseQuery<ParseUser> = ParseQuery.getQuery("Estados")
-        query.whereEqualTo("Estados", "DF")
+        val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+        query.whereEqualTo("username", "tiburon")
         query.findInBackground { user, e ->
             if (e == null) {
 
-                val text = "SE encontró el usuario"
+                val text = "SE encontró el usuario " + user[0]
                 val duration = Toast.LENGTH_SHORT
 
                 // Mensaje de exito con toast
@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+
+
 
 
     }

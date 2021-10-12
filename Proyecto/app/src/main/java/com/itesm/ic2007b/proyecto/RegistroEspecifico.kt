@@ -182,11 +182,12 @@ class RegistroEspecifico : AppCompatActivity() {
                 val user = ParseUser()
                 user.username = prefsRegister.getUserName() //Usuario
                 user.setPassword(prefsRegister.getContra()) //contraseña
-                //user.email = prefsRegister.getEmail() //Correo
-                //user.put("phone", prefsRegister.getNumero())//numero, se crea la columna numero y se guarda ahí
-                //user.put("roles", prefsRegister.getRol())//rol, se crea la columna roles y se guarda ahí
+                user.email = prefsRegister.getEmail() //Correo
+                user.put("phone", prefsRegister.getNumero())//numero, se crea la columna numero y se guarda ahí
+                user.put("roles", prefsRegister.getRol())//rol, se crea la columna roles y se guarda ahí
                 user.put("descripcion", prefsRegister.getDescricpion())//rol, se crea la columna roles y se guarda ahí
                 user.put("ubicacion", prefsRegister.getEstado())//rol, se crea la columna estado y se guarda ahí
+
 
                 Log.d("USERNAME", prefsRegister.getUserName());
                 Log.d("ESTADO", prefsRegister.getEstado());

@@ -15,6 +15,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
+import com.parse.ParseQuery
 
 
 class UserRegister : AppCompatActivity(){
@@ -25,6 +26,9 @@ class UserRegister : AppCompatActivity(){
     private var lbl_output: TextView? = null
 
     private var text: TextWatcher? = null
+
+    lateinit var dataUser:ArrayList<ParseUser>
+    var vacio: Boolean = false
 
 
     //Variable para poder conectar .XML a .KT
@@ -161,10 +165,48 @@ class UserRegister : AppCompatActivity(){
     //Funcion que regresa lo que pasaría al momento de darle click al boton de registrar
     fun listenerBtn(){
 
-        //variables del XML sin binding
-        val Contra1Value = binding.contra1.text.toString()
+        binding.buttonRegistrarse.setOnClickListener{
+            val pass = binding.contra1.text.toString()
+            val email = binding.email.text.toString()
+            val pass2 = binding.contra2.text.toString()
+            val user = binding.usuario.text.toString()
+            val userrr = binding.usuario.text.toString()
+            dataUser = ArrayList()
 
-        val Contra2Value = binding.contra2.text.toString()
+            val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+            query.whereEqualTo("username", userrr)
+            query.findInBackground { user, e ->
+                //userEncontrado = user
+                if (e == null) {
+                    for (temp in user){
+                        dataUser.add(temp)
+                    }
+
+                    verficarDatos(pass, email, pass2,  userrr, dataUser)
+
+
+                } else {
+                    val text = "Error"
+                    val duration = Toast.LENGTH_SHORT
+
+                    // Mensaje de error con toast
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
+
+                }
+
+            }
+
+
+
+        }
+    }
+
+    /**
+     * Recive los datos y los verifica
+     * @param pass, email, pass2, user, dataUser
+     */
+    fun verficarDatos(pass:String, email:String, pass2:String, user:String, dataUser:ArrayList<ParseUser>){
 
         //Requisitos para las contraseñas
         val passwordRegex = Pattern.compile(
@@ -179,51 +221,55 @@ class UserRegister : AppCompatActivity(){
 
         )
 
+        if(pass == "" || email == "" || pass2 == "" || user == ""){
 
+            val text = "Faltan espacios por llenar"
+            val duration = Toast.LENGTH_SHORT
 
+            // Mensaje de error con toast
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
 
-        binding.buttonRegistrarse.setOnClickListener{
-
-            val pass = binding.contra1.text.toString()
-            val email = binding.email.text.toString()
-            val pass2 = binding.contra2.text.toString()
-            val user = binding.usuario.text.toString()
-
-            if(pass == "" || email == "" || pass2 == "" || user == ""){
-
-                val text = "Faltan espacios por llenar"
+        }
+        else{
+            if(!passwordRegex.matcher(pass).matches()){
+                val text = "Contraseña muy débil"
                 val duration = Toast.LENGTH_SHORT
+
+                binding.contra1.error = "Contraseña muy débil"
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+            else if (pass != pass2){
+                val text = "Las contraseñas no coinciden"
+                val duration = Toast.LENGTH_SHORT
+
+                // Mensaje de error con binding
+                binding.contra2.error = "Las contraseñas no coinciden"
 
                 // Mensaje de error con toast
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
+            }
+            else if(dataUser.size > 0){
+                val text = "Usuario no disponible, intenta con otro"
+                val duration = Toast.LENGTH_SHORT
 
+                binding.usuario.error = "Usuario no disponible, intenta con otro"
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
             }
             else{
-
-                if(!passwordRegex.matcher(pass).matches()){
-                    binding.contra1.error = "Contraseña muy débil"
-                }
-                else if (pass != pass2){
-                    val text = "Las contraseñas no coinciden"
-                    val duration = Toast.LENGTH_SHORT
-
-                    // Mensaje de error con binding
-                    binding.contra2.error = "Las contraseñas no coinciden"
-
-                    // Mensaje de error con toast
-                    val toast = Toast.makeText(applicationContext, text, duration)
-                    toast.show()
-                }
-                else{
-                    RegistrarUsuario()
-                }
-
+                val text = "ResFinal = " + dataUser.size
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+                RegistrarUsuario()
             }
 
         }
-    }
 
+    }
 
     //Se agrega el usuario nuevo a la base de datos
     fun RegistrarUsuario(){
@@ -246,6 +292,7 @@ class UserRegister : AppCompatActivity(){
         startActivity(intent)
         finish()
     }
+
 
 }
 
