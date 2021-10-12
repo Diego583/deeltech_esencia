@@ -1,6 +1,7 @@
 package com.itesm.ic2007b.proyecto
 
 import android.content.Context
+import android.net.Uri
 
 /**
  *Clase para persistencia de datos
@@ -18,6 +19,7 @@ class PrefsRegister(val context:Context) {
     val SHARED_EMAIL = "email"
     val SHARED_PASS = "password"
     val SHARED_NUMERO = "numero"
+    val SHARED_IMAGE = "imagen"
     val SHARED_ROL = "Rol"
 
     //VARIABLES QUE HAREMOS PERCISTENTES ends
@@ -71,6 +73,15 @@ class PrefsRegister(val context:Context) {
     fun getNumero():String{
         return storage.getString(SHARED_NUMERO, "")!!
     }
+
+
+    /** Aquí se guarda o se obtiene el valor del NUMERO
+    fun saveImage(image: Uri?){
+        storage.edit().Uri(SHARED_IMAGE, image).apply()
+    }
+    fun getImage():String{
+        return storage.getString(SHARED_IMAGE, "")!!
+    }**/
 
 
     /**

@@ -1,0 +1,300 @@
+Index: app/src/main/res/drawable/ic_launcher_background.xml
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_launcher_background.xml b/app/src/main/res/drawable/ic_launcher_background.xml
+deleted file mode 100644
+--- a/app/src/main/res/drawable/ic_launcher_background.xml	(revision 5555fc35519c342030f866628ce5db4395b4dbc0)
++++ /dev/null	(revision 5555fc35519c342030f866628ce5db4395b4dbc0)
+@@ -1,170 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path
+-        android:fillColor="#3DDC84"
+-        android:pathData="M0,0h108v108h-108z" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M9,0L9,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,0L19,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,0L29,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,0L39,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,0L49,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,0L59,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,0L69,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,0L79,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M89,0L89,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M99,0L99,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,9L108,9"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,19L108,19"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,29L108,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,39L108,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,49L108,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,59L108,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,69L108,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,79L108,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,89L108,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,99L108,99"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,29L89,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,39L89,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,49L89,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,59L89,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,69L89,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,79L89,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,19L29,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,19L39,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,19L49,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,19L59,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,19L69,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,19L79,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-</vector>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable-v24/ic_launcher_foreground.xml\" value=\"0.21302083333333333\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_launcher_background.xml\" value=\"0.21302083333333333\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/splash.xml\" value=\"0.72\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml\" value=\"0.4\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main2.xml\" value=\"0.17708333333333334\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml\" value=\"0.4\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/pene.xml\" value=\"0.17708333333333334\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/splash.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/app/src/main/res/layout/activity_main.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable-v24/ic_launcher_foreground.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/home.xml\" value=\"0.11851851851851852\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_account_circle_24.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_favorite_24.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_home_24.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_launcher_background.xml\" value=\"0.2703125\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favoritos.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_home.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml\" value=\"0.13020833333333334\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_proveedores.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_restauradores.xml\" value=\"0.4\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml\" value=\"0.25416666666666665\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation.xml\" value=\"0.4\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_fav.xml\" value=\"0.26614583333333336\" />\r\n        <entry key=\"..\\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_perfil.xml\" value=\"0.25416666666666665\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 5555fc35519c342030f866628ce5db4395b4dbc0)
++++ b/.idea/misc.xml	(date 1633723031350)
+@@ -11,6 +11,37 @@
+         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.4" />
+         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/pene.xml" value="0.17708333333333334" />
+         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/splash.xml" value="0.25" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21302083333333333" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21302083333333333" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/splash.xml" value="0.72" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.4" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main2.xml" value="0.17708333333333334" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.4" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/pene.xml" value="0.17708333333333334" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/splash.xml" value="0.25" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.3828125" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/filter.xml" value="0.22083333333333333" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/frame.xml" value="0.2203125" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/drawable/ok.xml" value="0.2890625" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout-v21/activity_favorite.xml" value="0.12083333333333333" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_Roles.xml" value="0.27291666666666664" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.36666666666666664" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donativos.xml" value="0.16157407407407406" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favorite.xml" value="0.264" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favoritos.xml" value="0.36666666666666664" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.27291666666666664" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_home.xml" value="0.4" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.264" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.15052083333333333" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_no_hay_red.xml" value="0.27291666666666664" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_proveedores.xml" value="0.264" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_registro_especifico.xml" value="0.35584415584415585" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_restauradores.xml" value="0.264" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_roles.xml" value="0.1859375" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.15555555555555556" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_subir_archivos.xml" value="0.27291666666666664" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.264" />
++        <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/Proyecto/app/src/main/res/layout/list_item.xml" value="0.27291666666666664" />
+         <entry key="..\:/Users/LENOVO/Documents/UNIVERSIDAD/QUINTO/Seguridad/Proyecto/deeltech_esencia/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/home.xml" value="0.11851851851851852" />
+@@ -31,6 +62,19 @@
+         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation.xml" value="0.4" />
+         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_fav.xml" value="0.26614583333333336" />
+         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_perfil.xml" value="0.25416666666666665" />
++        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14791666666666667" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donar.xml" value="0.4" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donativos.xml" value="0.2620545073375262" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.21648216482164823" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.24320652173913043" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.10729166666666666" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.264" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/content_user_register.xml" value="0.12291666666666666" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/donativos.xml" value="0.11927083333333334" />
++        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/fragment_prueba_paypal.xml" value="0.11614583333333334" />
++        <entry key="..\:/Users/leo20/Labs/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.264" />
++        <entry key="..\:/Users/leo20/Labs/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+       </map>
+     </option>
+   </component>
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <background android:drawable=\"@drawable/ic_launcher_background\" />\r\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\r\n</adaptive-icon>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(revision 5555fc35519c342030f866628ce5db4395b4dbc0)
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(date 1633723031388)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <background android:drawable="@color/ic_launcher_background"/>
++    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+ </adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <background android:drawable=\"@drawable/ic_launcher_background\" />\r\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\r\n</adaptive-icon>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(revision 5555fc35519c342030f866628ce5db4395b4dbc0)
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(date 1633723031395)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <background android:drawable="@color/ic_launcher_background"/>
++    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+ </adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <string name=\"app_name\">Proyecto</string>\r\n\r\n    <string name=\"title_activity_login\">LoginActivity</string>\r\n    <string name=\"prompt_email\">Email</string>\r\n    <string name=\"prompt_password\">Password</string>\r\n    <string name=\"action_sign_in\">Sign in or register</string>\r\n    <string name=\"action_sign_in_short\">Sign in</string>\r\n    <string name=\"welcome\">\"Welcome !\"</string>\r\n    <string name=\"invalid_username\">Not a valid username</string>\r\n    <string name=\"invalid_password\">Password must be >5 characters</string>\r\n    <string name=\"login_failed\">\"Login failed\"</string>\r\n    <!-- Strings used for fragments for navigation -->\r\n    <string name=\"first_fragment_label\">First Fragment</string>\r\n    <string name=\"second_fragment_label\">Second Fragment</string>\r\n    <string name=\"next\">Next</string>\r\n    <string name=\"previous\">Previous</string>\r\n\r\n    <string name=\"hello_first_fragment\">Hello first fragment</string>\r\n    <string name=\"hello_second_fragment\">Hello second fragment. Arg: %1$s</string>\r\n    <string name=\"title_activity_user_register\">UserRegister</string>\r\n    <string name=\"go_back\">Go back</string>\r\n    <string name=\"filter\">filter</string>\r\n    <string name=\"registrarse_title\">Registrarse</string>\r\n    <string name=\"usuario\">Usuario</string>\r\n    <string name=\"email\">Correo electrónico</string>\r\n    <string name=\"password\">Contraseña</string>\r\n    <string name=\"pass_confirm\">Confirmar contraseña</string>\r\n    <string name=\"continuar\">Continuar</string>\r\n    <string name=\"recup_contra\">Recuperación de contraseña</string>\r\n    <string name=\"fp_description\">No te preocupes. Recuperar tu contraseña es fácil. Solo tienes que poner el correo electronico de la cuenta con la que te registrarse.</string>\r\n    <string name=\"enviar\">Enviar</string>\r\n\r\n    <string name=\"proveedores\">Proveedores</string>\r\n    <string name=\"agentes\">Agentes Inmobiliarios</string>\r\n    <string name=\"restauradores\">Restauradores</string>\r\n\r\n    <string name=\"inicio\">Inicio</string>\r\n    <string name=\"favoritos\">Favoritos</string>\r\n    <string name=\"perfil\">Perfil</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 5555fc35519c342030f866628ce5db4395b4dbc0)
++++ b/app/src/main/res/values/strings.xml	(date 1633723031403)
+@@ -1,5 +1,5 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+-    <string name="app_name">Proyecto</string>
++    <string name="app_name">Patrimonio</string>
+ 
+     <string name="title_activity_login">LoginActivity</string>
+     <string name="prompt_email">Email</string>
