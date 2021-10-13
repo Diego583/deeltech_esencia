@@ -12,6 +12,14 @@ val LLAVE_DESCRIPCION : String = "descripcion"
 val ParseUser.descripcion: String?
     get() = getString(LLAVE_DESCRIPCION)
 
+val LLAVE_PASSWORD : String = "password"
+val ParseUser.password: String?
+    get() = getString(LLAVE_PASSWORD)
+
+val LLAVE_PHONE: String = "phone"
+val ParseUser.phone: String?
+    get() = getString(LLAVE_PHONE)
+
 val LLAVE_FOTOPERFIL: String = "fotoPerfil"
 val ParseUser.fotoPerfil: ParseFile?
     get() = getParseFile(LLAVE_FOTOPERFIL)

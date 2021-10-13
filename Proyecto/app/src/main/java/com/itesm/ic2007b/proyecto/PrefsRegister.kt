@@ -15,7 +15,7 @@ import android.util.Base64
 class PrefsRegister(val context:Context) {
 
 
-    val SHARED_NAME = "MyDB"
+    val SHARED_NAME = "MyDB1"
 
     //VARIABLES QUE HAREMOS PERCISTENTES begins
 

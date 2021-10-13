@@ -52,6 +52,7 @@
             android:layout_marginRight="15dp"
             android:ems="10"
             android:hint="Descripción"
+
             android:textColorHint="#757575"
             android:inputType="textPersonName"
             android:minHeight="50dp"

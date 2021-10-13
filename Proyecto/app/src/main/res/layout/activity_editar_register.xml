@@ -32,13 +32,13 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
             android:text="Edita tu perfil"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="100dp"
             app:errorEnabled="true"
 
             />
@@ -73,94 +73,9 @@
             android:minHeight="50dp"
             android:autofillHints="Numero de contacto" />
 
-        <EditText
-            android:id="@+id/contra1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:hint="@string/password"
-            android:textColorHint="#757575"
-            android:inputType="textPassword"
-            android:minHeight="50dp"
-            android:autofillHints="Contraseña"
-            app:errorEnabled="true"
-            />
 
-        <TextView
-            android:id="@+id/ReglaDigito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Un digito X"
-            android:textColor="#ff0000"
-            android:textSize="13sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/ReglaLetrasMayus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Una letras mayuscula X"
-            android:textColor="#ff0000"
-            android:textSize="13sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/ReglaLetrasMinus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Una letras minuscula X"
-            android:textColor="#ff0000"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/ReglaSimbolo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Un simbolo [@#$%^+=] X"
-            android:textColor="#ff0000"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/ReglaCaracteres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Cuatro caracteres X"
-            android:textColor="#ff0000"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/contra2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:hint="@string/pass_confirm"
-            android:textColorHint="#757575"
-            android:inputType="textPassword"
-            android:minHeight="50dp"
-            android:autofillHints="Confirmar contraseña"
-            app:errorEnabled="true"/>
 
         <Button
             android:id="@+id/buttonRegistrarse"

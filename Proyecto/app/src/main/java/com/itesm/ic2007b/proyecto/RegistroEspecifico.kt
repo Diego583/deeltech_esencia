@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Base64
@@ -20,7 +21,10 @@ import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding
 import com.parse.ParseFile
 import com.parse.ParseObject
+import com.parse.ParseQuery
 import com.parse.ParseUser
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_mi_perfil.*
 import kotlinx.android.synthetic.main.activity_registro_especifico.*
 import kotlinx.android.synthetic.main.activity_registro_especifico.spinner
 import kotlinx.android.synthetic.main.activity_roles.*
@@ -341,8 +345,10 @@ class RegistroEspecifico : AppCompatActivity() {
                         val file = ParseFile("file.pdf", fileByteArray)
                         val image = ParseFile("imagen.jpg", imageByteArray)
 
+                        currentUser.put("descripcion", "SE CAMBIOOOO") //Se guarda la foto de perfil
                         currentUser.put("docPDF", file) //Se guarda el portafolio
                         currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
+
 
                         currentUser.saveInBackground()
 
@@ -374,5 +380,7 @@ class RegistroEspecifico : AppCompatActivity() {
 
 
     }
+
+
 
 }

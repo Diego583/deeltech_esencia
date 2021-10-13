@@ -51,7 +51,7 @@ class MiPerfil : AppCompatActivity() {
 
         }
 
-
+        prefsRegister.clearAllData()
         initButton()
         editarPerfil()
         initializeNavbarMiPerfil()
