@@ -1,33 +1,30 @@
 package com.itesm.ic2007b.proyecto
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
-import android.app.Activity
-import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding
-import com.itesm.ic2007b.proyecto.databinding.ActivityRolesBinding
-import com.itesm.ic2007b.proyecto.databinding.ActivityUserRegisterBinding
+import com.parse.ParseFile
+import com.parse.ParseObject
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_registro_especifico.*
 import kotlinx.android.synthetic.main.activity_registro_especifico.spinner
 import kotlinx.android.synthetic.main.activity_roles.*
-import android.util.Base64
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
-import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
-import com.parse.ParseFile
-import com.parse.ParseObject
+
 
 class RegistroEspecifico : AppCompatActivity() {
 
@@ -82,42 +79,12 @@ class RegistroEspecifico : AppCompatActivity() {
 
         binding.buttonImagen.setOnClickListener { requestPermissionImage() }
         binding.buttonPDF.setOnClickListener { requestPermissionFile() }
-        binding.btnTerminar.setOnClickListener { saveRegister() }
-        initializeBackRegistroEspecifico()
+        //binding.btnTerminar.setOnClickListener { saveRegister() }
         spinner()
         initializeComponents()
         listenerBtn()
     }
 
-    //Guarda el registro en la base de datos
-    private fun saveRegister() {
-        val imageString = prefsRegister.getImage()
-        val fileString = prefsRegister.getPortafolio()
-
-        val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
-        val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
-
-        //Se guarda archivo en la base de datos
-        val file = ParseFile("file.pdf", fileByteArray)
-        val image = ParseFile("imagen.jpg", imageByteArray)
-        val jobApplication = ParseObject("JobApplication")
-        jobApplication.put("applicantName", "emilio")
-        jobApplication.put("Portafolio", file)
-        jobApplication.put("FotoPerfil", image)
-        jobApplication.saveInBackground()
-
-        //Limpiamos el storage de la aplicacion
-        prefsRegister.clearAllData()
-
-        //Cerramos la aplicacion
-        finish()
-    }
-
-    private fun initializeBackRegistroEspecifico() {
-        binding.backRegister.setOnClickListener{
-            finish()
-        }
-    }
 
     /**
      * IMAGENES
@@ -345,25 +312,41 @@ class RegistroEspecifico : AppCompatActivity() {
 
 
                 /**
-                 *Aquí giardamos en la base de datos con las variables globales
+                 *Aquí guardamos en la base de datos con las variables globales de registro
                  **/
                 val user = ParseUser()
                 user.username = prefsRegister.getUserName() //Usuario
                 user.setPassword(prefsRegister.getContra()) //contraseña
                 user.email = prefsRegister.getEmail() //Correo
-                user.put("phone", prefsRegister.getNumero())//numero, se crea la columna numero y se guarda ahí
-                user.put("roles", prefsRegister.getRol())//rol, se crea la columna roles y se guarda ahí
-                user.put("descripcion", prefsRegister.getDescricpion())//rol, se crea la columna roles y se guarda ahí
-                user.put("ubicacion", prefsRegister.getEstado())//rol, se crea la columna estado y se guarda ahí
+                user.put("phone", prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
+                user.put("roles", prefsRegister.getRol()) //rol, se crea la columna roles y se guarda ahí
+                user.put("descripcion", prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
+                user.put("ubicacion", prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
 
 
-                Log.d("USERNAME", prefsRegister.getUserName());
-                Log.d("ESTADO", prefsRegister.getEstado());
-                Log.d("CONTRA", prefsRegister.getContra());
-                Log.d("DESC", prefsRegister.getDescricpion());
-
-                user.signUpInBackground { e ->
+                user.signUpInBackground() { e ->
                     if (e == null) {
+
+                        var currentUser = ParseUser.getCurrentUser()
+
+                        //ARCHIVOS STRING
+                        val imageString = prefsRegister.getImage()
+                        val fileString = prefsRegister.getPortafolio()
+
+                        //ARCHIVOS BITARRAY
+                        val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
+                        val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
+
+                        //Se crean archivos parce
+                        val file = ParseFile("file.pdf", fileByteArray)
+                        val image = ParseFile("imagen.jpg", imageByteArray)
+
+                        currentUser.put("docPDF", file) //Se guarda el portafolio
+                        currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
+
+                        currentUser.saveInBackground()
+
+
                         prefsRegister.clearAllData()
 
                         val text = "Cuenta creada con exito"
