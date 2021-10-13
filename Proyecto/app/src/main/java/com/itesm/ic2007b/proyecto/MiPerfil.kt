@@ -4,10 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.parse.*
@@ -51,6 +48,7 @@ class MiPerfil : AppCompatActivity() {
 
         initializeNavbarMiPerfil()
         logOut()
+        donate()
     }
 
     private fun displayData(fotoUrl:String?, nombre:String, ubicacion:String,
@@ -131,6 +129,13 @@ class MiPerfil : AppCompatActivity() {
             builder.show()
 
 
+        }
+    }
+
+    fun donate(){
+        donar.setOnClickListener {
+            var intent: Intent = Intent(this,Donativos::class.java)
+            startActivity(intent)
         }
     }
 }
