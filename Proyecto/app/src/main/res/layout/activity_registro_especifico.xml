@@ -105,6 +105,38 @@
             tools:ignore="TextContrastCheck"
             app:errorEnabled="true"/>
 
+        <ImageView
+            android:id="@+id/imageViewRegister"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TextEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:text="Selecciona tu estado"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="13dp"
+            android:hint="Estado"
+            android:minHeight="48dp"
+            android:spinnerMode="dialog"
+            app:layout_constraintVertical_bias="0.3"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/btnTerminar"

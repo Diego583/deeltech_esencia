@@ -36,7 +36,18 @@
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/searchRestauradores"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        tools:visibility="visible">
+
+        <Spinner
+            android:id="@+id/spinner"
+
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:spinnerMode="dialog"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </ImageButton>
 
     <SearchView
         android:id="@+id/searchRestauradores"
