@@ -13,9 +13,9 @@ val ParseUser.descripcion: String?
     get() = getString(LLAVE_DESCRIPCION)
 
 val LLAVE_FOTOPERFIL: String = "fotoPerfil"
-val ParseUser.fotoPerfil: String?
-    get() = getString(LLAVE_FOTOPERFIL)
+val ParseUser.fotoPerfil: ParseFile?
+    get() = getParseFile(LLAVE_FOTOPERFIL)
 
 val LLAVE_DOCPDF: String = "docPDF"
-val ParseUser.docPDF: String?
-    get() = getString(LLAVE_DOCPDF)
+val ParseUser.docPDF: ParseFile?
+    get() = getParseFile(LLAVE_DOCPDF)

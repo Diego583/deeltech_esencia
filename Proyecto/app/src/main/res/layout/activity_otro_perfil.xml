@@ -50,7 +50,7 @@
             android:layout_below="@+id/foto_ver_perfil"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/nombre_ver_perfil"
+            android:text="@string/no_texto"
             android:layout_marginTop="10dp"
             android:textSize="35sp"
             android:textColor="@color/black" />
@@ -63,7 +63,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:textAllCaps="true"
-            android:text="@string/ubicacion_ver_perfil"
+            android:text="@string/no_texto"
             android:layout_marginTop="5dp"
             android:textSize="16sp"
             android:textStyle="bold"/>

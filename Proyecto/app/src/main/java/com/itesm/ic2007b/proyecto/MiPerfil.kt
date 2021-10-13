@@ -2,7 +2,9 @@ package com.itesm.ic2007b.proyecto
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -11,12 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.parse.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.LogOut
-
-
-
-
-
-
+import com.squareup.picasso.Picasso
 
 class MiPerfil : AppCompatActivity() {
 
@@ -37,13 +34,17 @@ class MiPerfil : AppCompatActivity() {
         query.whereEqualTo("username", nombreG)
         query.findInBackground { user, e ->
             if (e == null) {
+                val foto: String? = user[0].getParseFile(LLAVE_FOTOPERFIL)?.url
                 val ubicacion: String = user[0].ubicacion.toString()
                 val descripcion: String = user[0].descripcion.toString()
+                val docPDF : String? = user[0].getParseFile(LLAVE_DOCPDF)?.url
 
-                displayData(nombreG, ubicacion, descripcion)
+                displayData(foto, nombreG, ubicacion, descripcion, docPDF)
             } else {
-                val error: String = "ERROR"
-                displayData(error, error, error)
+                val text = "Error cargando datos"
+                val duration = Toast.LENGTH_LONG
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
             }
 
         }
@@ -52,16 +53,31 @@ class MiPerfil : AppCompatActivity() {
         logOut()
     }
 
-    private fun displayData(nombre:String, ubicacion:String,
-                            descripcion:String) {
+    private fun displayData(fotoUrl:String?, nombre:String, ubicacion:String,
+                            descripcion:String, docUrl:String?) {
         val fotoPerfilImageView: ImageView = findViewById(R.id.foto_perfil)
         val miNombreTextView: TextView = findViewById(R.id.mi_nombre)
         val ubicacionTextView: TextView = findViewById(R.id.ubicacion)
         val descripcionTextView: TextView = findViewById(R.id.descripcion_perfil)
+        val docButton: Button = findViewById(R.id.button_abrir_pdf)
+
+
+        val imageUri: Uri = Uri.parse(fotoUrl)
+        Picasso.with(this).load(imageUri.toString()).into(fotoPerfilImageView)
 
         miNombreTextView.text = nombre
         ubicacionTextView.text = ubicacion
         descripcionTextView.text = descripcion
+
+
+        val docName: String? = docUrl?.substringAfter("_")
+        docButton.text = docName
+
+        button_abrir_pdf.setOnClickListener {
+            intent = Intent(this, WebViewActivity::class.java)
+            intent.putExtra("key",docUrl);
+            startActivity(intent)
+        }
     }
 
     private fun initializeNavbarMiPerfil() {

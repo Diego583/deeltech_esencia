@@ -40,15 +40,12 @@
     <string name="perfil">Perfil</string>
 
     <string name="log_out">Log Out</string>
-    <string name="nombre_ver_perfil">Escencia Patrimonio</string>
-    <string name="ubicacion_ver_perfil">queretaro, qro</string>
+    <string name="no_texto">-</string>
     <string name="agregar_favoritos">agregar a favoritos</string>
     <string name="contactame">contactame</string>
     <string name="descripcion_texto">Descripción: </string>
-    <string name="opening_pdf">Abrir PDF</string>
+    <string name="opening_pdf">Abrir PDF: </string>
 
-    <string name="nombre_perfil_propio">Emilio Barrera</string>
-    <string name="ubicacion_perfil_propio">toluca, edo. mex</string>
     <string name="editar_perfil">editar perfil</string>
 
     <!-- DATA BASE BEGINS -->
