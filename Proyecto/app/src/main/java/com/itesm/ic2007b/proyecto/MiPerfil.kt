@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,6 +15,14 @@ import com.parse.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.LogOut
 import com.squareup.picasso.Picasso
+import com.parse.ParseObject
+
+import com.parse.FindCallback
+
+import com.parse.ParseQuery
+
+
+
 
 class MiPerfil : AppCompatActivity() {
 
@@ -22,6 +31,7 @@ class MiPerfil : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mi_perfil)
@@ -34,12 +44,24 @@ class MiPerfil : AppCompatActivity() {
         query.whereEqualTo("username", nombreG)
         query.findInBackground { user, e ->
             if (e == null) {
-                val foto: String? = user[0].getParseFile(LLAVE_FOTOPERFIL)?.url
                 val ubicacion: String = user[0].ubicacion.toString()
                 val descripcion: String = user[0].descripcion.toString()
-                val docPDF : String? = user[0].getParseFile(LLAVE_DOCPDF)?.url
 
-                displayData(foto, nombreG, ubicacion, descripcion, docPDF)
+                val query1 = ParseQuery.getQuery<ParseObject>("ArchivosUsuario")
+                query1.whereEqualTo("username", nombreG)
+                query1.findInBackground { userFiles, e ->
+                    if (e == null) {
+                        val docPDF : String? = userFiles[0].getParseFile(LLAVE_DOCPDF)?.url
+                        val foto: String? = userFiles[0].getParseFile(LLAVE_FOTOPERFIL)?.url
+
+                        displayData(foto, nombreG, ubicacion, descripcion, docPDF)
+                    } else {
+                        val text = "Error cargando datos"
+                        val duration = Toast.LENGTH_LONG
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    }
+                }
             } else {
                 val text = "Error cargando datos"
                 val duration = Toast.LENGTH_LONG

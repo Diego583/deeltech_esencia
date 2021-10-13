@@ -9,11 +9,13 @@ import com.itesm.ic2007b.proyecto.databinding.ActivityUserRegisterBinding
 import com.parse.ParseUser
 import java.util.regex.Pattern
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.graphics.Color
 import android.text.Editable
 
 import android.text.TextWatcher
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.parse.ParseQuery
 
@@ -34,6 +36,12 @@ class UserRegister : AppCompatActivity(){
     //Variable para poder conectar .XML a .KT
     private lateinit var binding : ActivityUserRegisterBinding
 
+    override fun onBackPressed() {
+        intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,9 +52,10 @@ class UserRegister : AppCompatActivity(){
 
         prefsRegister.clearAllData()
 
-
         //setContentView(R.layout.activity_user_register)
         binding.backRegister.setOnClickListener {
+            intent = Intent(this, Login::class.java)
+            startActivity(intent)
             finish()
         }
 
