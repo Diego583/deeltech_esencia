@@ -307,6 +307,23 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
             }
+            if(!vacio){
+                val text = "Te falta seleccionar tu estado"
+                val duration = Toast.LENGTH_SHORT
+
+                // Mensaje de error con toast
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+            if(descripcion.isEmpty()){
+                val text = "Te falta escribir tu descripción"
+                val duration = Toast.LENGTH_SHORT
+
+                // Mensaje de error con toast
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+
+            }
             else{
                 /**
                  *Aquí se guardan las variables con PREFS
@@ -379,17 +396,13 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                         finish()
                     }
 
-
                 }
 
                 builder.show()
 
-
             }
 
-
         }
-
 
     }
 
@@ -421,18 +434,13 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                     contra:String, numero:String) {
 
         val fotoPerfilImageView: ImageView = findViewById(R.id.imageViewRegister)
-        //val miNombreTextView: TextView = findViewById(R.id.mi_nombre)
-        //val ubicacionTextView: TextView = findViewById(R.id.ubicacion)
         val descripcionTextView: EditText = findViewById(R.id.descripcion)
-        //val docButton: Button = findViewById(R.id.button_abrir_pdf)
 
 
         val imageUri: Uri = Uri.parse(fotoUrl)
         Picasso.with(this).load(imageUri.toString()).into(fotoPerfilImageView)
 
-        //miNombreTextView.text = nombre
-        //ubicacionTextView.text = ubicacion
-        //descripcionTextView.setText(descripcion)
+
         binding.descripcion.setText(descripcion)
 
     }
