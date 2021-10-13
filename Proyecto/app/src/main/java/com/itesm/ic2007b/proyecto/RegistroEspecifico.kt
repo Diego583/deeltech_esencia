@@ -1,6 +1,8 @@
 package com.itesm.ic2007b.proyecto
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -24,9 +26,90 @@ import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_registro_especifico.*
 import kotlinx.android.synthetic.main.activity_registro_especifico.spinner
 import kotlinx.android.synthetic.main.activity_roles.*
+import com.parse.ParseException;
+import com.parse.SignUpCallback;
+
 
 
 class RegistroEspecifico : AppCompatActivity() {
+
+    //Funcion para registrarse
+    private fun signUp(username: String, password: String, email: String) {
+        val user = ParseUser()
+
+        user.username = username
+        user.setPassword(password)
+        user.email = email
+        user.put("phone", prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
+        user.put("roles", prefsRegister.getRol()) //rol, se crea la columna roles y se guarda ahí
+        user.put("descripcion", prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
+        user.put("ubicacion", prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
+        user.signUpInBackground(SignUpCallback {
+            if (it == null) {
+                /**
+                var currentUser = ParseUser.getCurrentUser()
+
+                //ARCHIVOS STRING
+                val imageString = prefsRegister.getImage()
+                val fileString = prefsRegister.getPortafolio()
+
+                //ARCHIVOS BITARRAY
+                val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
+                val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
+
+                //Se crean archivos parce
+                val file = ParseFile("file.pdf", fileByteArray)
+                val image = ParseFile("imagen.jpg", imageByteArray)
+
+                currentUser.put("docPDF", file) //Se guarda el portafolio
+                currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
+
+                currentUser.saveInBackground()
+                **/
+
+                //ARCHIVOS STRING
+                val imageString = prefsRegister.getImage()
+                val fileString = prefsRegister.getPortafolio()
+
+                //ARCHIVOS BYTARRAY
+                val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
+                val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
+
+                //Se crean archivos parce
+                val file = ParseFile("file.pdf", fileByteArray)
+                val image = ParseFile("imagen.jpg", imageByteArray)
+
+                //GUARDAMOS
+                val ArchivosUsuario = ParseObject("ArchivosUsuario")
+                ArchivosUsuario.put("username", username)
+                ArchivosUsuario.put("docPDF", file) //Se guarda el portafolio
+                ArchivosUsuario.put("fotoPerfil", image) //Se guarda la foto de perfil
+                ArchivosUsuario.saveInBackground()
+
+                val  builder = AlertDialog.Builder(this)
+                builder.setTitle("¡Cuenta creada exitosamente!")
+                builder.setMessage("No olvides verificar tu correo para poder iniciar sesion.")
+                builder.setPositiveButton("OK",{ dialogInterface: DialogInterface, i: Int ->
+                    prefsRegister.clearAllData()
+                    ParseUser.logOut();
+                    //Regresa a Login
+                    intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                    finish()
+                })
+                builder.show()
+
+            } else {
+                prefsRegister.clearAllData()
+                ParseUser.logOut();
+                val text = "Intentalo más tarde"
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+        })
+    }
 
     //Variable para poder conectar .XML a .KT
     private lateinit var binding : ActivityRegistroEspecificoBinding
@@ -290,10 +373,9 @@ class RegistroEspecifico : AppCompatActivity() {
     fun listenerBtn(){
 
         btnTerminar.setOnClickListener{
-
+            //Variables
             val descripcion = binding.descripcion.text.toString()
             var estado = estado_usuario
-
 
             if(descripcion.isEmpty()){
                 val text = "Te falta escribir una descripcion"
@@ -310,63 +392,8 @@ class RegistroEspecifico : AppCompatActivity() {
                 prefsRegister.saveEstado(estado)
                 prefsRegister.saveDescricpion(descripcion)
 
-
-                /**
-                 *Aquí guardamos en la base de datos con las variables globales de registro
-                 **/
-                val user = ParseUser()
-                user.username = prefsRegister.getUserName() //Usuario
-                user.setPassword(prefsRegister.getContra()) //contraseña
-                user.email = prefsRegister.getEmail() //Correo
-                user.put("phone", prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
-                user.put("roles", prefsRegister.getRol()) //rol, se crea la columna roles y se guarda ahí
-                user.put("descripcion", prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
-                user.put("ubicacion", prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
-
-
-                user.signUpInBackground() { e ->
-                    if (e == null) {
-
-                        var currentUser = ParseUser.getCurrentUser()
-
-                        //ARCHIVOS STRING
-                        val imageString = prefsRegister.getImage()
-                        val fileString = prefsRegister.getPortafolio()
-
-                        //ARCHIVOS BITARRAY
-                        val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
-                        val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
-
-                        //Se crean archivos parce
-                        val file = ParseFile("file.pdf", fileByteArray)
-                        val image = ParseFile("imagen.jpg", imageByteArray)
-
-                        currentUser.put("docPDF", file) //Se guarda el portafolio
-                        currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
-
-                        currentUser.saveInBackground()
-
-
-                        prefsRegister.clearAllData()
-
-                        val text = "Cuenta creada con exito"
-                        val duration = Toast.LENGTH_SHORT
-
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-
-                        intent = Intent(this, Login::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        prefsRegister.clearAllData()
-                        val text = "Intentalo más tarde"
-                        val duration = Toast.LENGTH_SHORT
-
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-                    }
-                }
+                //Registramos la sesion
+                signUp(prefsRegister.getUserName(),prefsRegister.getContra(),prefsRegister.getEmail())
             }
 
 

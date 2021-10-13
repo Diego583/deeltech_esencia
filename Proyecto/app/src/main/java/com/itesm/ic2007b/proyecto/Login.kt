@@ -112,6 +112,7 @@ class Login : AppCompatActivity() {
             //prefsRegister.clearAllData()
             var intent: Intent = Intent(this,UserRegister::class.java)
             startActivity(intent)
+            finish()
         }
 
         btnForgot.setOnClickListener{

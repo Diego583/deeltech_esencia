@@ -36,7 +36,6 @@ class Home : AppCompatActivity() {
 
         initializeCategories()
         initializeNavbarHome()
-        logOut()
     }
 
     private fun initializeCategories() {
@@ -73,38 +72,6 @@ class Home : AppCompatActivity() {
                 }
                 else -> false
             }
-        }
-    }
-
-    fun logOut(){
-        LogOut.setOnClickListener{
-
-            val  builder = AlertDialog.Builder(this)
-            builder.setTitle("Atención")
-            builder.setMessage("¿Deseas cerrar sesión?")
-            builder.setPositiveButton("Si") { dialogInterface: DialogInterface, i: Int ->
-
-                ParseUser.logOutInBackground { e: ParseException? ->
-                    if (e == null)
-                        prefsUser.clearAllData()
-                    val text = "Vuelve pronto y recuerda donar!!!"
-                    val duration = Toast.LENGTH_SHORT
-
-                    val toast = Toast.makeText(applicationContext, text, duration)
-                    toast.show()
-
-                    intent = Intent(this, Login::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-
-
-            }
-
-            builder.setNegativeButton("No",{ dialogInterface: DialogInterface, i: Int -> })
-            builder.show()
-
-
         }
     }
 
