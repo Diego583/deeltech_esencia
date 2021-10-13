@@ -10,12 +10,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.parse.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.LogOut
 import com.squareup.picasso.Picasso
 
 class MiPerfil : AppCompatActivity() {
+    private lateinit var btnEdit: Button
 
     override fun onBackPressed() {
         intent = Intent(this,Home::class.java)
@@ -49,6 +51,9 @@ class MiPerfil : AppCompatActivity() {
 
         }
 
+
+        initButton()
+        editarPerfil()
         initializeNavbarMiPerfil()
         logOut()
     }
@@ -131,6 +136,19 @@ class MiPerfil : AppCompatActivity() {
             builder.show()
 
 
+        }
+    }
+
+
+    fun initButton(){
+        btnEdit = findViewById(R.id.editar_perfil_btn)
+    }
+
+    fun editarPerfil(){
+        btnEdit.setOnClickListener{
+            prefsRegister.clearAllData()
+            var intent: Intent = Intent(this,EditarRegister::class.java)
+            startActivity(intent)
         }
     }
 }

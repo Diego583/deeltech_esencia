@@ -38,15 +38,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible">
 
-        <Spinner
-            android:id="@+id/spinner"
-
-            android:layout_width="1dp"
-            android:layout_height="1dp"
-            android:spinnerMode="dialog"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
     </ImageButton>
 
     <SearchView

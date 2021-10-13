@@ -89,16 +89,15 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/ubicacion"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textAllCaps="true"
-            android:text="@string/editar_perfil"
-            android:layout_marginTop="15dp"
+            android:layout_centerInParent="true"
             android:layout_marginHorizontal="15dp"
-            android:textSize="16dp"
 
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/pink"
+            android:text="@string/editar_perfil"
+            android:textAllCaps="true"
             android:textColor="@color/white"
-            android:backgroundTint="@color/pink"/>
+            android:textSize="16dp" />
 
         <RelativeLayout
             android:id="@+id/descripcion"
