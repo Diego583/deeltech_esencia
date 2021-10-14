@@ -15,7 +15,6 @@ import android.widget.Toast
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.itesm.ic2007b.proyecto.databinding.ActivityEditarRegisterBinding
-import com.itesm.ic2007b.proyecto.databinding.ActivityUserRegisterBinding
 import com.parse.ParseQuery
 import com.parse.ParseUser
 import com.squareup.picasso.Picasso

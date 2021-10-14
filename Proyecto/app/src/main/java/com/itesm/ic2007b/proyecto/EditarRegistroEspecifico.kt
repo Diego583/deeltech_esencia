@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.activity_mi_perfil.*
 class EditarRegistroEspecifico : AppCompatActivity() {
 
     //Variable para poder conectar .XML a .KT
-        private lateinit var binding : ActivityEditarRegistroEspecificoBinding
+    private lateinit var binding : ActivityEditarRegistroEspecificoBinding
     private lateinit var btnTerminar: Button
 
     // list of spinner items
@@ -73,6 +73,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
     var vacio: Boolean = false
     var estado_usuario: String = ""
+    var pos: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,8 +83,8 @@ class EditarRegistroEspecifico : AppCompatActivity() {
         binding.buttonImagen.setOnClickListener { requestPermissionImage() }
         binding.buttonPDF.setOnClickListener { requestPermissionFile() }
 
-        datosRegistrados()
         spinner()
+        datosRegistrados()
         initializeComponents()
         listenerBtn()
 
@@ -273,6 +274,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
 
                 // by default spinner initial selected item is first item
+                pos = position
                 if (position != 0){
                     vacio = true
                     estado_usuario = list[position]
@@ -307,22 +309,13 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
             }
-            if(!vacio){
+            if(estado == ""){
                 val text = "Te falta seleccionar tu estado"
                 val duration = Toast.LENGTH_SHORT
 
                 // Mensaje de error con toast
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
-            }
-            if(descripcion.isEmpty()){
-                val text = "Te falta escribir tu descripción"
-                val duration = Toast.LENGTH_SHORT
-
-                // Mensaje de error con toast
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-
             }
             else{
                 /**
@@ -353,9 +346,9 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 currentUser.username = App.prefsRegister.getUserName() //Usuario
                 currentUser.put("phone", App.prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
                 currentUser.put("descripcion", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
-                //currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
+                currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
 
-                if (imageString.isNotEmpty()){
+                if(imageString.isNotEmpty()){
                     currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
                 }
                 if(fileString.isNotEmpty()){

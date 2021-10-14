@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarRegister">
+    tools:context=".EditarRegister"
+    >
 
 
     <LinearLayout
@@ -29,26 +30,37 @@
             android:contentDescription="@string/go_back" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
-            android:text="Edita tu perfil"
+            android:text="Usuario"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginBottom="100dp"
             app:errorEnabled="true"
-
             />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:text="Usuario"
+            android:textSize="17sp"
+            app:errorEnabled="true"
+            />
+
 
         <EditText
             android:id="@+id/usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="15dp"
             android:ems="10"
             android:hint="@string/usuario"
@@ -58,12 +70,23 @@
             android:autofillHints="Usuario"
             app:errorEnabled="true"/>
 
+        <TextView
+            android:id="@+id/textViewNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Número de contacto"
+            android:textSize="17sp"
+            app:errorEnabled="true"
+            />
+
         <EditText
             android:id="@+id/numero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:ems="10"
             android:hint="Número de contacto"
