@@ -342,6 +342,9 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 val file = ParseFile("file.pdf", fileByteArray)
                 val image = ParseFile("imagen.jpg", imageByteArray)
 
+
+
+
                 //Los datos se meten en la base de datos
                 currentUser.username = App.prefsRegister.getUserName() //Usuario
                 currentUser.put("phone", App.prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
@@ -357,7 +360,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
                 currentUser.saveInBackground{
                     if(it==null){
-                        val text = "NULL"
+                        val text = "NUuuuuuuuuLL"
                         val duration = Toast.LENGTH_SHORT
 
                         val toast = Toast.makeText(applicationContext, text, duration)
