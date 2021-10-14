@@ -328,7 +328,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 /**
                  *Aquí guardamos en la base de datos con las variables globales de registro
                  **/
-                var currentUser = ParseUser.getCurrentUser()
+                val currentUser = ParseUser.getCurrentUser()
 
                 //ARCHIVOS STRING
                 val imageString = App.prefsRegister.getImage()
@@ -360,7 +360,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
                 currentUser.saveInBackground{
                     if(it==null){
-                        val text = "NUuuuuuuuuLL"
+                        val text = "NULL"
                         val duration = Toast.LENGTH_SHORT
 
                         val toast = Toast.makeText(applicationContext, text, duration)
