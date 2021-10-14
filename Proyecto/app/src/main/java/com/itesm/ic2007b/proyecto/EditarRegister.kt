@@ -57,7 +57,6 @@ class EditarRegister : AppCompatActivity() {
     //Funcion que checa las caracteristicas mínimas que debe tener la contraseña
     /*
     fun OnClickUp(){
-
         val ReglaDigit = Pattern.compile(
             "^" +
                     "(?=.*[0-9])" +             //Al menos un digito
@@ -87,17 +86,12 @@ class EditarRegister : AppCompatActivity() {
                     ".{4,}" +                   //al menos 4 caracteres
                     "$"
         )
-
         txt_input = binding.contra1
         lbl_output = binding.ReglaDigito
-
-
         text = object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-
             @SuppressLint("SetTextI18n")
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-
                 if(ReglaDigit.matcher(binding.contra1.text.toString()).matches()){
                     lbl_output = binding.ReglaDigito
                     lbl_output!!.setText("Un digito ✔")
@@ -108,7 +102,6 @@ class EditarRegister : AppCompatActivity() {
                     lbl_output!!.setText("Un digito X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
-
                 if(ReglaMayus.matcher(binding.contra1.text.toString()).matches()){
                     lbl_output = binding.ReglaLetrasMayus
                     lbl_output!!.setText("Una letras mayuscula ✔")
@@ -119,7 +112,6 @@ class EditarRegister : AppCompatActivity() {
                     lbl_output!!.setText("Una letras mayuscula X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
-
                 if(ReglaMinus.matcher(binding.contra1.text.toString()).matches()){
                     lbl_output = binding.ReglaLetrasMinus
                     lbl_output!!.setText("Una letras minuscula ✔")
@@ -130,7 +122,6 @@ class EditarRegister : AppCompatActivity() {
                     lbl_output!!.setText("Una letras minuscula X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
-
                 if(ReglaSimbolo.matcher(binding.contra1.text.toString()).matches()){
                     lbl_output = binding.ReglaSimbolo
                     lbl_output!!.setText("Un simbolo [@#\$%^&+=] ✔")
@@ -141,7 +132,6 @@ class EditarRegister : AppCompatActivity() {
                     lbl_output!!.setText("Un simbolo [@#\$%^&+=] X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
-
                 if(ReglaChar.matcher(binding.contra1.text.toString()).matches()){
                     lbl_output = binding.ReglaCaracteres
                     lbl_output!!.setText("Cuatro caracteres ✔")
@@ -152,16 +142,11 @@ class EditarRegister : AppCompatActivity() {
                     lbl_output!!.setText("Cuatro caracteres X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
-
             }
-
             override fun afterTextChanged(editable: Editable) {}
-
         }
         txt_input!!.addTextChangedListener(text)
-
     }
-
      */
 
     //Funcion que regresa lo que pasaría al momento de darle click al boton de registrar

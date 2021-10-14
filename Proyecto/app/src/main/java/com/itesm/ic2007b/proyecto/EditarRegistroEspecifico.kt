@@ -355,7 +355,15 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                     currentUser.put("docPDF", file) //Se guarda el portafolio
                 }
 
-                currentUser.saveInBackground()
+                currentUser.saveInBackground{
+                    if(it==null){
+                        val text = "NULL"
+                        val duration = Toast.LENGTH_SHORT
+
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    }
+                }
 
 
                 App.prefsRegister.clearAllData()
