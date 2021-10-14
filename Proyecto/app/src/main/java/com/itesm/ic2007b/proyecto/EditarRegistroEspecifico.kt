@@ -20,11 +20,23 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.itesm.ic2007b.proyecto.databinding.ActivityEditarRegistroEspecificoBinding
-import com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding
 import com.parse.*
 import kotlinx.android.synthetic.main.activity_registro_especifico.*
 
+
+import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
+import com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding
+import com.parse.ParseFile
+import com.parse.ParseObject
+import com.parse.ParseQuery
+import com.parse.ParseUser
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_mi_perfil.*
+import kotlinx.android.synthetic.main.activity_registro_especifico.*
+import kotlinx.android.synthetic.main.activity_registro_especifico.spinner
+import kotlinx.android.synthetic.main.activity_roles.*
+
+
 import kotlinx.android.synthetic.main.activity_mi_perfil.*
 
 
@@ -73,7 +85,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
     var vacio: Boolean = false
     var estado_usuario: String = ""
-    var pos: Int = 0
+    //var pos: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,8 +95,8 @@ class EditarRegistroEspecifico : AppCompatActivity() {
         binding.buttonImagen.setOnClickListener { requestPermissionImage() }
         binding.buttonPDF.setOnClickListener { requestPermissionFile() }
 
-        spinner()
         datosRegistrados()
+        spinner()
         initializeComponents()
         listenerBtn()
 
@@ -274,7 +286,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
 
                 // by default spinner initial selected item is first item
-                pos = position
+                //pos = position
                 if (position != 0){
                     vacio = true
                     estado_usuario = list[position]
@@ -309,6 +321,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
             }
+            /**
             if(estado == ""){
                 val text = "Te falta seleccionar tu estado"
                 val duration = Toast.LENGTH_SHORT
@@ -316,7 +329,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 // Mensaje de error con toast
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
-            }
+            }**/
             else{
                 /**
                  *Aquí se guardan las variables con PREFS
@@ -348,25 +361,18 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                 //Los datos se meten en la base de datos
                 currentUser.username = App.prefsRegister.getUserName() //Usuario
                 currentUser.put("phone", App.prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
-                currentUser.put("descripcion", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
-                currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
+                //currentUser.put("descripcion", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
+                currentUser.put("descripcion", "SE CAMBIOOOO") //Se guarda la foto de perfil
+                //currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
 
-                if(imageString.isNotEmpty()){
+                //if (imageString.isNotEmpty()){
                     currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
-                }
-                if(fileString.isNotEmpty()){
+                //}
+                //if(fileString.isNotEmpty()){
                     currentUser.put("docPDF", file) //Se guarda el portafolio
-                }
+                //}
 
-                currentUser.saveInBackground{
-                    if(it==null){
-                        val text = "NULL"
-                        val duration = Toast.LENGTH_SHORT
-
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-                    }
-                }
+                currentUser.saveInBackground()
 
 
                 App.prefsRegister.clearAllData()
@@ -400,13 +406,17 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                         finish()
                     }
 
+
                 }
 
                 builder.show()
 
+
             }
 
+
         }
+
 
     }
 
@@ -438,13 +448,18 @@ class EditarRegistroEspecifico : AppCompatActivity() {
                     contra:String, numero:String) {
 
         val fotoPerfilImageView: ImageView = findViewById(R.id.imageViewRegister)
+        //val miNombreTextView: TextView = findViewById(R.id.mi_nombre)
+        //val ubicacionTextView: TextView = findViewById(R.id.ubicacion)
         val descripcionTextView: EditText = findViewById(R.id.descripcion)
+        //val docButton: Button = findViewById(R.id.button_abrir_pdf)
 
 
         val imageUri: Uri = Uri.parse(fotoUrl)
         Picasso.with(this).load(imageUri.toString()).into(fotoPerfilImageView)
 
-
+        //miNombreTextView.text = nombre
+        //ubicacionTextView.text = ubicacion
+        //descripcionTextView.setText(descripcion)
         binding.descripcion.setText(descripcion)
 
     }

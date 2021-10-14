@@ -1,0 +1,153 @@
+Index: app/src/main/java/com/itesm/ic2007b/proyecto/EditarRegistroEspecifico.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.itesm.ic2007b.proyecto\r\n\r\nimport android.app.Activity\r\nimport android.content.DialogInterface\r\nimport android.content.Intent\r\nimport android.content.pm.PackageManager\r\nimport android.graphics.Color\r\nimport android.graphics.Typeface\r\nimport android.graphics.drawable.ColorDrawable\r\nimport android.net.Uri\r\nimport android.os.Build\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.util.Base64\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.*\r\nimport androidx.activity.result.contract.ActivityResultContracts\r\nimport androidx.appcompat.app.AlertDialog\r\nimport androidx.core.content.ContextCompat\r\nimport com.itesm.ic2007b.proyecto.App.Companion.prefsUser\r\nimport com.itesm.ic2007b.proyecto.databinding.ActivityEditarRegistroEspecificoBinding\r\nimport com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding\r\nimport com.parse.*\r\nimport kotlinx.android.synthetic.main.activity_registro_especifico.*\r\n\r\nimport com.squareup.picasso.Picasso\r\nimport kotlinx.android.synthetic.main.activity_mi_perfil.*\r\n\r\n\r\nclass EditarRegistroEspecifico : AppCompatActivity() {\r\n\r\n    //Variable para poder conectar .XML a .KT\r\n    private lateinit var binding : ActivityEditarRegistroEspecificoBinding\r\n    private lateinit var btnTerminar: Button\r\n\r\n    // list of spinner items\r\n    val list = mutableListOf(\r\n        \"Aguascalientes\",\r\n        \"Baja California\",\r\n        \"Baja California Sur\",\r\n        \"Campeche\",\r\n        \"CDMX\",\r\n        \"Chiapas\",\r\n        \"Chihuahua\",\r\n        \"Coahuila\",\r\n        \"Colima\",\r\n        \"Durango\",\r\n        \"Guanajuato\",\r\n        \"Guerrero\",\r\n        \"Hidalgo\",\r\n        \"Jalisco\",\r\n        \"Edo. Mex.\",\r\n        \"Michoacán\",\r\n        \"Morelos\",\r\n        \"Nayarit\",\r\n        \"Nuevo León\",\r\n        \"Oaxaca\",\r\n        \"Puebla\",\r\n        \"Querétaro\",\r\n        \"Quintana Roo\",\r\n        \"San Luis Potosí\",\r\n        \"Sinaloa\",\r\n        \"Sonora\",\r\n        \"Tabasco\",\r\n        \"Tamaulipas\",\r\n        \"Tlaxcala\",\r\n        \"Veracruz\",\r\n        \"Yucatán\",\r\n        \"Zacatecas\"\r\n\r\n    )\r\n\r\n    var vacio: Boolean = false\r\n    var estado_usuario: String = \"\"\r\n    var pos: Int = 0\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivityEditarRegistroEspecificoBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n\r\n        binding.buttonImagen.setOnClickListener { requestPermissionImage() }\r\n        binding.buttonPDF.setOnClickListener { requestPermissionFile() }\r\n\r\n        spinner()\r\n        datosRegistrados()\r\n        initializeComponents()\r\n        listenerBtn()\r\n\r\n\r\n    }\r\n\r\n\r\n    /**\r\n     * IMAGENES\r\n     */\r\n\r\n    //Permisos de la imagen\r\n    private fun requestPermissionImage() {\r\n        // Verificaremos el nivel de API para solicitar los permisos\r\n        // en tiempo de ejecución\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {\r\n            when {\r\n\r\n                ContextCompat.checkSelfPermission(\r\n                    this,\r\n                    android.Manifest.permission.READ_EXTERNAL_STORAGE\r\n                ) == PackageManager.PERMISSION_GRANTED -> {\r\n                    pickPhotoFromGallery()\r\n                }\r\n\r\n                else -> requestPermissionLauncherImage.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)\r\n            }\r\n        }else {\r\n            // Se llamará a la función para APIs 22 o inferior\r\n            // Esto debido a que se aceptaron los permisos\r\n            // al momento de instalar la aplicación\r\n            pickPhotoFromGallery()\r\n        }\r\n    }\r\n\r\n    private val requestPermissionLauncherImage = registerForActivityResult(\r\n        ActivityResultContracts.RequestPermission()\r\n    ){ isGranted ->\r\n\r\n        if (isGranted){\r\n            pickPhotoFromGallery()\r\n        }else{\r\n            Toast.makeText(\r\n                this,\r\n                \"Permission denied\",\r\n                Toast.LENGTH_SHORT).show()\r\n        }\r\n    }\r\n\r\n    //Elegir foto\r\n    private fun pickPhotoFromGallery() {\r\n        val intent = Intent(Intent.ACTION_GET_CONTENT)\r\n        intent.type = \"image/*\"\r\n        startForActivityResultImage.launch(intent)\r\n    }\r\n\r\n    private val startForActivityResultImage = registerForActivityResult(\r\n        ActivityResultContracts.StartActivityForResult()\r\n    ){ result ->\r\n        if (result.resultCode == Activity.RESULT_OK){\r\n            val data = result.data?.data\r\n            binding.imageViewRegister.setImageURI(data)\r\n\r\n            //Cnvierte archivo Ui a ByteArray\r\n            val inputData = data?.let { contentResolver.openInputStream(it)?.readBytes() }\r\n            App.prefsRegister.saveImage(inputData)\r\n        }\r\n    }\r\n\r\n\r\n    /**\r\n     * Archivos\r\n     */\r\n\r\n    //Permisos de la imagen\r\n    private fun requestPermissionFile() {\r\n        // Verificaremos el nivel de API para solicitar los permisos\r\n        // en tiempo de ejecución\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {\r\n            when {\r\n\r\n                ContextCompat.checkSelfPermission(\r\n                    this,\r\n                    android.Manifest.permission.READ_EXTERNAL_STORAGE\r\n                ) == PackageManager.PERMISSION_GRANTED -> {\r\n                    pickFileFromFiles()\r\n                }\r\n\r\n                else -> requestPermissionLauncherFile.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)\r\n            }\r\n        }else {\r\n            // Se llamará a la función para APIs 22 o inferior\r\n            // Esto debido a que se aceptaron los permisos\r\n            // al momento de instalar la aplicación\r\n            pickFileFromFiles()\r\n        }\r\n    }\r\n\r\n    private val requestPermissionLauncherFile = registerForActivityResult(\r\n        ActivityResultContracts.RequestPermission()\r\n    ){ isGranted ->\r\n\r\n        if (isGranted){\r\n            pickFileFromFiles()\r\n        }else{\r\n            Toast.makeText(\r\n                this,\r\n                \"Permission denied\",\r\n                Toast.LENGTH_SHORT).show()\r\n        }\r\n    }\r\n\r\n    // Elegir archivo\r\n    private fun pickFileFromFiles() {\r\n        val intent = Intent(Intent.ACTION_GET_CONTENT)\r\n        intent.type = \"application/pdf\"\r\n        startForActivityResultFile.launch(intent)\r\n    }\r\n\r\n    private val startForActivityResultFile = registerForActivityResult(\r\n        ActivityResultContracts.StartActivityForResult()\r\n    ){ result ->\r\n        if (result.resultCode == Activity.RESULT_OK){\r\n            val data = result.data?.data\r\n\r\n            //Cnvierte archivo Ui a byteArray\r\n            val inputData = data?.let { contentResolver.openInputStream(it)?.readBytes() }\r\n            App.prefsRegister.savePortafolio(inputData)\r\n        }\r\n    }\r\n\r\n    fun spinner(){\r\n        val context = this\r\n\r\n        // add a hint to spinner\r\n        // list first item will show as hint\r\n        list.add(0,\"Estado...\")\r\n\r\n        // initialize an array adapter for spinner\r\n        val adapter: ArrayAdapter<String> = object: ArrayAdapter<String>(\r\n            context,\r\n            android.R.layout.simple_spinner_dropdown_item,\r\n            list\r\n        ){\r\n            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {\r\n\r\n\r\n\r\n                val view: TextView = super.getDropDownView(position, convertView, parent) as TextView\r\n                // set item text bold\r\n                view.setTypeface(view.typeface, Typeface.BOLD)\r\n\r\n                // set selected item style\r\n                if (position == spinner.selectedItemPosition && position !=0 ){\r\n                    view.background = ColorDrawable(Color.parseColor(\"#F7E7CE\"))\r\n                    view.setTextColor(Color.parseColor(\"#f25f8d\"))\r\n                }\r\n\r\n                // set selected item style\r\n                if (position != spinner.selectedItemPosition && position !=0 ){\r\n                    view.background = ColorDrawable(Color.parseColor(\"#FFFFFF\"))\r\n                    view.setTextColor(Color.parseColor(\"#000000\"))\r\n                }\r\n\r\n                // make hint item color gray\r\n                if(position == 0){\r\n                    view.setTextColor(Color.LTGRAY)\r\n                }\r\n\r\n                return view\r\n            }\r\n\r\n            override fun isEnabled(position: Int): Boolean {\r\n                // disable first item\r\n                // first item is display as hint\r\n                return position != 0\r\n            }\r\n        }\r\n\r\n        // finally, data bind spinner with adapter\r\n        spinner.adapter = adapter\r\n\r\n\r\n        // spinner on item selected listener\r\n        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {\r\n\r\n            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {\r\n\r\n                // by default spinner initial selected item is first item\r\n                pos = position\r\n                if (position != 0){\r\n                    vacio = true\r\n                    estado_usuario = list[position]\r\n                }\r\n            }\r\n\r\n            override fun onNothingSelected(parent: AdapterView<*>?) {\r\n                // another interface callback\r\n                vacio = false\r\n            }\r\n        }\r\n    }\r\n\r\n    fun initializeComponents(){\r\n        btnTerminar = findViewById(R.id.btnTerminar)\r\n\r\n    }\r\n\r\n    fun listenerBtn(){\r\n\r\n        btnTerminar.setOnClickListener{\r\n\r\n            val descripcion = binding.descripcion.text.toString()\r\n            var estado = estado_usuario\r\n\r\n\r\n            if(descripcion.isEmpty()){\r\n                val text = \"Te falta escribir una descripcion\"\r\n                val duration = Toast.LENGTH_SHORT\r\n\r\n                // Mensaje de error con toast\r\n                val toast = Toast.makeText(applicationContext, text, duration)\r\n                toast.show()\r\n            }\r\n            if(estado == \"\"){\r\n                val text = \"Te falta seleccionar tu estado\"\r\n                val duration = Toast.LENGTH_SHORT\r\n\r\n                // Mensaje de error con toast\r\n                val toast = Toast.makeText(applicationContext, text, duration)\r\n                toast.show()\r\n            }\r\n            else{\r\n                /**\r\n                 *Aquí se guardan las variables con PREFS\r\n                 **/\r\n                App.prefsRegister.saveEstado(estado)\r\n                App.prefsRegister.saveDescricpion(descripcion)\r\n\r\n\r\n                /**\r\n                 *Aquí guardamos en la base de datos con las variables globales de registro\r\n                 **/\r\n                val currentUser = ParseUser.getCurrentUser()\r\n\r\n                //ARCHIVOS STRING\r\n                val imageString = App.prefsRegister.getImage()\r\n                val fileString = App.prefsRegister.getPortafolio()\r\n\r\n                //ARCHIVOS BITARRAY\r\n                val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)\r\n                val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)\r\n\r\n                //Se crean archivos parce\r\n                val file = ParseFile(\"file.pdf\", fileByteArray)\r\n                val image = ParseFile(\"imagen.jpg\", imageByteArray)\r\n\r\n\r\n\r\n\r\n                //Los datos se meten en la base de datos\r\n                currentUser.username = App.prefsRegister.getUserName() //Usuario\r\n                currentUser.put(\"phone\", App.prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí\r\n                currentUser.put(\"descripcion\", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí\r\n                currentUser.put(\"ubicacion\", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí\r\n\r\n                if(imageString.isNotEmpty()){\r\n                    currentUser.put(\"fotoPerfil\", image) //Se guarda la foto de perfil\r\n                }\r\n                if(fileString.isNotEmpty()){\r\n                    currentUser.put(\"docPDF\", file) //Se guarda el portafolio\r\n                }\r\n\r\n                currentUser.saveInBackground{\r\n                    if(it==null){\r\n                        val text = \"NULL\"\r\n                        val duration = Toast.LENGTH_SHORT\r\n\r\n                        val toast = Toast.makeText(applicationContext, text, duration)\r\n                        toast.show()\r\n                    }\r\n                }\r\n\r\n\r\n                App.prefsRegister.clearAllData()\r\n\r\n                val text = \"Cuenta editada con exito\"\r\n                val duration = Toast.LENGTH_SHORT\r\n\r\n                val toast = Toast.makeText(applicationContext, text, duration)\r\n                toast.show()\r\n\r\n                //intent = Intent(this, Login::class.java)\r\n                //startActivity(intent)\r\n                //finish()\r\n\r\n                val  builder = AlertDialog.Builder(this)\r\n                builder.setTitle(\"Atención\")\r\n                builder.setMessage(\"Su cuenta se ha editado con exito, vuelva a iniciar sesión\")\r\n                builder.setPositiveButton(\"Aceptar\") { dialogInterface: DialogInterface, i: Int ->\r\n\r\n                    ParseUser.logOutInBackground { e: ParseException? ->\r\n                        if (e == null)\r\n                            App.prefsUser.clearAllData()\r\n                        val text = \"VUELVA A INIVIAR SESIÓN\"\r\n                        val duration = Toast.LENGTH_SHORT\r\n\r\n                        val toast = Toast.makeText(applicationContext, text, duration)\r\n                        toast.show()\r\n\r\n                        intent = Intent(this, Login::class.java)\r\n                        startActivity(intent)\r\n                        finish()\r\n                    }\r\n\r\n                }\r\n\r\n                builder.show()\r\n\r\n            }\r\n\r\n        }\r\n\r\n    }\r\n\r\n    fun datosRegistrados(){\r\n        val nombreG = prefsUser.getUserName()\r\n\r\n        val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)\r\n        query.whereEqualTo(\"username\", nombreG)\r\n        query.findInBackground { user, e ->\r\n            if (e == null) {\r\n                val foto: String? = user[0].getParseFile(LLAVE_FOTOPERFIL)?.url\r\n                var descripcion: String = user[0].descripcion.toString()\r\n                val docPDF : String? = user[0].getParseFile(LLAVE_DOCPDF)?.url\r\n                val contra: String = user[0].password.toString()\r\n                val numero: String = user[0].phone.toString()\r\n\r\n                displayData(foto, nombreG, descripcion, docPDF, contra, numero)\r\n            } else {\r\n                val text = \"Error cargando datos\"\r\n                val duration = Toast.LENGTH_LONG\r\n                val toast = Toast.makeText(applicationContext, text, duration)\r\n                toast.show()\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n    fun displayData(fotoUrl:String?, nombre:String, descripcion:String, docUrl:String?,\r\n                    contra:String, numero:String) {\r\n\r\n        val fotoPerfilImageView: ImageView = findViewById(R.id.imageViewRegister)\r\n        val descripcionTextView: EditText = findViewById(R.id.descripcion)\r\n\r\n\r\n        val imageUri: Uri = Uri.parse(fotoUrl)\r\n        Picasso.with(this).load(imageUri.toString()).into(fotoPerfilImageView)\r\n\r\n\r\n        binding.descripcion.setText(descripcion)\r\n\r\n    }\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/itesm/ic2007b/proyecto/EditarRegistroEspecifico.kt b/app/src/main/java/com/itesm/ic2007b/proyecto/EditarRegistroEspecifico.kt
+--- a/app/src/main/java/com/itesm/ic2007b/proyecto/EditarRegistroEspecifico.kt	(revision 9d0ea3db9ae12c4662944e345358a676bca7205c)
++++ b/app/src/main/java/com/itesm/ic2007b/proyecto/EditarRegistroEspecifico.kt	(date 1634179332738)
+@@ -20,12 +20,24 @@
+ import androidx.core.content.ContextCompat
+ import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
+ import com.itesm.ic2007b.proyecto.databinding.ActivityEditarRegistroEspecificoBinding
+-import com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding
+ import com.parse.*
+ import kotlinx.android.synthetic.main.activity_registro_especifico.*
+ 
++
++import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
++import com.itesm.ic2007b.proyecto.databinding.ActivityRegistroEspecificoBinding
++import com.parse.ParseFile
++import com.parse.ParseObject
++import com.parse.ParseQuery
++import com.parse.ParseUser
+ import com.squareup.picasso.Picasso
+ import kotlinx.android.synthetic.main.activity_mi_perfil.*
++import kotlinx.android.synthetic.main.activity_registro_especifico.*
++import kotlinx.android.synthetic.main.activity_registro_especifico.spinner
++import kotlinx.android.synthetic.main.activity_roles.*
++
++
++import kotlinx.android.synthetic.main.activity_mi_perfil.*
+ 
+ 
+ class EditarRegistroEspecifico : AppCompatActivity() {
+@@ -73,7 +85,7 @@
+ 
+     var vacio: Boolean = false
+     var estado_usuario: String = ""
+-    var pos: Int = 0
++    //var pos: Int = 0
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+@@ -83,8 +95,8 @@
+         binding.buttonImagen.setOnClickListener { requestPermissionImage() }
+         binding.buttonPDF.setOnClickListener { requestPermissionFile() }
+ 
++        datosRegistrados()
+         spinner()
+-        datosRegistrados()
+         initializeComponents()
+         listenerBtn()
+ 
+@@ -274,7 +286,7 @@
+             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+ 
+                 // by default spinner initial selected item is first item
+-                pos = position
++                //pos = position
+                 if (position != 0){
+                     vacio = true
+                     estado_usuario = list[position]
+@@ -309,6 +321,7 @@
+                 val toast = Toast.makeText(applicationContext, text, duration)
+                 toast.show()
+             }
++            /**
+             if(estado == ""){
+                 val text = "Te falta seleccionar tu estado"
+                 val duration = Toast.LENGTH_SHORT
+@@ -316,7 +329,7 @@
+                 // Mensaje de error con toast
+                 val toast = Toast.makeText(applicationContext, text, duration)
+                 toast.show()
+-            }
++            }**/
+             else{
+                 /**
+                  *Aquí se guardan las variables con PREFS
+@@ -348,25 +361,18 @@
+                 //Los datos se meten en la base de datos
+                 currentUser.username = App.prefsRegister.getUserName() //Usuario
+                 currentUser.put("phone", App.prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
+-                currentUser.put("descripcion", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
+-                currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
++                //currentUser.put("descripcion", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
++                currentUser.put("descripcion", "SE CAMBIOOOO") //Se guarda la foto de perfil
++                //currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
+ 
+-                if(imageString.isNotEmpty()){
++                //if (imageString.isNotEmpty()){
+                     currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
+-                }
+-                if(fileString.isNotEmpty()){
++                //}
++                //if(fileString.isNotEmpty()){
+                     currentUser.put("docPDF", file) //Se guarda el portafolio
+-                }
++                //}
+ 
+-                currentUser.saveInBackground{
+-                    if(it==null){
+-                        val text = "NULL"
+-                        val duration = Toast.LENGTH_SHORT
+-
+-                        val toast = Toast.makeText(applicationContext, text, duration)
+-                        toast.show()
+-                    }
+-                }
++                currentUser.saveInBackground()
+ 
+ 
+                 App.prefsRegister.clearAllData()
+@@ -400,13 +406,17 @@
+                         finish()
+                     }
+ 
++
+                 }
+ 
+                 builder.show()
+ 
++
+             }
+ 
++
+         }
++
+ 
+     }
+ 
+@@ -438,13 +448,18 @@
+                     contra:String, numero:String) {
+ 
+         val fotoPerfilImageView: ImageView = findViewById(R.id.imageViewRegister)
++        //val miNombreTextView: TextView = findViewById(R.id.mi_nombre)
++        //val ubicacionTextView: TextView = findViewById(R.id.ubicacion)
+         val descripcionTextView: EditText = findViewById(R.id.descripcion)
++        //val docButton: Button = findViewById(R.id.button_abrir_pdf)
+ 
+ 
+         val imageUri: Uri = Uri.parse(fotoUrl)
+         Picasso.with(this).load(imageUri.toString()).into(fotoPerfilImageView)
+ 
+-
++        //miNombreTextView.text = nombre
++        //ubicacionTextView.text = ubicacion
++        //descripcionTextView.setText(descripcion)
+         binding.descripcion.setText(descripcion)
+ 
+     }
