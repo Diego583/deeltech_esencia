@@ -30,7 +30,7 @@ class Login : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var btnRegister:Button
     private lateinit var btnForgot:Button
-    private lateinit var btnDonate:ImageButton
+    //private lateinit var btnDonate:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +76,7 @@ class Login : AppCompatActivity() {
 
 
     fun initializeComponents(){
-        btnDonate = findViewById(R.id.donar)
+        //btnDonate = findViewById(R.id.donar)
         btnLogin = findViewById(R.id.buttonLogin)
         btnRegister = findViewById(R.id.buttonRegistrarse)
         btnForgot = findViewById(R.id.buttonOlvideContrasena)
@@ -112,6 +112,7 @@ class Login : AppCompatActivity() {
             //prefsRegister.clearAllData()
             var intent: Intent = Intent(this,UserRegister::class.java)
             startActivity(intent)
+            finish()
         }
 
         btnForgot.setOnClickListener{
@@ -119,10 +120,10 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnDonate.setOnClickListener {
+        /*btnDonate.setOnClickListener {
             var intent: Intent = Intent(this,Donativos::class.java)
             startActivity(intent)
-        }
+        }*/
 
     }
 
