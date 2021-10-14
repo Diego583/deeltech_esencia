@@ -71,6 +71,16 @@
             app:layout_constraintTop_toBottomOf="@+id/searchFavoritos"
             tools:ignore="MissingConstraints">
 
+            <TextView
+                android:id="@+id/filtroEdoFav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
