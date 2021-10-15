@@ -44,7 +44,6 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
     //Variable para poder conectar .XML a .KT
     private lateinit var binding : ActivityEditarRegistroEspecificoBinding
-    private lateinit var btnTerminar: Button
 
     // list of spinner items
     val list = mutableListOf(
@@ -84,8 +83,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
     )
 
     var vacio: Boolean = false
-    var estado_usuario: String = ""
-    //var pos: Int = 0
+    var estado_usuario: String = "" //Aquí se guarda el estado del usuario en SPINNER
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,9 +95,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
         datosRegistrados()
         spinner()
-        initializeComponents()
         listenerBtn()
-
 
     }
 
@@ -162,7 +158,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
             //Cnvierte archivo Ui a ByteArray
             val inputData = data?.let { contentResolver.openInputStream(it)?.readBytes() }
-            App.prefsRegister.saveImage(inputData)
+            prefsRegister.saveImage(inputData)
         }
     }
 
@@ -224,7 +220,7 @@ class EditarRegistroEspecifico : AppCompatActivity() {
 
             //Cnvierte archivo Ui a byteArray
             val inputData = data?.let { contentResolver.openInputStream(it)?.readBytes() }
-            App.prefsRegister.savePortafolio(inputData)
+            prefsRegister.savePortafolio(inputData)
         }
     }
 
@@ -286,10 +282,10 @@ class EditarRegistroEspecifico : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
 
                 // by default spinner initial selected item is first item
-                //pos = position
                 if (position != 0){
                     vacio = true
                     estado_usuario = list[position]
+                    Toast.makeText(this@EditarRegistroEspecifico, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -300,126 +296,25 @@ class EditarRegistroEspecifico : AppCompatActivity() {
         }
     }
 
-    fun initializeComponents(){
-        btnTerminar = findViewById(R.id.btnTerminar)
 
-    }
-
+    /**
+     *AQUÍ SE AGREGA EL PEDO
+     **/
     fun listenerBtn(){
+        binding.btnTerminar.setOnClickListener{
 
-        btnTerminar.setOnClickListener{
-
-            val descripcion = binding.descripcion.text.toString()
-            var estado = estado_usuario
-
-
-            if(descripcion.isEmpty()){
-                val text = "Te falta escribir una descripcion"
-                val duration = Toast.LENGTH_SHORT
-
-                // Mensaje de error con toast
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-            }
-            /**
-            if(estado == ""){
-                val text = "Te falta seleccionar tu estado"
-                val duration = Toast.LENGTH_SHORT
-
-                // Mensaje de error con toast
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-            }**/
-            else{
-                /**
-                 *Aquí se guardan las variables con PREFS
-                 **/
-                App.prefsRegister.saveEstado(estado)
-                App.prefsRegister.saveDescricpion(descripcion)
-
-
-                /**
-                 *Aquí guardamos en la base de datos con las variables globales de registro
-                 **/
-                val currentUser = ParseUser.getCurrentUser()
-
-                //ARCHIVOS STRING
-                val imageString = App.prefsRegister.getImage()
-                val fileString = App.prefsRegister.getPortafolio()
-
-                //ARCHIVOS BITARRAY
-                val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
-                val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
-
-                //Se crean archivos parce
-                val file = ParseFile("file.pdf", fileByteArray)
-                val image = ParseFile("imagen.jpg", imageByteArray)
-
-
-
-
-                //Los datos se meten en la base de datos
-                currentUser.username = App.prefsRegister.getUserName() //Usuario
-                currentUser.put("phone", App.prefsRegister.getNumero()) //numero, se crea la columna numero y se guarda ahí
-                //currentUser.put("descripcion", App.prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
-                currentUser.put("descripcion", "SE CAMBIOOOO") //Se guarda la foto de perfil
-                //currentUser.put("ubicacion", App.prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
-
-                //if (imageString.isNotEmpty()){
-                    currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
-                //}
-                //if(fileString.isNotEmpty()){
-                    currentUser.put("docPDF", file) //Se guarda el portafolio
-                //}
-
-                currentUser.saveInBackground()
-
-
-                App.prefsRegister.clearAllData()
-
-                val text = "Cuenta editada con exito"
-                val duration = Toast.LENGTH_SHORT
-
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-
-                //intent = Intent(this, Login::class.java)
-                //startActivity(intent)
-                //finish()
-
-                val  builder = AlertDialog.Builder(this)
-                builder.setTitle("Atención")
-                builder.setMessage("Su cuenta se ha editado con exito, vuelva a iniciar sesión")
-                builder.setPositiveButton("Aceptar") { dialogInterface: DialogInterface, i: Int ->
-
-                    ParseUser.logOutInBackground { e: ParseException? ->
-                        if (e == null)
-                            App.prefsUser.clearAllData()
-                        val text = "VUELVA A INIVIAR SESIÓN"
-                        val duration = Toast.LENGTH_SHORT
-
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-
-                        intent = Intent(this, Login::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-
-
-                }
-
-                builder.show()
-
-
-            }
-
+            intent = Intent(this, MiPerfil::class.java)
+            startActivity(intent)
+            finish()
 
         }
-
-
     }
 
+
+    /**
+     *Se hace una query para revisar cuales fueron
+     *los datos que el usuario puso en su registro
+     **/
     fun datosRegistrados(){
         val nombreG = prefsUser.getUserName()
 
@@ -444,12 +339,14 @@ class EditarRegistroEspecifico : AppCompatActivity() {
         }
     }
 
+
+    /**
+     * Se muestran los datos resultantes de la funcion datosRegistrados()
+     */
     fun displayData(fotoUrl:String?, nombre:String, descripcion:String, docUrl:String?,
                     contra:String, numero:String) {
 
         val fotoPerfilImageView: ImageView = findViewById(R.id.imageViewRegister)
-        //val miNombreTextView: TextView = findViewById(R.id.mi_nombre)
-        //val ubicacionTextView: TextView = findViewById(R.id.ubicacion)
         val descripcionTextView: EditText = findViewById(R.id.descripcion)
         //val docButton: Button = findViewById(R.id.button_abrir_pdf)
 
@@ -457,9 +354,6 @@ class EditarRegistroEspecifico : AppCompatActivity() {
         val imageUri: Uri = Uri.parse(fotoUrl)
         Picasso.with(this).load(imageUri.toString()).into(fotoPerfilImageView)
 
-        //miNombreTextView.text = nombre
-        //ubicacionTextView.text = ubicacion
-        //descripcionTextView.setText(descripcion)
         binding.descripcion.setText(descripcion)
 
     }
