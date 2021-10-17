@@ -19,3 +19,11 @@ val ParseUser.fotoPerfil: ParseFile?
 val LLAVE_DOCPDF: String = "docPDF"
 val ParseUser.docPDF: ParseFile?
     get() = getParseFile(LLAVE_DOCPDF)
+
+val LLAVE_ROLES: String = "roles"
+val ParseUser.roles: String?
+    get() = getString(LLAVE_ROLES)
+
+val LLAVE_PHONE: String = "phone"
+val ParseUser.phone: String?
+    get() = getString(LLAVE_PHONE)

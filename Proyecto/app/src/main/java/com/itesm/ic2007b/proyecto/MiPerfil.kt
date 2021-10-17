@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -37,8 +38,10 @@ class MiPerfil : AppCompatActivity() {
                 val ubicacion: String = user[0].ubicacion.toString()
                 val descripcion: String = user[0].descripcion.toString()
                 val docPDF : String? = user[0].getParseFile(LLAVE_DOCPDF)?.url
+                val phone : String = user[0].phone.toString()
+                val email : String = user[0].email.toString()
 
-                displayData(foto, nombreG, ubicacion, descripcion, docPDF)
+                displayData(foto, nombreG, ubicacion, descripcion, docPDF, phone, email)
             } else {
                 val text = "Error cargando datos"
                 val duration = Toast.LENGTH_LONG
@@ -56,13 +59,18 @@ class MiPerfil : AppCompatActivity() {
         donate()
     }
 
-    private fun displayData(fotoUrl:String?, nombre:String, ubicacion:String,
-                            descripcion:String, docUrl:String?) {
+    private fun displayData(
+        fotoUrl: String?, nombre: String, ubicacion: String,
+        descripcion: String, docUrl: String?, phone: String, email: String
+    ) {
         val fotoPerfilImageView: ImageView = findViewById(R.id.foto_perfil)
         val miNombreTextView: TextView = findViewById(R.id.mi_nombre)
         val ubicacionTextView: TextView = findViewById(R.id.ubicacion)
         val descripcionTextView: TextView = findViewById(R.id.descripcion_perfil)
         val docButton: Button = findViewById(R.id.button_abrir_pdf)
+        val infoLayout: RelativeLayout = findViewById(R.id.profileInfoLayout)
+        val myphoneTV: TextView = findViewById(R.id.myphoneTV)
+        val myemailTV: TextView = findViewById(R.id.myemailTV)
 
 
         val imageUri: Uri = Uri.parse(fotoUrl)
@@ -71,6 +79,17 @@ class MiPerfil : AppCompatActivity() {
         miNombreTextView.text = nombre
         ubicacionTextView.text = ubicacion
         descripcionTextView.text = descripcion
+
+
+        myphoneTV.text = phone
+        myemailTV.text = email
+        contact_info_btn.setOnClickListener {
+            if (infoLayout.visibility == View.GONE) {
+                infoLayout.visibility = View.VISIBLE
+            } else {
+                infoLayout.visibility = View.GONE
+            }
+        }
 
 
         val docName: String? = docUrl?.substringAfter("_")
