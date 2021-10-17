@@ -55,7 +55,9 @@ class EditarRegister : AppCompatActivity() {
     fun listenerBtn(){
 
         binding.buttonRegistrarse.setOnClickListener{
-
+            var intent: Intent = Intent(this,EditarRegistroEspecifico::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
