@@ -10,7 +10,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
+import com.parse.ParseObject
+import com.parse.ParseQuery
 import com.parse.ParseUser
 import com.squareup.picasso.Picasso
 
@@ -48,29 +51,47 @@ class ProfileAdapter(context: Context, ParseUserList: MutableList<ParseUser>) :
                 cardTVdesc.setText(user.descripcion)
             }
         }
-        if (cardIV != null) {
-            val imageUri: Uri = Uri.parse(user?.fotoPerfil?.url)
-            Picasso.with(context).load(imageUri.toString()).into(cardIV)
-        }
 
+        val query1 = ParseQuery.getQuery<ParseObject>("ArchivosUsuario")
+        query1.whereEqualTo("username", user?.username)
+        query1.findInBackground { userFiles, e ->
+            if (e == null) {
+                val docPDF: String? = userFiles[0].getParseFile(LLAVE_DOCPDF)?.url
+                val foto: String? = userFiles[0].getParseFile(LLAVE_FOTOPERFIL)?.url
 
-        if (card != null) {
-            card.setOnClickListener {
-
-                //context.startActivity(Intent(context, OtroPerfil::class.java))
-                var intent = Intent(context, OtroPerfil::class.java)
-                if (user != null) {
-                    intent.putExtra("fotoPerfil",user?.fotoPerfil?.url)
-                    intent.putExtra("username",user.username)
-                    intent.putExtra("ubicacion",user.ubicacion)
-                    intent.putExtra("descripcion",user.descripcion)
-                    intent.putExtra("phone",user.phone)
-                    intent.putExtra("email", user.email)
-                    intent.putExtra("docPDF",user?.docPDF?.url)
+                if (cardIV != null) {
+                    val imageUri: Uri = Uri.parse(foto)
+                    Picasso.with(context).load(imageUri.toString()).into(cardIV)
                 }
-                context.startActivity(intent)
+
+
+                if (card != null) {
+                    card.setOnClickListener {
+
+                        //context.startActivity(Intent(context, OtroPerfil::class.java))
+                        var intent = Intent(context, OtroPerfil::class.java)
+                        if (user != null) {
+                            intent.putExtra("fotoPerfil", foto)
+                            intent.putExtra("username", user.username)
+                            intent.putExtra("ubicacion", user.ubicacion)
+                            intent.putExtra("descripcion", user.descripcion)
+                            intent.putExtra("phone", user.phone)
+                            intent.putExtra("email", user.email)
+                            intent.putExtra("docPDF", docPDF)
+                        }
+                        context.startActivity(intent)
+                    }
+                }
+
+
+            } else {
+                val text = "Error cargando datos"
+                val duration = Toast.LENGTH_LONG
+                val toast = Toast.makeText(context, text, duration)
+                toast.show()
             }
         }
+
         return listitemView!!
     }
 }

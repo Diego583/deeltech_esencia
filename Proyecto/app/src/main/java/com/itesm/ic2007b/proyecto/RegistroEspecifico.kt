@@ -214,7 +214,7 @@ class RegistroEspecifico : AppCompatActivity() {
     //Elegir foto
     private fun pickPhotoFromGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
+        intent.type = "image/jpg"
         startForActivityResultImage.launch(intent)
     }
 
