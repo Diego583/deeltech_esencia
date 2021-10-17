@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_agentes_inmobiliarios.*
+import android.widget.GridView
+import android.widget.Toast
+import com.parse.ParseQuery
+import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_proveedores.*
 import kotlinx.android.synthetic.main.activity_restauradores.*
 import kotlinx.android.synthetic.main.activity_restauradores.filtroEdo
@@ -53,6 +57,19 @@ class Proveedores : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+        query.whereEqualTo("roles", "Proveedor")
+        query.findInBackground { user, e ->
+            if (e == null) {
+                displayProveedores(user)
+            } else {
+                val text = "Error cargando Proveedores"
+                val duration = Toast.LENGTH_LONG
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+        }
+
         initializeBackProve()
         filtrar()
     }
@@ -82,6 +99,12 @@ class Proveedores : AppCompatActivity() {
             val mDialog = mBuilder.create()
             mDialog.show()
         }
+    }
+
+    private fun displayProveedores(user: MutableList<ParseUser>) {
+        val grid: GridView = findViewById(R.id.grid_prov)
+        val adapter = ProfileAdapter(this, user)
+        grid.setAdapter(adapter)
     }
 
     private fun initializeBackProve() {
