@@ -79,7 +79,8 @@
             android:layout_height="match_parent"
             android:horizontalSpacing="6dp"
             android:numColumns="2"
-            android:verticalSpacing="6dp">
+            android:verticalSpacing="6dp"
+            android:padding="14dp">
 
         </GridView>
 
