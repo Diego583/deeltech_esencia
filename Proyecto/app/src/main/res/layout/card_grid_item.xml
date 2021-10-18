@@ -39,7 +39,7 @@
             <TextView
                 android:id="@+id/idTV_card_desc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:layout_margin="2dp"
                 android:gravity="center_horizontal"
                 android:text="Esto es un ejemplo de una carta en donde se muestra la informacion de un restaurador"

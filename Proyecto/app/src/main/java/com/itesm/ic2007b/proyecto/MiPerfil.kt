@@ -51,7 +51,7 @@ class MiPerfil : AppCompatActivity() {
                 val ubicacion: String = user[0].ubicacion.toString()
                 val descripcion: String = user[0].descripcion.toString()
                 val phone : String = user[0].phone.toString()
-                val email : String = user[0].email.toString()
+                val email : String = user[0].emailCopy.toString()
 
                 val query1 = ParseQuery.getQuery<ParseObject>("ArchivosUsuario")
                 query1.whereEqualTo("username", nombreG)

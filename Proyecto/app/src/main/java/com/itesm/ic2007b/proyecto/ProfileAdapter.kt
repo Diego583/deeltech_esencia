@@ -76,7 +76,7 @@ class ProfileAdapter(context: Context, ParseUserList: MutableList<ParseUser>) :
                             intent.putExtra("ubicacion", user.ubicacion)
                             intent.putExtra("descripcion", user.descripcion)
                             intent.putExtra("phone", user.phone)
-                            intent.putExtra("email", user.email)
+                            intent.putExtra("email", user.emailCopy)
                             intent.putExtra("docPDF", docPDF)
                         }
                         context.startActivity(intent)

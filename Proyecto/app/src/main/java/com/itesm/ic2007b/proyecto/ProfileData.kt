@@ -27,3 +27,7 @@ val ParseUser.roles: String?
 val LLAVE_PHONE: String = "phone"
 val ParseUser.phone: String?
     get() = getString(LLAVE_PHONE)
+
+val LLAVE_EMAIL_COPY: String = "emailCopy"
+val ParseUser.emailCopy: String?
+    get() = getString(LLAVE_EMAIL_COPY)

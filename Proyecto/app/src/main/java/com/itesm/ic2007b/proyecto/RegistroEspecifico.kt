@@ -44,6 +44,7 @@ class RegistroEspecifico : AppCompatActivity() {
         user.put("roles", prefsRegister.getRol()) //rol, se crea la columna roles y se guarda ahí
         user.put("descripcion", prefsRegister.getDescricpion()) //rol, se crea la columna roles y se guarda ahí
         user.put("ubicacion", prefsRegister.getEstado()) //rol, se crea la columna estado y se guarda ahí
+        user.put("emailCopy", prefsRegister.getEmail())
         user.signUpInBackground(SignUpCallback {
             if (it == null) {
                 /**
