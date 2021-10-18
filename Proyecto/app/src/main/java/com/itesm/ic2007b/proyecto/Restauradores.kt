@@ -1,9 +1,13 @@
 package com.itesm.ic2007b.proyecto
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.parse.GetCallback
+import com.parse.ParseObject
+import com.parse.ParseQuery
 import kotlinx.android.synthetic.main.activity_restauradores.*
+
 
 class Restauradores : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +17,9 @@ class Restauradores : AppCompatActivity() {
         var intent: Intent? = null
 
         initializeBackResta()
+
+
+
     }
 
     private fun initializeBackResta() {
