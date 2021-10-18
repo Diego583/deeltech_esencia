@@ -9,7 +9,7 @@ import android.content.Context
  **/
 class PrefsUser(val context: Context) {
 
-    val SHARED_NAME = "MyDB"
+    val SHARED_NAME = "LoginUser"
 
     //VARIABLES QUE HAREMOS PERCISTENTES begins
 

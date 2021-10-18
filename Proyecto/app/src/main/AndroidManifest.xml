@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
-            android:name=".EditarRegistroEspecifico"
-            android:exported="false" />
-        <activity
             android:name=".EditarRegister"
             android:exported="false" />
         <activity
