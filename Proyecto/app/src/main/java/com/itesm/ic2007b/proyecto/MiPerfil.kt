@@ -189,14 +189,15 @@ class MiPerfil : AppCompatActivity() {
     fun editarPerfil(){
         btnEdit.setOnClickListener{
             prefsRegister.clearAllData()
-            var intent: Intent = Intent(this,EditarUsuario::class.java)
+            val intent: Intent = Intent(this,UserEdit::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
     fun donate(){
         donar.setOnClickListener {
-            var intent: Intent = Intent(this,Donativos::class.java)
+            val intent: Intent = Intent(this,Donativos::class.java)
             startActivity(intent)
         }
     }

@@ -16,14 +16,6 @@ import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import com.parse.Parse
 
-//import androidx.navigation.findNavController
-//import androidx.navigation.ui.AppBarConfiguration
-//import androidx.navigation.ui.navigateUp
-//import androidx.navigation.ui.setupActionBarWithNavController
-//import com.itesm.ic2007b.proyecto.databinding.ActivityLoginBinding
-
-var mail = arrayOf("e1000lio2000@gmail.com", "yaso@gmail.com")
-var pass = arrayOf("Aa123456789:v", "yas.02011")
 
 class Login : AppCompatActivity() {
 
@@ -36,19 +28,11 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        //val text = prefsRegister.getEmail()
-        //val duration = Toast.LENGTH_SHORT
-
-        //val toast = Toast.makeText(applicationContext, text, duration)
-        //toast.show()
-
         checkUserSession()
     }
 
     fun login(username: String, password: String) {
-        //progressDialog?.show()
         ParseUser.logInInBackground(username,password) { parseUser: ParseUser?, parseException: ParseException? ->
-            //progressDialog?.dismiss()
             if (parseUser != null) {
                 //Si son correctas los guardamos la sesion del usuario
                 prefsUser.saveUserName(username)
@@ -94,7 +78,6 @@ class Login : AppCompatActivity() {
 
             if(ContraValue.isNotEmpty() && UsernameValue.isNotEmpty()){
                 //Se validan en la base de datos
-
                 login(UsernameValue, ContraValue)
 
             }

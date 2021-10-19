@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
-            android:name=".EditarUsuario"
+            android:name=".UserEdit"
             android:exported="false" />
         <activity
             android:name=".RegistroEspecifico"
