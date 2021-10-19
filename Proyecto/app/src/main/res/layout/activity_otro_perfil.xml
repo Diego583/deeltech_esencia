@@ -56,7 +56,8 @@
                 android:text="@string/no_texto"
                 android:layout_marginTop="10dp"
                 android:textSize="35sp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="17dp"/>
 
             <TextView
                 android:id="@+id/ubicacionTV"
