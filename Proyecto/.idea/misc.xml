@@ -57,10 +57,6 @@
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_fav.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_perfil.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14791666666666667" />
-        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
-        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/log_out.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.1265625" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/log_out.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.1265625" />
@@ -93,7 +89,8 @@
         <entry key="..\:/Users/leo20/Labs/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.28442028985507245" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donar.xml" value="0.4" />
-        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donativos.xml" value="0.2620545073375262" />
+        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_donativos.xml" value="0.2696871628910464" />
+        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_editar_register.xml" value="0.16983695652173914" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favoritos.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_home.xml" value="0.2" />
