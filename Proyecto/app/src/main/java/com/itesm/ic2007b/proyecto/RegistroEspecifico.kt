@@ -37,6 +37,8 @@ class RegistroEspecifico : AppCompatActivity() {
     private fun signUp(username: String, password: String, email: String) {
         val user = ParseUser()
 
+
+
         user.username = username
         user.setPassword(password)
         user.email = email
@@ -377,9 +379,25 @@ class RegistroEspecifico : AppCompatActivity() {
             //Variables
             val descripcion = binding.descripcion.text.toString()
             var estado = estado_usuario
+            val image = prefsRegister.getImage()
+            val file = prefsRegister.getPortafolio()
 
             if(descripcion.isEmpty()){
                 val text = "Te falta escribir una descripcion"
+                val duration = Toast.LENGTH_SHORT
+
+                // Mensaje de error con toast
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }else if(image.isEmpty() || file.isEmpty()){
+                val text = "Te falta tu FOTO/PDF"
+                val duration = Toast.LENGTH_SHORT
+
+                // Mensaje de error con toast
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }else if (!vacio){
+                val text = "Te seleccionar tu estado"
                 val duration = Toast.LENGTH_SHORT
 
                 // Mensaje de error con toast

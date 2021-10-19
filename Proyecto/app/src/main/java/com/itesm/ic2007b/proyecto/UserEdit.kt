@@ -238,12 +238,33 @@ class UserEdit : AppCompatActivity() {
         nombreG: String,
         nombreUsuario: String,
         userID: String
-    ) {
+    )
+    {
+
+        //val image = prefsRegister.getImage()
+        //val file = prefsRegister.getPortafolio()
+
         if((UsuarioEncontrado.size > 0) && (nombreUsuario != nombreG)){
             val text = nombreUsuario + " no disponible, intenta con otro"
             val duration = Toast.LENGTH_SHORT
 
             binding.usuario.error = "Usuario no disponible, intenta con otro"
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
+        }
+        /*else if(image.isEmpty() || file.isEmpty()){
+            val text = "Te falta tu FOTO/PDF"
+            val duration = Toast.LENGTH_SHORT
+
+            // Mensaje de error con toast
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
+        }*/
+        else if (!vacio){
+            val text = "Te seleccionar tu estado"
+            val duration = Toast.LENGTH_SHORT
+
+            // Mensaje de error con toast
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
         }
@@ -300,7 +321,7 @@ class UserEdit : AppCompatActivity() {
 
                     val  builder = AlertDialog.Builder(this)
                     builder.setTitle("¡Cuenta editada exitosamente!")
-                    builder.setMessage("Ahora seras dirigido a la pantalla de login.")
+                    builder.setMessage("Vuelve a inciar sesión.")
                     builder.setPositiveButton("OK",{ dialogInterface: DialogInterface, i: Int ->
                         prefsRegister.clearAllData()
                         logOut()
