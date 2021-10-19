@@ -241,8 +241,8 @@ class UserEdit : AppCompatActivity() {
     )
     {
 
-        val image = prefsRegister.getImage()
-        val file = prefsRegister.getPortafolio()
+        //val image = prefsRegister.getImage()
+        //val file = prefsRegister.getPortafolio()
 
         if((UsuarioEncontrado.size > 0) && (nombreUsuario != nombreG)){
             val text = nombreUsuario + " no disponible, intenta con otro"
@@ -251,14 +251,16 @@ class UserEdit : AppCompatActivity() {
             binding.usuario.error = "Usuario no disponible, intenta con otro"
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
-        }else if(image.isEmpty() || file.isEmpty()){
+        }
+        /*else if(image.isEmpty() || file.isEmpty()){
             val text = "Te falta tu FOTO/PDF"
             val duration = Toast.LENGTH_SHORT
 
             // Mensaje de error con toast
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
-        }else if (!vacio){
+        }*/
+        else if (!vacio){
             val text = "Te seleccionar tu estado"
             val duration = Toast.LENGTH_SHORT
 
