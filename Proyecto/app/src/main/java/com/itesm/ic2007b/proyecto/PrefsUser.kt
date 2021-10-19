@@ -1,6 +1,7 @@
 package com.itesm.ic2007b.proyecto
 
 import android.content.Context
+import com.parse.ParseUser
 
 /**
  *Clase para persistencia de datos
@@ -23,6 +24,8 @@ class PrefsUser(val context: Context) {
 
     val storage = context.getSharedPreferences(SHARED_NAME, 0)
 
+    val listFavoritos:ArrayList<String> = ArrayList()
+
     /**
      * Libera todo lo guardao en storage
      **/
@@ -34,14 +37,28 @@ class PrefsUser(val context: Context) {
     /**
      * Aquí se guarda o se obtiene el valor del USUARIO
      **/
-    fun saveUserName(name:String
-    ){
+    fun saveUserName(name:String){
         storage.edit().putString(SHARED_USER_NAME, name).apply()
     }
     fun getUserName():String{
         return storage.getString(SHARED_USER_NAME, "")!!
     }
 
+    /**
+     * Aquí se guarda o se obtiene la lista de favoritos
+     **/
+    fun saveUserFavoritos(name:String){
+        listFavoritos.add(name)
+    }
+    fun getFavoritos(): ArrayList<String> {
+       return listFavoritos
+    }
+    fun removeUserFavoritos(name:String){
+        listFavoritos.remove(name)
+    }
+    fun clearFavoritos(){
+        listFavoritos.clear()
+    }
 
     /**
      * Aquí se guarda o se obtiene el valor del EMAIL

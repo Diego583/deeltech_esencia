@@ -92,7 +92,8 @@
                 android:text="@string/agregar_favoritos"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:enabled="true"/>
 
             <Button
                 android:id="@+id/contactame_btn"

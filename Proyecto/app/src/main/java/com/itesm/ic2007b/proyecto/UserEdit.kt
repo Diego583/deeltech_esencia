@@ -528,6 +528,7 @@ class UserEdit : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
 
+            App.prefsUser.clearFavoritos()
             intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish()
