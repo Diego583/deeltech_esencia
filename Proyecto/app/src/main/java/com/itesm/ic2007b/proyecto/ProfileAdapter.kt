@@ -71,6 +71,7 @@ class ProfileAdapter(context: Context, ParseUserList: MutableList<ParseUser>) :
                         //context.startActivity(Intent(context, OtroPerfil::class.java))
                         var intent = Intent(context, OtroPerfil::class.java)
                         if (user != null) {
+                            intent.putExtra("objectId", user.objectId)
                             intent.putExtra("fotoPerfil", foto)
                             intent.putExtra("username", user.username)
                             intent.putExtra("ubicacion", user.ubicacion)

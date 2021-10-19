@@ -10,11 +10,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
-import com.parse.LogInCallback
-import com.parse.ParseException
-import com.parse.ParseUser
+import com.parse.*
 import kotlinx.android.synthetic.main.activity_login.*
-import com.parse.Parse
 
 
 class Login : AppCompatActivity() {
@@ -37,6 +34,23 @@ class Login : AppCompatActivity() {
                 //Si son correctas los guardamos la sesion del usuario
                 prefsUser.saveUserName(username)
                 prefsUser.saveContra(password)
+
+                //Agregamos sus favoritos
+                val query = ParseQuery.getQuery<ParseObject>("UsuarioFavoritos")
+                query.whereEqualTo("username", username)
+                query.findInBackground { favoriteUser, e ->
+                    if (e == null) {
+                        for (temp in favoriteUser){
+                            prefsUser.saveUserFavoritos(temp.getString("favorito").toString())
+                        }
+
+                    } else {
+                        val text = "Error cargando datos"
+                        val duration = Toast.LENGTH_LONG
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    }
+                }
 
                 val text = "Bienvenido " + username + "!!";
                 val duration = Toast.LENGTH_SHORT
