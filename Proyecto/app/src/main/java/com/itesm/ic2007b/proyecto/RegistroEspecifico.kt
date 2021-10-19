@@ -215,7 +215,7 @@ class RegistroEspecifico : AppCompatActivity() {
     //Elegir foto
     private fun pickPhotoFromGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/jpg"
+        intent.type = "image/*"
         startForActivityResultImage.launch(intent)
     }
 
@@ -355,7 +355,6 @@ class RegistroEspecifico : AppCompatActivity() {
                 if (position != 0){
                     vacio = true
                     estado_usuario = list[position]
-                    Toast.makeText(this@RegistroEspecifico, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
                 }
             }
 

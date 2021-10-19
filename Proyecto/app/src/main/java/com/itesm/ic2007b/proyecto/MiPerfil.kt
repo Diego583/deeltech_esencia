@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -19,8 +18,6 @@ import kotlinx.android.synthetic.main.activity_mi_perfil.*
 import kotlinx.android.synthetic.main.activity_mi_perfil.LogOut
 import com.squareup.picasso.Picasso
 import com.parse.ParseObject
-
-import com.parse.FindCallback
 
 import com.parse.ParseQuery
 
@@ -192,14 +189,15 @@ class MiPerfil : AppCompatActivity() {
     fun editarPerfil(){
         btnEdit.setOnClickListener{
             prefsRegister.clearAllData()
-            var intent: Intent = Intent(this,EditarRegister::class.java)
+            val intent: Intent = Intent(this,UserEdit::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
     fun donate(){
         donar.setOnClickListener {
-            var intent: Intent = Intent(this,Donativos::class.java)
+            val intent: Intent = Intent(this,Donativos::class.java)
             startActivity(intent)
         }
     }

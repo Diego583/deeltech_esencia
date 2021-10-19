@@ -15,10 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
-            android:name=".EditarRegistroEspecifico"
-            android:exported="false" />
-        <activity
-            android:name=".EditarRegister"
+            android:name=".UserEdit"
             android:exported="false" />
         <activity
             android:name=".RegistroEspecifico"
