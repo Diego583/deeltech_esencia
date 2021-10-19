@@ -396,6 +396,13 @@ class RegistroEspecifico : AppCompatActivity() {
                 // Mensaje de error con toast
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
+            }else if (!vacio){
+                val text = "Te seleccionar tu estado"
+                val duration = Toast.LENGTH_SHORT
+
+                // Mensaje de error con toast
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
             }
             else{
                 /**
