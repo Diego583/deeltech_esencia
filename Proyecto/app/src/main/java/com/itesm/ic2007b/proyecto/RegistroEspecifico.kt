@@ -66,7 +66,7 @@ class RegistroEspecifico : AppCompatActivity() {
                 currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
 
                 currentUser.saveInBackground()
-                **/
+                 **/
 
                 //ARCHIVOS STRING
                 val imageString = prefsRegister.getImage()
@@ -355,6 +355,7 @@ class RegistroEspecifico : AppCompatActivity() {
                 if (position != 0){
                     vacio = true
                     estado_usuario = list[position]
+                    Toast.makeText(this@RegistroEspecifico, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
                 }
             }
 
