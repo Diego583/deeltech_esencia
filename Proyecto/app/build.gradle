@@ -81,4 +81,7 @@ dependencies {
 
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
+    //Circular Image View
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+
 }
