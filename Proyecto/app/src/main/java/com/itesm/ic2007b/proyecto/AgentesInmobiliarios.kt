@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import android.widget.GridView
 import android.widget.Toast
@@ -88,8 +89,43 @@ class AgentesInmobiliarios : AppCompatActivity() {
                             filtroEdo.text = ""
                             dialog.dismiss()
                         } else {
-                            filtroEdo.text = "Filtrar por estado de $selectedState"
-                            dialog.dismiss()
+
+                            quitarFiltroBtnAI.setOnClickListener {
+                                quitarFiltroBtnAI.visibility = View.GONE
+                                filtroEdo.text = ""
+                                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                                query.whereEqualTo("roles", "Agente inmobiliario")
+                                query.findInBackground { user, e ->
+                                    if (e == null) {
+                                        displayAgentesInmobiliarios(user)
+                                    } else {
+                                        val text = "Error cargando Agentes inmobiliarios"
+                                        val duration = Toast.LENGTH_LONG
+                                        val toast = Toast.makeText(applicationContext, text, duration)
+                                        toast.show()
+                                    }
+                                }
+                            }
+
+                            val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                            query.whereEqualTo("roles", "Agente inmobiliario")
+                            query.whereEqualTo("ubicacion", "$selectedState")
+                            query.findInBackground { userEstado, e ->
+                                if (e == null && userEstado.size != 0) {
+                                    filtroEdo.text = "Filtrar por estado de $selectedState"
+                                    dialog.dismiss()
+                                    quitarFiltroBtnAI.visibility = View.VISIBLE
+                                    displayAgentesInmobiliarios(userEstado)
+                                } else {
+                                    quitarFiltroBtnAI.visibility = View.GONE
+                                    filtroEdo.text = ""
+                                    val text = "No se encontraron Agentes inmobiliarios en $selectedState"
+                                    val duration = Toast.LENGTH_LONG
+                                    val toast = Toast.makeText(applicationContext, text, duration)
+                                    toast.show()
+                                }
+                            }
+
                         }
                     })
                 .setNegativeButton("Cancelar",

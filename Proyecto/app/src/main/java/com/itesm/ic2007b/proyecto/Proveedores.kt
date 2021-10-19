@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_agentes_inmobiliarios.*
 import android.widget.GridView
@@ -88,8 +89,43 @@ class Proveedores : AppCompatActivity() {
                             filtroEdo.text = ""
                             dialog.dismiss()
                         } else {
-                            filtroEdo.text = "Filtrar por estado de $selectedState"
-                            dialog.dismiss()
+
+                            quitarFiltroBtnP.setOnClickListener {
+                                quitarFiltroBtnP.visibility = View.GONE
+                                filtroEdo.text = ""
+                                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                                query.whereEqualTo("roles", "Proveedor")
+                                query.findInBackground { user, e ->
+                                    if (e == null) {
+                                        displayProveedores(user)
+                                    } else {
+                                        val text = "Error cargando Proveedores"
+                                        val duration = Toast.LENGTH_LONG
+                                        val toast = Toast.makeText(applicationContext, text, duration)
+                                        toast.show()
+                                    }
+                                }
+                            }
+
+                            val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                            query.whereEqualTo("roles", "Proveedor")
+                            query.whereEqualTo("ubicacion", "$selectedState")
+                            query.findInBackground { userEstado, e ->
+                                if (e == null && userEstado.size != 0) {
+                                    filtroEdo.text = "Filtrar por estado de $selectedState"
+                                    dialog.dismiss()
+                                    quitarFiltroBtnP.visibility = View.VISIBLE
+                                    displayProveedores(userEstado)
+                                } else {
+                                    quitarFiltroBtnP.visibility = View.GONE
+                                    filtroEdo.text = ""
+                                    val text = "No se encontraron Proveedores en $selectedState"
+                                    val duration = Toast.LENGTH_LONG
+                                    val toast = Toast.makeText(applicationContext, text, duration)
+                                    toast.show()
+                                }
+                            }
+
                         }
                     })
                 .setNegativeButton("Cancelar",

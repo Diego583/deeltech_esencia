@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import android.widget.Toast
 import com.parse.ParseQuery
@@ -74,8 +75,45 @@ class Restauradores : AppCompatActivity() {
                             filtroEdo.text = ""
                             dialog.dismiss()
                         } else {
-                            filtroEdo.text = "Filtrar por estado de $selectedState"
-                            dialog.dismiss()
+
+                            quitarFiltroBtnR.setOnClickListener {
+                                quitarFiltroBtnR.visibility = View.GONE
+                                filtroEdo.text = ""
+                                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                                query.whereEqualTo("roles", "Restaurador")
+                                query.findInBackground { user, e ->
+                                    if (e == null) {
+                                        displayRestauradores(user)
+                                    } else {
+                                        val text = "Error cargando Restauradores"
+                                        val duration = Toast.LENGTH_LONG
+                                        val toast = Toast.makeText(applicationContext, text, duration)
+                                        toast.show()
+                                    }
+                                }
+                            }
+
+
+                            val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                            query.whereEqualTo("roles", "Restaurador")
+                            query.whereEqualTo("ubicacion", "$selectedState")
+                            query.findInBackground { userEstado, e ->
+                                if (e == null && userEstado.size != 0) {
+                                    filtroEdo.text = "Filtrar por estado de $selectedState"
+                                    dialog.dismiss()
+                                    quitarFiltroBtnR.visibility = View.VISIBLE
+                                    displayRestauradores(userEstado)
+                                } else {
+                                    quitarFiltroBtnR.visibility = View.GONE
+                                    filtroEdo.text = ""
+                                    val text = "No se encontraron restauradores en $selectedState"
+                                    val duration = Toast.LENGTH_LONG
+                                    val toast = Toast.makeText(applicationContext, text, duration)
+                                    toast.show()
+                                }
+                            }
+
+
                         }
                     })
                 .setNegativeButton("Cancelar",

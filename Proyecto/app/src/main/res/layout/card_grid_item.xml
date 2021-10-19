@@ -21,13 +21,13 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/restauradores"
+                android:src="@drawable/foto_perfil"
                 android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/idTV_card_nombre"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="28sp"
                 android:layout_marginTop="1dp"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
