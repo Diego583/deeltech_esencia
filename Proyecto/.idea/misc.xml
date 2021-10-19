@@ -61,6 +61,9 @@
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/log_out.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.1265625" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/bg.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/drawable/log_out.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.1265625" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_editar_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_editar_registro_especifico.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/escri/Desktop/apps/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favoritos.xml" value="0.2" />
@@ -97,11 +100,15 @@
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.21648216482164823" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.24320652173913043" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_mi_perfil.xml" value="0.264" />
+        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_otro_perfil.xml" value="0.17617753623188406" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_proveedores.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_registro_especifico.xml" value="0.2" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_restauradores.xml" value="0.264" />
+        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_roles.xml" value="0.17617753623188406" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.10729166666666666" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.264" />
+        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_web_view.xml" value="0.17617753623188406" />
+        <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/card_grid_item.xml" value="0.17617753623188406" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/content_user_register.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/donativos.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/quiqu/AndroidStudioProjects/deeltech_esencia/Proyecto/app/src/main/res/layout/fragment_filtro_res.xml" value="0.25416666666666665" />
