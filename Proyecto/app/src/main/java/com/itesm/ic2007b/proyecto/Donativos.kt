@@ -1,10 +1,13 @@
 package com.itesm.ic2007b.proyecto
 
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import kotlinx.android.synthetic.main.activity_agentes_inmobiliarios.*
 import kotlinx.android.synthetic.main.activity_donativos.*
 
 class Donativos : AppCompatActivity() {
@@ -16,17 +19,45 @@ class Donativos : AppCompatActivity() {
 
         setContentView(R.layout.activity_donativos)
 
+        // Refresh
+        swipeRefreshLayout.setOnRefreshListener {
+            Paypal.reload()
+            Paypal.loadUrl(BASE_URL)
+        }
+
         // WebView
         Paypal.webChromeClient = object : WebChromeClient(){
         }
 
         Paypal.webViewClient = object  : WebViewClient(){
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                return false
+            }
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+
+                swipeRefreshLayout.isRefreshing = true
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+
+                swipeRefreshLayout.isRefreshing = false
+            }
+
         }
 
         val settings = Paypal.settings
         settings.javaScriptEnabled = true
 
         Paypal.loadUrl(BASE_URL)
+
+        initializeBackAgent()
 
     }
 
@@ -35,6 +66,12 @@ class Donativos : AppCompatActivity() {
             Paypal.goBack()
         } else {
             super.onBackPressed()
+        }
+    }
+
+    private fun initializeBackAgent() {
+        backDonativos.setOnClickListener{
+            finish()
         }
     }
 
