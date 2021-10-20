@@ -1,6 +1,7 @@
 package com.itesm.ic2007b.proyecto
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -81,10 +82,12 @@ class OtroPerfil : AppCompatActivity() {
             //Validamos si el perfil ya esta en favoritos
             if(prefsUser.getFavoritos().contains(username)){
                 guardarFavorito_btn.setText("QUITAR DE FAVORITOS")
+                guardarFavorito_btn.setBackgroundColor(Color.parseColor("#09E5B2"))
                 quitarFavoritos(username)
             }
             else{
                 guardarFavorito_btn.setText("AGREGAR A FAVORITOS")
+                guardarFavorito_btn.setBackgroundColor(Color.parseColor("#D83670"))
                 agregarFavoritos(username)
             }
         }
@@ -114,6 +117,7 @@ class OtroPerfil : AppCompatActivity() {
 
                         //Mensaje y cambio de boton
                         agregar_favoritos_btn.setText("AGREGAR A FAVORITOS")
+                        agregar_favoritos_btn.setBackgroundColor(Color.parseColor("#D83670"))
                         val text = "Eliminado de favoritos"
                         val duration = Toast.LENGTH_LONG
                         val toast = Toast.makeText(applicationContext, text, duration)
@@ -144,6 +148,7 @@ class OtroPerfil : AppCompatActivity() {
 
                 //Mensaje y cambio de boton
                 agregar_favoritos_btn.setText("QUITAR DE FAVORITOS")
+                agregar_favoritos_btn.setBackgroundColor(Color.parseColor("#09E5B2"))
                 //Mensaje y cambio de boton
                 val text = "Añadido a favoritos"
                 val duration = Toast.LENGTH_LONG

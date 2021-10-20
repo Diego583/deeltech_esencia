@@ -88,7 +88,6 @@
                 android:layout_centerInParent="true"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="@color/pink"
                 android:text="@string/agregar_favoritos"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
