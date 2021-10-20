@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.GridView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.parse.ParseQuery
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_favoritos.*
@@ -57,6 +58,7 @@ class favoritos : AppCompatActivity() {
     )
 
     override fun onBackPressed() {
+        prefsUser.saliFavoritos()
         intent = Intent(this,Home::class.java)
         startActivity(intent)
         finish()
@@ -64,6 +66,7 @@ class favoritos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favoritos)
+        prefsUser.entreFavoritos()
 
         var intent: Intent? = null
 
@@ -152,12 +155,14 @@ class favoritos : AppCompatActivity() {
         bottomNavigationViewFav.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.inicioItem -> {
+                    prefsUser.saliFavoritos()
                     intent = Intent(this,Home::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
                 R.id.perfilItem -> {
+                    prefsUser.saliFavoritos()
                     intent = Intent(this,MiPerfil::class.java)
                     startActivity(intent)
                     finish()

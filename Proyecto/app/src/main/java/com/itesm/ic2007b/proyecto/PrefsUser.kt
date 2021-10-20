@@ -26,11 +26,26 @@ class PrefsUser(val context: Context) {
 
     val listFavoritos:ArrayList<String> = ArrayList()
 
+    var isInFavoritos:Boolean = false
+
     /**
-     * Libera todo lo guardao en storage
+     * Libera todo lo guardado en storage
      **/
     fun clearAllData(){
         storage.edit().clear().apply()
+    }
+
+    /**
+     * ¿El usuario esta en favoritos?
+     **/
+    fun entreFavoritos(){
+        isInFavoritos = true
+    }
+    fun saliFavoritos(){
+        isInFavoritos = false
+    }
+    fun statusFavoritos():Boolean{
+        return isInFavoritos
     }
 
 

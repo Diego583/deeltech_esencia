@@ -13,6 +13,17 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_otro_perfil.*
 
 class OtroPerfil : AppCompatActivity() {
+    override fun onBackPressed() {
+        //Revisamos si el perfil paso por la vista de favoritos
+        if(prefsUser.statusFavoritos()){
+            intent = Intent(this,favoritos::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else{
+            finish()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otro_perfil)
@@ -67,7 +78,7 @@ class OtroPerfil : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            //Validamos si el usuario ya esta en favoritos
+            //Validamos si el perfil ya esta en favoritos
             if(prefsUser.getFavoritos().contains(username)){
                 guardarFavorito_btn.setText("QUITAR DE FAVORITOS")
                 quitarFavoritos(username)
@@ -145,7 +156,15 @@ class OtroPerfil : AppCompatActivity() {
 
     private fun initializeGoBackBtn() {
         go_back_btn.setOnClickListener{
-            finish()
+            //Revisamos si el perfil paso por la vista de favoritos
+            if(prefsUser.statusFavoritos()){
+                intent = Intent(this,favoritos::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+                finish()
+            }
         }
     }
 }
