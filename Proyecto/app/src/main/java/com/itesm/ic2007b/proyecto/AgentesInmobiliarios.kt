@@ -15,8 +15,12 @@ import kotlinx.android.synthetic.main.activity_agentes_inmobiliarios.filtroEdo
 import kotlinx.android.synthetic.main.activity_proveedores.*
 import kotlinx.android.synthetic.main.activity_restauradores.*
 
+/**
+ * Activity para mostrar Agentes Inmobiliarios
+ * **/
 class AgentesInmobiliarios : AppCompatActivity() {
 
+    // Lista de estados para usar en el filtro
     val listItems = arrayOf(
         "Aguascalientes",
         "Baja California",
@@ -58,6 +62,7 @@ class AgentesInmobiliarios : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        // Query para obtener Agentes Inmobiliarios
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("roles", "Agente inmobiliario")
         query.findInBackground { user, e ->
@@ -75,6 +80,10 @@ class AgentesInmobiliarios : AppCompatActivity() {
         filtrar()
     }
 
+    /**
+     * Función donde se inicializan los listeners y métodos para desplegar la lista de estados,
+     * realizar la query, y mostrar los perfiles filtrados
+     * **/
     fun filtrar(){
         filterAgentesInmobiliarios.setOnClickListener{
             var selectedState = ""
@@ -93,6 +102,7 @@ class AgentesInmobiliarios : AppCompatActivity() {
                             quitarFiltroBtnAI.setOnClickListener {
                                 quitarFiltroBtnAI.visibility = View.GONE
                                 filtroEdo.text = ""
+                                // Query para obtener Agentes Inmobiliarios
                                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                                 query.whereEqualTo("roles", "Agente inmobiliario")
                                 query.findInBackground { user, e ->
@@ -107,6 +117,7 @@ class AgentesInmobiliarios : AppCompatActivity() {
                                 }
                             }
 
+                            // Query para obtener Agentes Inmobiliarios filtrados
                             val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                             query.whereEqualTo("roles", "Agente inmobiliario")
                             query.whereEqualTo("ubicacion", "$selectedState")
@@ -137,12 +148,21 @@ class AgentesInmobiliarios : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función que despliega cada Agente Inmobiliario dentro de un cardView
+     * en el grid usando el Adapter
+     * @param MutableList<ParseUser>
+     * **/
     private fun displayAgentesInmobiliarios(user: MutableList<ParseUser>) {
         val grid: GridView = findViewById(R.id.grid_ai)
         val adapter = ProfileAdapter(this, user)
         grid.setAdapter(adapter)
     }
 
+    /**
+     * Función que inicializa el imageButton de regresar
+     * para que termine el activity
+     * **/
     private fun initializeBackAgent() {
         backAgentesInmobiliarios.setOnClickListener{
             finish()

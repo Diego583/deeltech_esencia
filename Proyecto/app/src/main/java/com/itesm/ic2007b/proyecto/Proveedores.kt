@@ -15,8 +15,12 @@ import kotlinx.android.synthetic.main.activity_proveedores.*
 import kotlinx.android.synthetic.main.activity_restauradores.*
 import kotlinx.android.synthetic.main.activity_restauradores.filtroEdo
 
+/**
+ * Activity para mostrar Proveedores
+ * **/
 class Proveedores : AppCompatActivity() {
 
+    // Lista de estados para usar en el filtro
     val listItems = arrayOf(
         "Aguascalientes",
         "Baja California",
@@ -58,6 +62,7 @@ class Proveedores : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        // Query para obtener Proveedores
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("roles", "Proveedor")
         query.findInBackground { user, e ->
@@ -75,6 +80,10 @@ class Proveedores : AppCompatActivity() {
         filtrar()
     }
 
+    /**
+     * Función donde se inicializan los listeners y métodos para desplegar la lista de estados,
+     * realizar la query, y mostrar los perfiles filtrados
+     * **/
     fun filtrar(){
         filterProveedores.setOnClickListener{
             var selectedState = ""
@@ -93,6 +102,7 @@ class Proveedores : AppCompatActivity() {
                             quitarFiltroBtnP.setOnClickListener {
                                 quitarFiltroBtnP.visibility = View.GONE
                                 filtroEdo.text = ""
+                                // Query para obtener Proveedores
                                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                                 query.whereEqualTo("roles", "Proveedor")
                                 query.findInBackground { user, e ->
@@ -107,6 +117,7 @@ class Proveedores : AppCompatActivity() {
                                 }
                             }
 
+                            // Query para obtener Proveedores filtrados
                             val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                             query.whereEqualTo("roles", "Proveedor")
                             query.whereEqualTo("ubicacion", "$selectedState")
@@ -137,12 +148,21 @@ class Proveedores : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función que despliega cada Proveedor dentro de un cardView
+     * en el grid usando el Adapter
+     * @param MutableList<ParseUser>
+     * **/
     private fun displayProveedores(user: MutableList<ParseUser>) {
         val grid: GridView = findViewById(R.id.grid_prov)
         val adapter = ProfileAdapter(this, user)
         grid.setAdapter(adapter)
     }
 
+    /**
+     * Función que inicializa el imageButton de regresar
+     * para que termine el activity
+     * **/
     private fun initializeBackProve() {
         backProveedores.setOnClickListener{
             finish()

@@ -13,9 +13,12 @@ import kotlinx.android.synthetic.main.activity_restauradores.*
 
 import android.widget.GridView
 
-
+/**
+ * Activity para mostrar Restauradores
+ * **/
 class Restauradores : AppCompatActivity() {
 
+    // Lista de estados para usar en el filtro
     val listItems = arrayOf(
         "Aguascalientes",
         "Baja California",
@@ -57,6 +60,7 @@ class Restauradores : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        // Query para obtener Restauradores
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("roles", "Restaurador")
         query.findInBackground { user, e ->
@@ -74,6 +78,10 @@ class Restauradores : AppCompatActivity() {
         filtrar()
     }
 
+    /**
+     * Función donde se inicializan los listeners y métodos para desplegar la lista de estados,
+     * realizar la query, y mostrar los perfiles filtrados
+     * **/
     fun filtrar(){
         filterRestauradores.setOnClickListener{
             var selectedState = ""
@@ -92,6 +100,7 @@ class Restauradores : AppCompatActivity() {
                             quitarFiltroBtnR.setOnClickListener {
                                 quitarFiltroBtnR.visibility = View.GONE
                                 filtroEdo.text = ""
+                                // Query para obtener Restauradores
                                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                                 query.whereEqualTo("roles", "Restaurador")
                                 query.findInBackground { user, e ->
@@ -106,7 +115,7 @@ class Restauradores : AppCompatActivity() {
                                 }
                             }
 
-
+                            // Query para obtener Restauradores filtrados
                             val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                             query.whereEqualTo("roles", "Restaurador")
                             query.whereEqualTo("ubicacion", "$selectedState")
@@ -138,13 +147,21 @@ class Restauradores : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Función que despliega cada Restaurador dentro de un cardView
+     * en el grid usando el Adapter
+     * @param MutableList<ParseUser>
+     * **/
     private fun displayRestauradores(user: MutableList<ParseUser>) {
         val grid:GridView = findViewById(R.id.grid_res)
         val adapter = ProfileAdapter(this, user)
         grid.setAdapter(adapter)
     }
 
+    /**
+     * Función que inicializa el imageButton de regresar
+     * para que termine el activity
+     * **/
     private fun initializeBackResta() {
         backRestauradores.setOnClickListener{
             finish()

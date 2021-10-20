@@ -17,12 +17,26 @@ import com.parse.ParseQuery
 import com.parse.ParseUser
 import com.squareup.picasso.Picasso
 
-
+/**
+ * Adapter para insertar elementos de tipo Card en el Grid.
+ * Los elementos que se insertan se obtiene de un array de objetos obtenidos de la base de datos.
+ * La función principal del adaptador en GridView es obtener datos del array
+ * e insertar cada dato en un elemento Card que se mostrará en GridView.
+ * @param Context
+ * @param MutableList<ParseUser>
+ * **/
 class ProfileAdapter(context: Context, ParseUserList: MutableList<ParseUser>) :
     ArrayAdapter<ParseUser?>(context, 0, ParseUserList!! as MutableList<ParseUser?>) {
 
 
-
+    /**
+     * Función principal del adaptador.
+     * Devuelve el View que se inserta en el grid usando el elemento adaptador.
+     * @param Int
+     * @param View?
+     * @param ViewGroup
+     * @return View
+     * **/
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         Log.v("pos", position.toString())
         var listitemView: View? = convertView
