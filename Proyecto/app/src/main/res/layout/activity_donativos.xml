@@ -36,7 +36,7 @@
             android:layout_marginRight="0dp"
             android:layout_marginBottom="0dp"
             android:gravity="center"
-            android:text="Dona a ESENCIA PATRIMONIO"
+            android:text="Donaciones Proximamente"
             android:textColor="#FF6666"
             android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/swipeRefreshLayout"

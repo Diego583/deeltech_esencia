@@ -12,7 +12,19 @@ import kotlinx.android.synthetic.main.activity_donativos.*
 
 class Donativos : AppCompatActivity() {
 
-    private val BASE_URL = "https://www.paypal.com/donate?hosted_button_id=WZQMS5539B5LU"
+    /**
+     * Link de ejemplo para PayPal, se configura y obtiene el link del botón
+     * directamente de la página oficial en la parte de Botones -> Donaciones
+     *
+     * LINK:
+     * https://www.paypal.com/donate/buttons
+     * */
+    //private val BASE_URL = "https://www.paypal.com/donate?hosted_button_id=WZQMS5539B5LU"
+
+    /**
+     * Link de reemplazo: página de esencia patrimonio
+     * */
+    private val BASE_URL = "https://esenciapatrimonioa.wixsite.com/my-site-3"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
