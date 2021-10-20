@@ -35,23 +35,6 @@ class Login : AppCompatActivity() {
                 prefsUser.saveUserName(username)
                 prefsUser.saveContra(password)
 
-                //Agregamos sus favoritos
-                val query = ParseQuery.getQuery<ParseObject>("UsuarioFavoritos")
-                query.whereEqualTo("username", username)
-                query.findInBackground { favoriteUser, e ->
-                    if (e == null) {
-                        for (temp in favoriteUser){
-                            prefsUser.saveUserFavoritos(temp.getString("favorito").toString())
-                        }
-
-                    } else {
-                        val text = "Error cargando datos"
-                        val duration = Toast.LENGTH_LONG
-                        val toast = Toast.makeText(applicationContext, text, duration)
-                        toast.show()
-                    }
-                }
-
                 val text = "Bienvenido " + username + "!!";
                 val duration = Toast.LENGTH_SHORT
 

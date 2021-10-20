@@ -12,6 +12,8 @@ import android.widget.Button
 import android.widget.Toast
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.parse.ParseException
+import com.parse.ParseObject
+import com.parse.ParseQuery
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -36,6 +38,27 @@ class Home : AppCompatActivity() {
 
         initializeCategories()
         initializeNavbarHome()
+        initializeFavotitos()
+    }
+
+    private fun initializeFavotitos() {
+        prefsUser.clearFavoritos()
+        //Agregamos sus favoritos
+        val query = ParseQuery.getQuery<ParseObject>("UsuarioFavoritos")
+        query.whereEqualTo("username", prefsUser.getUserName())
+        query.findInBackground { favoriteUser, e ->
+            if (e == null) {
+                for (temp in favoriteUser){
+                    prefsUser.saveUserFavoritos(temp.getString("favorito").toString())
+                }
+
+            } else {
+                val text = "Error cargando datos"
+                val duration = Toast.LENGTH_LONG
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+        }
     }
 
     private fun initializeCategories() {
