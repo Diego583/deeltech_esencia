@@ -17,6 +17,14 @@ import android.text.TextWatcher
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.checkDigit
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.checkMayus
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.checkMinus
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.checkSymbol
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.checkChar
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.emptyRegister
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.strongPass
+import com.itesm.ic2007b.proyecto.UserRegisterCheck.eqPass
 import com.parse.ParseQuery
 
 /**
@@ -69,36 +77,6 @@ class UserRegister : AppCompatActivity(){
     //Funcion que checa las caracteristicas mínimas que debe tener la contraseña
     fun OnClickUp(){
 
-        val ReglaDigit = Pattern.compile(
-            "^" +
-                    "(?=.*[0-9])" +             //Al menos un digito
-                    ".{1,}" +
-                    "$"
-        )
-        val ReglaMinus = Pattern.compile(
-            "^" +
-                    "(?=.*[a-z])" +             //Al menos 1 letra minuscula
-                    ".{1,}" +
-                    "$"
-        )
-        val ReglaMayus = Pattern.compile(
-            "^" +
-                    "(?=.*[A-Z])" +             //Al menos 1 letra mayuscula
-                    ".{1,}" +
-                    "$"
-        )
-        val ReglaSimbolo = Pattern.compile(
-            "^" +
-                    "(?=.*[@#$%^&+=])" +        //Al menos 1 simbolo especial
-                    ".{1,}" +
-                    "$"
-        )
-        val ReglaChar = Pattern.compile(
-            "^" +
-                    ".{4,}" +                   //al menos 4 caracteres
-                    "$"
-        )
-
         txt_input = binding.contra1 as EditText
         lbl_output = binding.ReglaDigito as TextView
 
@@ -109,56 +87,56 @@ class UserRegister : AppCompatActivity(){
             @SuppressLint("SetTextI18n")
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
 
-                if(ReglaDigit.matcher(binding.contra1.text.toString()).matches()){
+                if(checkDigit(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaDigito as TextView
                     lbl_output!!.setText("Un digito ✔")
                     lbl_output!!.setTextColor(Color.parseColor("#008000"))
                 }
-                if(!ReglaDigit.matcher(binding.contra1.text.toString()).matches()){
+                if(!checkDigit(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaDigito as TextView
                     lbl_output!!.setText("Un digito X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
 
-                if(ReglaMayus.matcher(binding.contra1.text.toString()).matches()){
+                if(checkMayus(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaLetrasMayus as TextView
                     lbl_output!!.setText("Una letras mayuscula ✔")
                     lbl_output!!.setTextColor(Color.parseColor("#008000"))
                 }
-                if (!ReglaMayus.matcher(binding.contra1.text.toString()).matches()){
+                if (!checkMayus(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaLetrasMayus as TextView
                     lbl_output!!.setText("Una letras mayuscula X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
 
-                if(ReglaMinus.matcher(binding.contra1.text.toString()).matches()){
+                if(checkMinus(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaLetrasMinus as TextView
                     lbl_output!!.setText("Una letras minuscula ✔")
                     lbl_output!!.setTextColor(Color.parseColor("#008000"))
                 }
-                if (!ReglaMinus.matcher(binding.contra1.text.toString()).matches()){
+                if (!checkMinus(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaLetrasMinus as TextView
                     lbl_output!!.setText("Una letras minuscula X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
 
-                if(ReglaSimbolo.matcher(binding.contra1.text.toString()).matches()){
+                if(checkSymbol(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaSimbolo as TextView
                     lbl_output!!.setText("Un simbolo [@#\$%^&+=] ✔")
                     lbl_output!!.setTextColor(Color.parseColor("#008000"))
                 }
-                if (!ReglaSimbolo.matcher(binding.contra1.text.toString()).matches()){
+                if (!checkSymbol(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaSimbolo as TextView
                     lbl_output!!.setText("Un simbolo [@#\$%^&+=] X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
                 }
 
-                if(ReglaChar.matcher(binding.contra1.text.toString()).matches()){
+                if(checkChar(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaCaracteres as TextView
                     lbl_output!!.setText("Cuatro caracteres ✔")
                     lbl_output!!.setTextColor(Color.parseColor("#008000"))
                 }
-                if(!ReglaChar.matcher(binding.contra1.text.toString()).matches()){
+                if(!checkChar(binding.contra1.text.toString())){
                     lbl_output = binding.ReglaCaracteres as TextView
                     lbl_output!!.setText("Cuatro caracteres X")
                     lbl_output!!.setTextColor(Color.parseColor("#ff0000"))
@@ -215,25 +193,12 @@ class UserRegister : AppCompatActivity(){
     }
 
     /**
-     * Recive los datos y los verifica
+     * Recibe los datos y los verifica
      * @param pass, email, pass2, user, dataUser
      */
     fun verficarDatos(pass:String, email:String, pass2:String, user:String, dataUser:ArrayList<ParseUser>){
 
-        //Requisitos para las contraseñas
-        val passwordRegex = Pattern.compile(
-            "^" +
-                    "(?=.*[0-9])" +             //Al menos un digito
-                    "(?=.*[a-z])" +             //Al menos 1 letra minuscula
-                    "(?=.*[A-Z])" +             //Al menos 1 letra mayuscula
-                    "(?=.*[@#$%^&+=])" +        //Al menos 1 simbolo especial
-                    "(?=\\S+$)" +               //no espacios
-                    ".{4,}" +                   //al menos 4 caracteres
-                    "$"
-
-        )
-
-        if(pass == "" || email == "" || pass2 == "" || user == ""){
+        if(emptyRegister(pass, email, pass2, user)){
 
             val text = "Faltan espacios por llenar"
             val duration = Toast.LENGTH_SHORT
@@ -244,7 +209,7 @@ class UserRegister : AppCompatActivity(){
 
         }
         else{
-            if(!passwordRegex.matcher(pass).matches()){
+            if(!strongPass(pass)){
                 val text = "Contraseña muy débil"
                 val duration = Toast.LENGTH_SHORT
 
@@ -252,7 +217,7 @@ class UserRegister : AppCompatActivity(){
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
             }
-            else if (pass != pass2){
+            else if (eqPass(pass, pass2)){
                 val text = "Las contraseñas no coinciden"
                 val duration = Toast.LENGTH_SHORT
 
