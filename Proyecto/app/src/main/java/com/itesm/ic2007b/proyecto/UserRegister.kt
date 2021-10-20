@@ -272,10 +272,6 @@ class UserRegister : AppCompatActivity(){
                 toast.show()
             }
             else{
-                val text = "ResFinal = " + dataUser.size
-                val duration = Toast.LENGTH_SHORT
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
                 RegistrarUsuario()
             }
 
