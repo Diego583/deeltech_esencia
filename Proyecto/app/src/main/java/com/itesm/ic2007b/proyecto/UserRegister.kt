@@ -19,7 +19,10 @@ import androidx.appcompat.app.AlertDialog
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.parse.ParseQuery
 
-
+/**
+ * Acivity para poder recivir el usuario y la contraseña para registrarse
+ * @author DeelTech
+ **/
 class UserRegister : AppCompatActivity(){
     // #00ff00
 

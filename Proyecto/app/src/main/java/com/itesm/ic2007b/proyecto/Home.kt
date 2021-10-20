@@ -15,7 +15,15 @@ import com.parse.ParseException
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_home.*
 
+/**
+ * Acivity para navegar e ninicio de la app
+ * @author DeelTech
+ **/
 class Home : AppCompatActivity() {
+
+    /**
+     * Muestra mensaje de alerta si es que el usuario quiere salir de la app
+     **/
     override fun onBackPressed() {
         val  builder = AlertDialog.Builder(this)
         builder.setTitle("Atención")
@@ -38,6 +46,9 @@ class Home : AppCompatActivity() {
         initializeNavbarHome()
     }
 
+    /**
+     * Reedirecciones de todos los botones de la actividad
+     **/
     private fun initializeCategories() {
         cardRestauradores.setOnClickListener {
             intent = Intent(this,Restauradores::class.java)
@@ -55,6 +66,9 @@ class Home : AppCompatActivity() {
         }
     }
 
+    /**
+     * Reedirecciones de la navbar
+     **/
     private fun initializeNavbarHome() {
         bottomNavigationViewHome.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {

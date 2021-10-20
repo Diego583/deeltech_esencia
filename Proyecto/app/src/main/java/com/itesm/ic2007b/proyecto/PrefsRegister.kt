@@ -14,6 +14,7 @@ import javax.crypto.spec.SecretKeySpec
  *Clase para persistencia de datos
  *AQUÍ PODEMOS MANTENER LOS DATOS GLOBALES del usuario que se registra
  * se guarda y se obtiene el dato en cualquier archivo .kt
+ * @param context
  **/
 
 class PrefsRegister(val context:Context) {

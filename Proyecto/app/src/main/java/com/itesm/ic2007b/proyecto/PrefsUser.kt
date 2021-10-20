@@ -7,6 +7,7 @@ import com.parse.ParseUser
  *Clase para persistencia de datos
  *AQUÍ PODEMOS MANTENER LOS DATOS GLOBALES del usuario logeado
  * se guarda y se obtiene el dato en cualquier archivo .kt
+ * @param context
  **/
 class PrefsUser(val context: Context) {
 
