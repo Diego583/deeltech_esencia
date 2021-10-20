@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
+import com.itesm.ic2007b.proyecto.LoginCheck.checkValues
 import com.parse.*
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -90,10 +91,10 @@ class Login : AppCompatActivity() {
             val ContraText = findViewById<EditText>(R.id.editTextPassword)
             val ContraValue = ContraText.text.toString()
 
-            if(ContraValue.isNotEmpty() && UsernameValue.isNotEmpty()){
+
+            if(checkValues(ContraValue, UsernameValue)){
                 //Se validan en la base de datos
                 login(UsernameValue, ContraValue)
-
             }
             else{
                 val text = "Te faltan campos por llenar"
@@ -116,11 +117,6 @@ class Login : AppCompatActivity() {
             var intent: Intent = Intent(this,ForgotPassword::class.java)
             startActivity(intent)
         }
-
-        /*btnDonate.setOnClickListener {
-            var intent: Intent = Intent(this,Donativos::class.java)
-            startActivity(intent)
-        }*/
 
     }
 

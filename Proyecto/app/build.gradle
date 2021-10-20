@@ -84,4 +84,7 @@ dependencies {
     //Circular Image View
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
 
+    //Tests
+    testImplementation 'com.google.truth:truth:1.0.1'
+
 }
