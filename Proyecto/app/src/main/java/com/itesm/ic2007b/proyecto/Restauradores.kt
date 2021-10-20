@@ -57,6 +57,19 @@ class Restauradores : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+        query.whereEqualTo("roles", "Restaurador")
+        query.findInBackground { user, e ->
+            if (e == null) {
+                displayRestauradores(user)
+            } else {
+                val text = "Error cargando Restauradores"
+                val duration = Toast.LENGTH_LONG
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+        }
+
         initializeBackResta()
         filtrar()
     }
@@ -122,20 +135,6 @@ class Restauradores : AppCompatActivity() {
                     })
             val mDialog = mBuilder.create()
             mDialog.show()
-        }
-        val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
-        query.whereEqualTo("roles", "Restaurador")
-        query.findInBackground { user, e ->
-            if (e == null) {
-                displayRestauradores(user)
-            } else {
-                val text = "Error cargando Restauradores"
-                val duration = Toast.LENGTH_LONG
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-            }
-
-            initializeBackResta()
         }
     }
 

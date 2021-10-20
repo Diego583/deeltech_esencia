@@ -4,13 +4,22 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.GridView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.parse.ParseQuery
+import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_favoritos.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_proveedores.*
 import kotlinx.android.synthetic.main.activity_restauradores.*
 
 class favoritos : AppCompatActivity() {
+
+    val favList: ArrayList<String> = App.prefsUser.getFavoritos()
+    var userList: ArrayList<ParseUser> = ArrayList()
 
     val listItems = arrayOf(
         "Aguascalientes",
@@ -58,6 +67,21 @@ class favoritos : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        if (favList.size == 0) {
+            val text: String = "No se encontraron favoritos"
+            val duration = Toast.LENGTH_LONG
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
+        } else {
+
+            for (item in favList) {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereEqualTo("username", item)
+                userList.add(query.find()[0])
+            }
+            displayFavoritos(userList)
+        }
+
         initializeNavbarFav()
         filtrar()
     }
@@ -76,8 +100,34 @@ class favoritos : AppCompatActivity() {
                             filtroEdoFav.text = ""
                             dialog.dismiss()
                         } else {
-                            filtroEdoFav.text = "Filtrar por estado de $selectedState"
-                            dialog.dismiss()
+
+                            quitarFiltroBtnF.setOnClickListener {
+                                quitarFiltroBtnF.visibility = View.GONE
+                                filtroEdoFav.text = ""
+                                displayFavoritos(userList)
+                            }
+
+                            var userFiltered : ArrayList<ParseUser> = ArrayList()
+                            for (item in userList) {
+                                if (item.ubicacion == "$selectedState") {
+                                    userFiltered.add(item)
+                                }
+                            }
+
+                            if (userFiltered.size != 0) {
+                                filtroEdoFav.text = "Filtrar por estado de $selectedState"
+                                dialog.dismiss()
+                                quitarFiltroBtnF.visibility = View.VISIBLE
+                                displayFavoritos(userFiltered)
+                            } else {
+                                quitarFiltroBtnF.visibility = View.GONE
+                                filtroEdoFav.text = ""
+                                val text = "No se encontraron favoritos en $selectedState"
+                                val duration = Toast.LENGTH_LONG
+                                val toast = Toast.makeText(applicationContext, text, duration)
+                                toast.show()
+                            }
+
                         }
                     })
                 .setNegativeButton("Cancelar",
@@ -87,6 +137,13 @@ class favoritos : AppCompatActivity() {
             val mDialog = mBuilder.create()
             mDialog.show()
         }
+
+    }
+
+    private fun displayFavoritos(user: MutableList<ParseUser>) {
+        val grid: GridView = findViewById(R.id.grid_Fav)
+        val adapter = ProfileAdapter(this, user)
+        grid.setAdapter(adapter)
     }
 
     private fun initializeNavbarFav() {
