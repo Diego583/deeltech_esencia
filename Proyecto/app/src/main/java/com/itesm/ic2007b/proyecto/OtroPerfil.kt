@@ -12,11 +12,15 @@ import com.parse.ParseQuery
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_otro_perfil.*
 
+/**
+ * Activity para mostrar perfiles
+ * **/
 class OtroPerfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otro_perfil)
 
+        // Encontrar Views y botones
         val fotoIV: ImageView = findViewById(R.id.fotoIV)
         val nombreTV: TextView = findViewById(R.id.nombreTV)
         val ubicacionTV: TextView = findViewById(R.id.ubicacionTV)
@@ -28,6 +32,7 @@ class OtroPerfil : AppCompatActivity() {
         val docButton: Button = findViewById(R.id.abrir_pdf_btn)
         val guardarFavorito_btn: Button = findViewById(R.id.agregar_favoritos_btn)
 
+        // Obtener datos accediendo a los extras
         val extras = intent.extras
         if (extras != null) {
 
@@ -81,6 +86,10 @@ class OtroPerfil : AppCompatActivity() {
         initializeGoBackBtn()
     }
 
+    /**
+     * Función para eliminar favorito de la base de datos
+     * @param String?
+     * **/
     private fun quitarFavoritos(favorito: String?) {
         agregar_favoritos_btn.setOnClickListener {
             //Obtenemos el objectId del favorito
@@ -120,6 +129,10 @@ class OtroPerfil : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función para agregar favorito de la base de datos
+     * @param String?
+     * **/
     private fun agregarFavoritos(favorito: String?) {
         agregar_favoritos_btn.setOnClickListener {
             if (favorito != null) {
@@ -143,6 +156,10 @@ class OtroPerfil : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función que inicializa el imageButton de regresar
+     * para que termine el activity
+     * **/
     private fun initializeGoBackBtn() {
         go_back_btn.setOnClickListener{
             finish()

@@ -16,6 +16,9 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_proveedores.*
 import kotlinx.android.synthetic.main.activity_restauradores.*
 
+/**
+ * Activity para mostrar los Favoritos del usuario
+ * **/
 class favoritos : AppCompatActivity() {
 
     val favList: ArrayList<String> = App.prefsUser.getFavoritos()
@@ -56,6 +59,10 @@ class favoritos : AppCompatActivity() {
         "Zacatecas"
     )
 
+    /**
+     * Función que inicializa el boton de regresar del dispositivo
+     * para que redirija a Home
+     * **/
     override fun onBackPressed() {
         intent = Intent(this,Home::class.java)
         startActivity(intent)
@@ -67,6 +74,7 @@ class favoritos : AppCompatActivity() {
 
         var intent: Intent? = null
 
+        // Verifica si existen favoritos del usuario
         if (favList.size == 0) {
             val text: String = "No se encontraron favoritos"
             val duration = Toast.LENGTH_LONG
@@ -86,6 +94,10 @@ class favoritos : AppCompatActivity() {
         filtrar()
     }
 
+    /**
+     * Función donde se inicializan los listeners y métodos para desplegar la lista de estados,
+     * realizar la query, y mostrar los favoritos filtrados
+     * **/
     fun filtrar(){
         filterFavoritos.setOnClickListener{
             var selectedState = ""
@@ -107,6 +119,7 @@ class favoritos : AppCompatActivity() {
                                 displayFavoritos(userList)
                             }
 
+                            // Se buscan los favoritos por estado
                             var userFiltered : ArrayList<ParseUser> = ArrayList()
                             for (item in userList) {
                                 if (item.ubicacion == "$selectedState") {
@@ -114,6 +127,7 @@ class favoritos : AppCompatActivity() {
                                 }
                             }
 
+                            // Se verifica que existan favoritos en el estado
                             if (userFiltered.size != 0) {
                                 filtroEdoFav.text = "Filtrar por estado de $selectedState"
                                 dialog.dismiss()
@@ -140,12 +154,22 @@ class favoritos : AppCompatActivity() {
 
     }
 
+    /**
+     * Función que despliega cada Restaurador dentro de un cardView
+     * en el grid usando el Adapter
+     * @param MutableList<ParseUser>
+     * **/
     private fun displayFavoritos(user: MutableList<ParseUser>) {
         val grid: GridView = findViewById(R.id.grid_Fav)
         val adapter = ProfileAdapter(this, user)
         grid.setAdapter(adapter)
     }
 
+    /**
+     * Función que inicializa el navbar
+     * y define su las redirecciones
+     * por cada botón
+     * **/
     private fun initializeNavbarFav() {
         bottomNavigationViewFav.selectedItemId = R.id.favoritosItem
 

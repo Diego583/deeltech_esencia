@@ -4,6 +4,13 @@ import android.graphics.drawable.Drawable
 import com.parse.ParseFile
 import com.parse.ParseUser
 
+/**
+ * Extensiones de las propiedades de la clase ParseUer
+ * Se define una llave con el nombre de la columna de la tabla en la base de datos
+ * Se crea la propiedad de ParseUser asignandole un nombre y tipo de dato
+ * Se crea el getter
+ * **/
+
 val LLAVE_UBICACION : String = "ubicacion"
 val ParseUser.ubicacion: String?
     get() = getString(LLAVE_UBICACION)
