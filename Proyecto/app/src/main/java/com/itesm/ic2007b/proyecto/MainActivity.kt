@@ -12,25 +12,14 @@ import com.parse.FindCallback
 import com.parse.ParseQuery
 
 
-
+/**
+ * Actividad de PRACTICA Y PRUEBAS
+ **/
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        /**
-        val states = ParseObject("Estados") //NOMBRE DE TABLA
-        states.put("Estados", "Baja California Sur")
-
-        states.saveInBackground {
-            if (it != null){ //SI HAY ERRROR
-                it.localizedMessage?.let { message -> Log.e("MainActivity", message) }
-            }else{//SI NO HAY ERROR
-                Log.d("MainActivity","Object saved.")
-            }
-
-        }**/
 
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("username", "tiburon")

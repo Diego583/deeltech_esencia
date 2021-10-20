@@ -30,9 +30,15 @@ import com.parse.ParseObject
 import com.parse.ParseQuery
 import com.squareup.picasso.Picasso
 
-
+/**
+ * Acivity para editar el perfil del usuario
+ * @author DeelTech
+ **/
 class UserEdit : AppCompatActivity() {
-    // list of spinner items
+
+    /**
+     * lista de estados para el spinner
+     **/
     val list = mutableListOf(
         "Aguascalientes",
         "Baja California",
@@ -107,6 +113,9 @@ class UserEdit : AppCompatActivity() {
         //Usuario actual
         val nombreG = App.prefsUser.getUserName()
 
+        /**
+         * Querie para poder editar los datos del usuario resultante
+         **/
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("username", nombreG)
         query.findInBackground { user, e ->
@@ -177,6 +186,11 @@ class UserEdit : AppCompatActivity() {
         App.prefsRegister.saveImage(docInputData)**/
     }
 
+    /**
+     * Aquí se llama la funcion de parse para poder cambiar la contraseña
+     * posteriormente se manda un correo al usuario
+     * @param email
+     **/
     private fun cambiarContraseñaCorreo(email: String) {
         cambiarContraseña.setOnClickListener {
             ParseUser.requestPasswordReset(email);
@@ -194,6 +208,9 @@ class UserEdit : AppCompatActivity() {
 
 
 
+    /**
+     * Se inicializa el botón de back
+     **/
     private fun initializeBackEditPerfil() {
         binding.backEditarPerfil.setOnClickListener{
             prefsRegister.clearAllData()
@@ -204,6 +221,11 @@ class UserEdit : AppCompatActivity() {
     }
 
 
+    /**
+     * Con esta querie se saca si es que el usuario está en uso
+     * @param nombreG
+     * @param userID
+     **/
     fun checkEditUser(nombreG: String, userID: String) {
         binding.buttonRegistrarse.setOnClickListener {
             //Nombre de usuario actual
@@ -233,6 +255,13 @@ class UserEdit : AppCompatActivity() {
 
     }
 
+    /**
+     * Se verifican las restricciones qeu se tienen
+     * @param UsuarioEncontrado
+     * @param nombreG
+     * @param nombreUsuario
+     * @param userID
+     **/
     fun verificarUsuario(
         UsuarioEncontrado: ArrayList<ParseUser>,
         nombreG: String,
@@ -468,6 +497,9 @@ class UserEdit : AppCompatActivity() {
         }
     }
 
+    /**
+     * Confiruacion del spinner dónde el usuario escoge su estado
+     **/
     fun spinner(){
         val context = this
 
@@ -539,6 +571,9 @@ class UserEdit : AppCompatActivity() {
         }
     }
 
+    /**
+     * Si el usuario logró editar su perfil sin problema se deberá logear de nuevo
+     **/
     fun logOut(){
         ParseUser.logOutInBackground { e: ParseException? ->
             if (e == null)
