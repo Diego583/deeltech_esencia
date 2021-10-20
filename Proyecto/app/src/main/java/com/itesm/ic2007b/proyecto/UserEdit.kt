@@ -352,7 +352,6 @@ class UserEdit : AppCompatActivity() {
                     builder.setTitle("¡Cuenta editada exitosamente!")
                     builder.setMessage("Vuelve a inciar sesión.")
                     builder.setPositiveButton("OK",{ dialogInterface: DialogInterface, i: Int ->
-                        prefsRegister.clearAllData()
                         logOut()
                     })
                     builder.show()
@@ -584,6 +583,7 @@ class UserEdit : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
 
+            prefsRegister.clearAllData()
             App.prefsUser.clearFavoritos()
             intent = Intent(this, Login::class.java)
             startActivity(intent)

@@ -353,7 +353,6 @@ class RegistroEspecifico : AppCompatActivity() {
                 if (position != 0){
                     vacio = true
                     estado_usuario = list[position]
-                    Toast.makeText(this@RegistroEspecifico, "Entonces seras un "+list[position], Toast.LENGTH_SHORT).show()
                 }
             }
 
