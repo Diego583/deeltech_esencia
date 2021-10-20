@@ -15,15 +15,22 @@ import android.widget.*
 import com.itesm.ic2007b.proyecto.App.Companion.prefsRegister
 import kotlinx.android.synthetic.main.activity_user_register.*
 
-
+/**
+ * Acivity para poder mostrar y escoger el rol
+ * @author DeelTech
+ **/
 class Roles : AppCompatActivity(){
 
     private lateinit var binding: ActivityRolesBinding
-    //val roles: Array<String> = arrayOf("Restaurador", "Agente inmobiliario", "Proveedor", "Usuario normal")
 
-    // list of spinner items
+    /**
+     * lista para el spinner
+     **/
     val list = mutableListOf("Restaurador", "Agente inmobiliario", "Proveedor", "Usuario normal")
 
+    /**
+     * Variables globales para el spinner
+     **/
     var vacio: Boolean = false
     var rol_Usuario: String = ""
 
@@ -42,7 +49,10 @@ class Roles : AppCompatActivity(){
 
     }
 
-
+    /**
+     * Configuración para los datos que se muestran en el spinner
+     * Así el usuario puede escoger su rol
+     **/
     fun spinner(){
         val context = this
 
@@ -111,7 +121,10 @@ class Roles : AppCompatActivity(){
         btnRoles = binding.btnRoles
     }
 
-
+    /**
+     * Se llama al botón
+     * se hacen las verificaciones de las restricciones
+     **/
     fun listenerBtn(){
 
 

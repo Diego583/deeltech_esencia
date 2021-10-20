@@ -30,14 +30,20 @@ import com.parse.ParseException;
 import com.parse.SignUpCallback;
 
 
-
+/**
+ * Acivity para que el usuario suba sus archivos y su descripción
+ * @author DeelTech
+ **/
 class RegistroEspecifico : AppCompatActivity() {
 
-    //Funcion para registrarse
+    /**
+     * Funcion que registra al usuario con todos sus datos
+     * @param username
+     * @param password
+     * @param email
+     **/
     private fun signUp(username: String, password: String, email: String) {
         val user = ParseUser()
-
-
 
         user.username = username
         user.setPassword(password)
@@ -49,26 +55,6 @@ class RegistroEspecifico : AppCompatActivity() {
         user.put("emailCopy", prefsRegister.getEmail())
         user.signUpInBackground(SignUpCallback {
             if (it == null) {
-                /**
-                var currentUser = ParseUser.getCurrentUser()
-
-                //ARCHIVOS STRING
-                val imageString = prefsRegister.getImage()
-                val fileString = prefsRegister.getPortafolio()
-
-                //ARCHIVOS BITARRAY
-                val imageByteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
-                val fileByteArray: ByteArray = Base64.decode(fileString, Base64.DEFAULT)
-
-                //Se crean archivos parce
-                val file = ParseFile("file.pdf", fileByteArray)
-                val image = ParseFile("imagen.jpg", imageByteArray)
-
-                currentUser.put("docPDF", file) //Se guarda el portafolio
-                currentUser.put("fotoPerfil", image) //Se guarda la foto de perfil
-
-                currentUser.saveInBackground()
-                 **/
 
                 //ARCHIVOS STRING
                 val imageString = prefsRegister.getImage()
@@ -114,11 +100,15 @@ class RegistroEspecifico : AppCompatActivity() {
         })
     }
 
-    //Variable para poder conectar .XML a .KT
+    /**
+     * Variables globales, binding y botón
+     **/
     private lateinit var binding : ActivityRegistroEspecificoBinding
     private lateinit var btnTerminar: Button
 
-    // list of spinner items
+    /**
+     * Lista de datos para el spinner
+     **/
     val list = mutableListOf(
         "Aguascalientes",
         "Baja California",
@@ -174,9 +164,8 @@ class RegistroEspecifico : AppCompatActivity() {
 
     /**
      * IMAGENES
+     * Permisos de las imagenes
      */
-
-    //Permisos de la imagen
     private fun requestPermissionImage() {
         // Verificaremos el nivel de API para solicitar los permisos
         // en tiempo de ejecución
@@ -214,7 +203,9 @@ class RegistroEspecifico : AppCompatActivity() {
         }
     }
 
-    //Elegir foto
+    /**
+     * Elegir la foto
+     **/
     private fun pickPhotoFromGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
@@ -237,9 +228,9 @@ class RegistroEspecifico : AppCompatActivity() {
 
     /**
      * Archivos
+     * Permisos de la imagen
      */
 
-    //Permisos de la imagen
     private fun requestPermissionFile() {
         // Verificaremos el nivel de API para solicitar los permisos
         // en tiempo de ejecución
@@ -277,7 +268,9 @@ class RegistroEspecifico : AppCompatActivity() {
         }
     }
 
-    // Elegir archivo
+    /**
+     * Elegir archivo
+     **/
     private fun pickFileFromFiles() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "application/pdf"
@@ -296,6 +289,9 @@ class RegistroEspecifico : AppCompatActivity() {
         }
     }
 
+    /**
+     * Spiner para que el usuario seleccione su estado
+     **/
     fun spinner(){
         val context = this
 
@@ -373,6 +369,9 @@ class RegistroEspecifico : AppCompatActivity() {
 
     }
 
+    /**
+     *Botón, verifica las restricciones que se tienen
+     **/
     fun listenerBtn(){
 
         btnTerminar.setOnClickListener{

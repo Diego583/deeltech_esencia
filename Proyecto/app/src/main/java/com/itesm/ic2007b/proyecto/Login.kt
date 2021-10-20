@@ -13,13 +13,18 @@ import com.itesm.ic2007b.proyecto.App.Companion.prefsUser
 import com.parse.*
 import kotlinx.android.synthetic.main.activity_login.*
 
-
+/**
+ * Acivity para que el usuario se pueda logear
+ * @author DeelTech
+ **/
 class Login : AppCompatActivity() {
 
+    /**
+     * Variables globales
+     **/
     private lateinit var btnLogin: Button
     private lateinit var btnRegister:Button
     private lateinit var btnForgot:Button
-    //private lateinit var btnDonate:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +33,12 @@ class Login : AppCompatActivity() {
         checkUserSession()
     }
 
+    /**
+     * Se verfica si el username y la contraseña son correctos
+     * Se inicializa la parte de favoritos del usuario y se agrega sus favoritos
+     * @param username
+     * @param password
+     **/
     fun login(username: String, password: String) {
         ParseUser.logInInBackground(username,password) { parseUser: ParseUser?, parseException: ParseException? ->
             if (parseUser != null) {
@@ -55,7 +66,9 @@ class Login : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Se inicializan los componentes
+     **/
     fun initializeComponents(){
         //btnDonate = findViewById(R.id.donar)
         btnLogin = findViewById(R.id.buttonLogin)
@@ -63,6 +76,10 @@ class Login : AppCompatActivity() {
         btnForgot = findViewById(R.id.buttonOlvideContrasena)
     }
 
+    /**
+     * Se inicializan los botónes
+     * Se verifican las restricciones
+     **/
     fun initializeListeners(){
 
         btnLogin.setOnClickListener{
@@ -100,13 +117,11 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*btnDonate.setOnClickListener {
-            var intent: Intent = Intent(this,Donativos::class.java)
-            startActivity(intent)
-        }*/
-
     }
 
+    /**
+     * Se checa si el usuario no está vacío y se inicializan los componentes
+     **/
     fun checkUserSession(){
         if(prefsUser.getUserName().isNotEmpty()){
             //Redireccionamos ha home

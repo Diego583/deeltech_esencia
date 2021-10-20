@@ -17,9 +17,10 @@ import com.parse.ParseObject
 
 import com.parse.FindCallback
 
-
-
-
+/**
+ * Acivity para cuando el usuario olvida su contraseña
+ * @author DeelTech
+ **/
 class ForgotPassword : AppCompatActivity() {
     private lateinit var btnBack: Button
     private lateinit var binding : ActivityForgotPasswordBinding
@@ -41,12 +42,19 @@ class ForgotPassword : AppCompatActivity() {
 
     }
 
+    /**
+     * Botón que llama a la verificación
+     **/
     fun btnEnviar(){
         enviar.setOnClickListener {
             verificación()
         }
     }
 
+    /**
+     * Botón que llama a la base de datos para poder recuperar tu contraseña
+     * después la base de datos manda un correo al usuario
+     **/
     fun enviar(){
             val user = ParseUser()
             ParseUser.requestPasswordReset(resetContraEmail.text.toString());
@@ -61,6 +69,10 @@ class ForgotPassword : AppCompatActivity() {
 
     }
 
+    /**
+     * Se verifican las restricciones
+     * Se hace una querie para verificar si existe el Email
+     **/
     fun verificación(){
 
         val email = binding.resetContraEmail.text.toString()
