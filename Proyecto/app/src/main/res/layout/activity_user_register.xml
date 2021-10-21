@@ -83,7 +83,7 @@
             android:hint="Número de contacto"
             android:autoLink = "phone"
             android:textColorHint="#757575"
-            android:inputType="text"
+            android:inputType="number"
             android:minHeight="50dp"
             android:autofillHints="Numero de contacto" />
 
