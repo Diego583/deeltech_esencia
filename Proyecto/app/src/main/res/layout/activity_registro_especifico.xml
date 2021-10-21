@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroEspecifico"
+    android:background="#F7F7F7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Tu informacion de trabajo"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/textViewDescripciom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:text="Escribe una breve descripción tuya o de tu trabajo"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="15dp"
+                android:ems="10"
+                android:hint="Descripción"
+                android:textColorHint="#757575"
+                android:inputType="textPersonName"
+                android:minHeight="50dp"
+                android:autofillHints="Descripcion"
+                app:errorEnabled="true"/>
+
+            <TextView
+                android:id="@+id/textViewPDF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:text="Seleciona tu portafolio de trabajo (pdf)"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonPDF"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#515151"
+                android:text="Seleccionar archivo"
+                android:textColor="#FFFF"
+                android:textSize="11dp"
+                app:errorEnabled="true"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textViewImagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:text="Selecciona una foto de perfil"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonImagen"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#515151"
+                android:text="Galeria"
+                android:textColor="#FFFF"
+                tools:ignore="TextContrastCheck"
+                app:errorEnabled="true"/>
+
+            <ImageView
+                android:id="@+id/imageViewRegister"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/TextEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:text="Selecciona tu estado"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="13dp"
+                android:hint="Estado"
+                android:minHeight="48dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintVertical_bias="0.3"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btnTerminar"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:backgroundTint="#15CDCD"
+                android:text="@string/continuar"
+                android:textColor="#FFFF"
+                app:errorEnabled="true"
+                tools:ignore="TextContrastCheck"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

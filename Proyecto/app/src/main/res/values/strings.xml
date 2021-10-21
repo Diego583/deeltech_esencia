@@ -1,3 +1,81 @@
-<resources>
-    <string name="app_name">Proyecto</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Patrimonio</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_user_register">UserRegister</string>
+    <string name="go_back">Go back</string>
+    <string name="filter">filter</string>
+    <string name="registrarse_title">Registrarse</string>
+    <string name="usuario">Usuario</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="pass_confirm">Confirmar contraseña</string>
+    <string name="continuar">Continuar</string>
+    <string name="recup_contra">Recuperación de contraseña</string>
+    <string name="fp_description">No te preocupes. Recuperar tu contraseña es fácil. Solo tienes que poner el correo electronico de la cuenta con la que te registrarse.</string>
+    <string name="enviar">Enviar</string>
+
+    <string name="proveedores">Proveedores</string>
+    <string name="agentes">Agentes Inmobiliarios</string>
+    <string name="restauradores">Restauradores</string>
+
+    <string name="inicio">Inicio</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="perfil">Perfil</string>
+
+    <string name="no_texto">-</string>
+    <string name="log_out">Log Out</string>
+    <string name="donar">Donar</string>
+    <string name="agregar_favoritos">agregar a favoritos</string>
+    <string name="contactame">contactame</string>
+    <string name="descripcion_texto">Descripción: </string>
+    <string name="opening_pdf">Abrir PDF: </string>
+    <string name="email_string">email</string>
+    <string name="phone_string">phone</string>
+    <string name="myContactinfo">Información de contacto</string>
+    <string name="quitarFiltro">quitar filtro</string>
+
+    <string name="editar_perfil">editar perfil</string>
+
+    <!-- DATA BASE BEGINS -->
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Paste BOTH strings as required -->
+    <string name="back4app_app_id">BNa00LiORDWXOPkSRBOkTNlRLCID13OKeE1FTCUb</string>
+    <string name="back4app_client_key">1kvEm7xmPTrSbAIGt2NjUq6ZFGZz9jZx0Xt38SLI</string>
+    <!-- DATA BASE ENDS -->
+
+
+    <!-- COMBOBOX ROLES -->
+    <string-array name="roles">
+
+        <item>Restaurador</item>
+
+        <item>Agente inmobiliario</item>
+
+        <item>Proveedor</item>
+
+        <item>Únicamente busco un servicio</item>
+
+    </string-array>
+
+    <string name="title_activity_donativos">Donativos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

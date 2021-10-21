@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MiPerfil"
+    android:orientation="vertical"
+    android:background="#F7F7F7">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewMiPerfil"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        android:background="@drawable/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954"
+        app:menu="@menu/menu_navigation"
+        >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <ImageButton
+                android:id="@+id/donar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:layout_marginHorizontal="9dp"
+                android:layout_marginVertical="9dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/logo_app"
+                android:contentDescription="@string/donar"/>
+
+            <ImageButton
+                android:id="@+id/LogOut"
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginHorizontal="9dp"
+                android:layout_marginVertical="9dp"
+                android:background="@drawable/log_out"
+                android:contentDescription="@string/log_out" />
+
+            <!--<ImageView
+                android:id="@+id/foto_perfil"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/LogOut"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/foto_perfil" />-->
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/foto_perfil"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/LogOut"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/foto_perfil" />
+
+            <TextView
+                android:id="@+id/mi_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/foto_perfil"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/no_texto"
+                android:textColor="@color/black"
+                android:textSize="35dp"
+                android:layout_marginHorizontal="17dp"/>
+
+            <TextView
+                android:id="@+id/ubicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mi_nombre"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="true"
+                android:text="@string/no_texto"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/editar_perfil_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/ubicacion"
+                android:layout_centerInParent="true"
+
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/pink"
+                android:text="@string/editar_perfil"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/contact_info_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/editar_perfil_btn"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/gray"
+                android:text="@string/myContactinfo"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp" />
+
+            <RelativeLayout
+                android:id="@+id/profileInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_info_btn"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/phone_string"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/phone_string"
+                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_toRightOf="@id/phone_string"
+                    android:id="@+id/myphoneTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/no_texto"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:layout_below="@+id/phone_string"
+                    android:id="@+id/email_string"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginTop="2dp"
+                    android:text="email"
+                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_below="@+id/myphoneTV"
+                    android:layout_toRightOf="@id/email_string"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/myemailTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/no_texto"
+                    android:layout_marginHorizontal="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="italic"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/descripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_below="@+id/profileInfoLayout"
+                android:layout_marginTop="15dp"
+                android:background="@color/light_blue">
+
+                <TextView
+                    android:id="@+id/desc_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginVertical="9dp"
+                    android:text="@string/descripcion_texto"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/descripcion_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/desc_texto"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginVertical="9dp"
+                    android:text="@string/no_texto"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/PDFlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descripcion"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/texto_abrir_pdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginVertical="11dp"
+                    android:text="@string/opening_pdf"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button_abrir_pdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_toRightOf="@+id/texto_abrir_pdf"
+                    android:backgroundTint="@color/gray"
+                    android:text="doc.pdf"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="italic" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@+id/PDFlayout"
+                android:text="@string/no_texto"
+                android:visibility="invisible"/>
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

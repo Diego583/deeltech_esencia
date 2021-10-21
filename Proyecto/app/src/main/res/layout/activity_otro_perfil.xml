@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OtroPerfil"
+    android:background="#F7F7F7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <ImageButton
+                android:id="@+id/go_back_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginHorizontal="9dp"
+                android:layout_marginVertical="9dp"
+                android:background="@drawable/reply"
+                android:contentDescription="@string/log_out"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <!--<ImageView
+                android:id="@+id/fotoIV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/go_back_btn"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/foto_perfil"/>-->
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/fotoIV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/go_back_btn"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/foto_perfil" />
+
+            <TextView
+                android:id="@+id/nombreTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fotoIV"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/no_texto"
+                android:layout_marginTop="10dp"
+                android:textSize="35sp"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="17dp"/>
+
+            <TextView
+                android:id="@+id/ubicacionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nombreTV"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="true"
+                android:text="@string/no_texto"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/agregar_favoritos_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/ubicacionTV"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/agregar_favoritos"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:enabled="true"/>
+
+            <Button
+                android:id="@+id/contactame_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/agregar_favoritos_btn"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/gray"
+                android:text="@string/contactame"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp" />
+
+            <RelativeLayout
+                android:id="@+id/contactInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactame_btn"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/phone_string"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/phone_string"
+                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_toRightOf="@id/phone_string"
+                    android:id="@+id/phoneTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/no_texto"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:layout_below="@+id/phone_string"
+                    android:id="@+id/email_string"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginTop="2dp"
+                    android:text="email"
+                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_below="@+id/phoneTV"
+                    android:layout_toRightOf="@id/email_string"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/emailTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/no_texto"
+                    android:layout_marginHorizontal="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="italic"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/descripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:background="#81EAF3"
+                android:layout_below="@+id/contactInfoLayout">
+                >
+
+                <TextView
+                    android:id="@+id/desc_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginVertical="9dp"
+                    android:text="@string/descripcion_texto"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/descripcion_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/desc_texto"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginVertical="9dp"
+                    android:text="@string/no_texto"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descripcion"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/texto_abrir_pdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:layout_marginVertical="11dp"
+                    android:text="@string/opening_pdf"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/abrir_pdf_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_toRightOf="@+id/texto_abrir_pdf"
+                    android:backgroundTint="@color/gray"
+                    android:text="file.pdf"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
