@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import android.widget.GridView
+import android.widget.SearchView
 import android.widget.Toast
 import com.parse.ParseQuery
 import com.parse.ParseUser
@@ -56,6 +57,8 @@ class AgentesInmobiliarios : AppCompatActivity() {
         "Zacatecas"
     )
 
+    var estadoActual:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agentes_inmobiliarios)
@@ -65,6 +68,7 @@ class AgentesInmobiliarios : AppCompatActivity() {
         // Query para obtener Agentes Inmobiliarios
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("roles", "Agente inmobiliario")
+        query.orderByAscending("username");
         query.findInBackground { user, e ->
             if (e == null) {
                 displayAgentesInmobiliarios(user)
@@ -78,6 +82,67 @@ class AgentesInmobiliarios : AppCompatActivity() {
 
         initializeBackAgent()
         filtrar()
+        busqueda()
+    }
+
+
+
+    private fun busqueda() {
+        val search = findViewById<SearchView>(R.id.searchAgentesInmobiliarios)
+
+        search.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(searchValue: String?): Boolean {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereStartsWith("username", searchValue)
+                query.whereEqualTo("roles", "Agente inmobiliario")
+                if(estadoActual != ""){
+                    query.whereEqualTo("ubicacion", "$estadoActual")
+                }
+                query.orderByAscending("username");
+                query.findInBackground { user, e ->
+                    if (e == null) {
+                        displayAgentesInmobiliarios(user)
+                    } else {
+                        val text = "Error"
+                        val duration = Toast.LENGTH_SHORT
+
+                        // Mensaje de error con toast
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+
+                    }
+
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(searchValue: String?): Boolean {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereStartsWith("username", searchValue)
+                query.whereEqualTo("roles", "Agente inmobiliario")
+                if(estadoActual != ""){
+                    query.whereEqualTo("ubicacion", "$estadoActual")
+                }
+                query.orderByAscending("username");
+                query.findInBackground { user, e ->
+                    if (e == null) {
+                        displayAgentesInmobiliarios(user)
+                    } else {
+                        val text = "Error"
+                        val duration = Toast.LENGTH_SHORT
+
+                        // Mensaje de error con toast
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+
+                    }
+
+                }
+                return false
+            }
+
+        })
+
     }
 
     /**
@@ -100,11 +165,13 @@ class AgentesInmobiliarios : AppCompatActivity() {
                         } else {
 
                             quitarFiltroBtnAI.setOnClickListener {
+                                estadoActual = ""
                                 quitarFiltroBtnAI.visibility = View.GONE
                                 filtroEdo.text = ""
                                 // Query para obtener Agentes Inmobiliarios
                                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                                 query.whereEqualTo("roles", "Agente inmobiliario")
+                                query.orderByAscending("username");
                                 query.findInBackground { user, e ->
                                     if (e == null) {
                                         displayAgentesInmobiliarios(user)
@@ -117,10 +184,12 @@ class AgentesInmobiliarios : AppCompatActivity() {
                                 }
                             }
 
+                            estadoActual = selectedState
                             // Query para obtener Agentes Inmobiliarios filtrados
                             val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                             query.whereEqualTo("roles", "Agente inmobiliario")
                             query.whereEqualTo("ubicacion", "$selectedState")
+                            query.orderByAscending("username");
                             query.findInBackground { userEstado, e ->
                                 if (e == null && userEstado.size != 0) {
                                     filtroEdo.text = "Filtrar por estado de $selectedState"

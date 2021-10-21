@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_agentes_inmobiliarios.*
 import android.widget.GridView
+import android.widget.SearchView
 import android.widget.Toast
 import com.parse.ParseQuery
 import com.parse.ParseUser
@@ -56,6 +57,8 @@ class Proveedores : AppCompatActivity() {
         "Zacatecas"
     )
 
+    var estadoActual:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_proveedores)
@@ -65,6 +68,7 @@ class Proveedores : AppCompatActivity() {
         // Query para obtener Proveedores
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("roles", "Proveedor")
+        query.orderByAscending("username");
         query.findInBackground { user, e ->
             if (e == null) {
                 displayProveedores(user)
@@ -78,6 +82,65 @@ class Proveedores : AppCompatActivity() {
 
         initializeBackProve()
         filtrar()
+        busqueda()
+    }
+
+    private fun busqueda() {
+        val search = findViewById<SearchView>(R.id.searchProveedores)
+
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(searchValue: String?): Boolean {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereStartsWith("username", searchValue)
+                query.whereEqualTo("roles", "Proveedor")
+                if(estadoActual != ""){
+                    query.whereEqualTo("ubicacion", "$estadoActual")
+                }
+                query.orderByAscending("username");
+                query.findInBackground { user, e ->
+                    if (e == null) {
+                        displayProveedores(user)
+                    } else {
+                        val text = "Error"
+                        val duration = Toast.LENGTH_SHORT
+
+                        // Mensaje de error con toast
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+
+                    }
+
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(searchValue: String?): Boolean {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereStartsWith("username", searchValue)
+                query.whereEqualTo("roles", "Proveedor")
+                if(estadoActual != ""){
+                    query.whereEqualTo("ubicacion", "$estadoActual")
+                }
+                query.orderByAscending("username");
+                query.findInBackground { user, e ->
+                    if (e == null) {
+                        displayProveedores(user)
+                    } else {
+                        val text = "Error"
+                        val duration = Toast.LENGTH_SHORT
+
+                        // Mensaje de error con toast
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+
+                    }
+
+                }
+                return false
+            }
+
+        })
+
     }
 
     /**
@@ -100,11 +163,13 @@ class Proveedores : AppCompatActivity() {
                         } else {
 
                             quitarFiltroBtnP.setOnClickListener {
+                                estadoActual = ""
                                 quitarFiltroBtnP.visibility = View.GONE
                                 filtroEdo.text = ""
                                 // Query para obtener Proveedores
                                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                                 query.whereEqualTo("roles", "Proveedor")
+                                query.orderByAscending("username");
                                 query.findInBackground { user, e ->
                                     if (e == null) {
                                         displayProveedores(user)
@@ -117,10 +182,12 @@ class Proveedores : AppCompatActivity() {
                                 }
                             }
 
+                            estadoActual = selectedState
                             // Query para obtener Proveedores filtrados
                             val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                             query.whereEqualTo("roles", "Proveedor")
                             query.whereEqualTo("ubicacion", "$selectedState")
+                            query.orderByAscending("username");
                             query.findInBackground { userEstado, e ->
                                 if (e == null && userEstado.size != 0) {
                                     filtroEdo.text = "Filtrar por estado de $selectedState"
