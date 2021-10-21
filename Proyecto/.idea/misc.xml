@@ -41,14 +41,13 @@
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2703125" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_agentes_inmobiliarios.xml" value="0.4" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_favoritos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_files_manager.xml" value="0.24728260869565216" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_otro_perfil.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_mi_perfil.xml" value="0.4" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_otro_perfil.xml" value="0.4" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_proveedores.xml" value="0.25416666666666665" />
@@ -57,10 +56,6 @@
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_roles.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_user_register.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation.xml" value="0.4" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_fav.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_perfil.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/layout/activity_web_view.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation.xml" value="0.4" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/Seguridad/deeltech_esencia/Proyecto/app/src/main/res/menu/menu_navigation_fav.xml" value="0.26614583333333336" />

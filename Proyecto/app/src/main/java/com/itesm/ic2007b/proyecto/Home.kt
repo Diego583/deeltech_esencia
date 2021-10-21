@@ -54,6 +54,7 @@ class Home : AppCompatActivity() {
         //Agregamos sus favoritos
         val query = ParseQuery.getQuery<ParseObject>("UsuarioFavoritos")
         query.whereEqualTo("username", prefsUser.getUserName())
+        query.orderByAscending("username");
         query.findInBackground { favoriteUser, e ->
             if (e == null) {
                 for (temp in favoriteUser){

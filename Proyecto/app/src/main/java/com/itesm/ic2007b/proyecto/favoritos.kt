@@ -80,6 +80,7 @@ class favoritos : AppCompatActivity() {
             for (item in favList) {
                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                 query.whereEqualTo("username", item)
+                query.orderByDescending("username");
                 userList.add(query.find()[0])
             }
             displayFavoritos(userList)

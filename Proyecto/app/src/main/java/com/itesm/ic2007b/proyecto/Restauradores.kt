@@ -12,6 +12,7 @@ import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_restauradores.*
 
 import android.widget.GridView
+import android.widget.SearchView
 
 
 class Restauradores : AppCompatActivity() {
@@ -51,6 +52,8 @@ class Restauradores : AppCompatActivity() {
         "Zacatecas"
     )
 
+    var estadoActual:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restauradores)
@@ -59,6 +62,7 @@ class Restauradores : AppCompatActivity() {
 
         val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
         query.whereEqualTo("roles", "Restaurador")
+        query.orderByAscending("username");
         query.findInBackground { user, e ->
             if (e == null) {
                 displayRestauradores(user)
@@ -72,6 +76,65 @@ class Restauradores : AppCompatActivity() {
 
         initializeBackResta()
         filtrar()
+        busqueda()
+    }
+
+    private fun busqueda() {
+        val search = findViewById<SearchView>(R.id.searchRestauradores)
+
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(searchValue: String?): Boolean {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereStartsWith("username", searchValue)
+                query.whereEqualTo("roles", "Restaurador")
+                if(estadoActual != ""){
+                    query.whereEqualTo("ubicacion", "$estadoActual")
+                }
+                query.orderByAscending("username");
+                query.findInBackground { user, e ->
+                    if (e == null) {
+                        displayRestauradores(user)
+                    } else {
+                        val text = "Error"
+                        val duration = Toast.LENGTH_SHORT
+
+                        // Mensaje de error con toast
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+
+                    }
+
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(searchValue: String?): Boolean {
+                val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
+                query.whereStartsWith("username", searchValue)
+                query.whereEqualTo("roles", "Restaurador")
+                if(estadoActual != ""){
+                    query.whereEqualTo("ubicacion", "$estadoActual")
+                }
+                query.orderByAscending("username");
+                query.findInBackground { user, e ->
+                    if (e == null) {
+                        displayRestauradores(user)
+                    } else {
+                        val text = "Error"
+                        val duration = Toast.LENGTH_SHORT
+
+                        // Mensaje de error con toast
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+
+                    }
+
+                }
+                return false
+            }
+
+        })
+
     }
 
     fun filtrar(){
@@ -90,10 +153,12 @@ class Restauradores : AppCompatActivity() {
                         } else {
 
                             quitarFiltroBtnR.setOnClickListener {
+                                estadoActual = ""
                                 quitarFiltroBtnR.visibility = View.GONE
                                 filtroEdo.text = ""
                                 val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                                 query.whereEqualTo("roles", "Restaurador")
+                                query.orderByAscending("username");
                                 query.findInBackground { user, e ->
                                     if (e == null) {
                                         displayRestauradores(user)
@@ -106,10 +171,11 @@ class Restauradores : AppCompatActivity() {
                                 }
                             }
 
-
+                            estadoActual = selectedState
                             val query: ParseQuery<ParseUser> = ParseQuery.getQuery(ParseUser::class.java)
                             query.whereEqualTo("roles", "Restaurador")
                             query.whereEqualTo("ubicacion", "$selectedState")
+                            query.orderByAscending("username");
                             query.findInBackground { userEstado, e ->
                                 if (e == null && userEstado.size != 0) {
                                     filtroEdo.text = "Filtrar por estado de $selectedState"
